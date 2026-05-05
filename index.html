@@ -18,7 +18,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Syne',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}
- 
+
 /* COVER */
 .cover{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:var(--pad);background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(247,244,239,.04) 59px,rgba(247,244,239,.04) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(247,244,239,.04) 59px,rgba(247,244,239,.04) 60px)}
@@ -39,27 +39,27 @@ body{font-family:'Syne',sans-serif;background:var(--paper);color:var(--ink);line
 .c-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem;border-top:.5px solid rgba(247,244,239,.15);padding-top:1.25rem;position:relative;z-index:1}
 .sh{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(247,244,239,.35);display:flex;align-items:center;gap:8px}
 .sh span{width:20px;height:20px;border:.5px solid rgba(247,244,239,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px}
- 
+
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:.5px solid var(--line);padding:.75rem var(--pad);display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
 .nl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-right:auto;white-space:nowrap}
 nav a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);text-decoration:none;transition:color .2s;white-space:nowrap}
 nav a:hover{color:var(--accent)}
- 
+
 /* SECTION WRAPPER */
 .sw{padding:clamp(3rem,8vw,6rem) var(--pad);max-width:1200px;margin:0 auto;width:100%}
 .sh2{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:clamp(2rem,4vw,3rem);padding-bottom:1.5rem;border-bottom:.5px solid var(--line);flex-wrap:wrap}
 .sn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ink3);padding-top:.4rem;flex-shrink:0}
 .st{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.8rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
 .st em{font-style:italic;color:var(--ink3)}
- 
+
 /* OVERVIEW GRID */
 .og{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:clamp(2rem,4vw,3rem)}
 .oc{background:var(--paper);padding:clamp(.75rem,2.5vw,2rem) clamp(.75rem,2vw,1.5rem);display:flex;flex-direction:column;gap:.4rem}
 .on{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;color:var(--ink);line-height:1}
 .op{font-family:'Fraunces',serif;font-size:clamp(.8rem,1.8vw,1.2rem);color:var(--accent);font-style:italic}
 .ol{font-size:clamp(11px,1.3vw,12px);color:var(--ink3);margin-top:.4rem;line-height:1.4}
- 
+
 /* CHART GRID */
 .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(1rem,2.5vw,1.5rem);margin-bottom:1.5rem}
 .cb{background:var(--paper2);border:.5px solid var(--line);padding:1.5rem;min-width:0}
@@ -67,27 +67,27 @@ nav a:hover{color:var(--accent)}
 .cbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:.4rem}
 .cbq{font-size:clamp(12px,1.5vw,14px);font-weight:600;color:var(--ink);margin-bottom:1.25rem;line-height:1.4}
 .cw{position:relative;width:100%}
- 
+
 /* DARK BAND */
 .db{background:var(--ink);color:var(--paper);padding:clamp(3rem,8vw,6rem) var(--pad)}
 .db .st{color:var(--paper)}.db .st em{color:rgba(247,244,239,.4)}.db .sn{color:rgba(247,244,239,.3)}.db .sh2{border-color:rgba(247,244,239,.1)}
 .di{max-width:1200px;margin:0 auto}
- 
+
 /* ARCH INTRO */
 .ai{max-width:680px;margin-bottom:2.5rem}
 .ai p{font-family:'Fraunces',serif;font-size:clamp(.95rem,1.8vw,1.1rem);font-weight:300;line-height:1.7;color:rgba(247,244,239,.65);margin-bottom:1rem}
- 
+
 /* METHOD */
 .mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;background:rgba(247,244,239,.06);border:1px solid rgba(247,244,239,.1);padding:clamp(1.25rem,3vw,2rem);margin-bottom:2.5rem}
 .mi h4{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.7rem}
 .mi p{font-size:13px;color:rgba(247,244,239,.58);line-height:1.6}
- 
+
 /* DIMENSION GRID */
 .dimg{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(247,244,239,.08);border:1px solid rgba(247,244,239,.1);margin-bottom:2.5rem}
 .dimc{background:rgba(247,244,239,.04);padding:1.25rem}
 .dimn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,244,239,.4);margin-bottom:.4rem}
 .dimd{font-size:12px;color:rgba(247,244,239,.52);line-height:1.5}
- 
+
 /* DIST */
 .distg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:1.5rem}
 .disti{border-bottom:.5px solid rgba(247,244,239,.1);padding-bottom:1.25rem}
@@ -97,12 +97,12 @@ nav a:hover{color:var(--accent)}
 .distf{height:100%;border-radius:3px}
 .distp{font-family:'DM Mono',monospace;font-size:12px;color:rgba(247,244,239,.5);min-width:30px;text-align:right}
 .distd{font-size:12px;color:rgba(247,244,239,.42);line-height:1.5;margin-top:.35rem}
- 
+
 /* FILTER */
 .fb{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
 .fbtn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:.5px solid var(--line);background:var(--paper);color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;white-space:nowrap}
 .fbtn:hover,.fbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
- 
+
 /* ARCH CARDS */
 .as{display:flex;flex-direction:column}
 .ac{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);border:.5px solid var(--line);margin-bottom:-0.5px;position:relative;transition:box-shadow .2s}
@@ -130,19 +130,19 @@ nav a:hover{color:var(--accent)}
 .aq{grid-column:1/-1;background:var(--paper2);padding:1.25rem 1.5rem;border-left:3px solid}
 .aqt{font-family:'Fraunces',serif;font-size:clamp(.88rem,1.5vw,1rem);font-style:italic;line-height:1.6;font-weight:300;color:var(--ink2)}
 .aqa{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-top:.6rem}
- 
+
 /* QUOTES */
 .qg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
 .qc{background:var(--paper);padding:1.75rem;display:flex;flex-direction:column;gap:.75rem}
 .qm{font-family:'Fraunces',serif;font-size:3.5rem;line-height:.75;color:var(--paper3);font-weight:700}
 .qt{font-family:'Fraunces',serif;font-size:.9rem;font-style:italic;font-weight:300;line-height:1.7;color:var(--ink2);flex:1}
 .qtype{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border-radius:2px;width:fit-content}
- 
+
 /* FOOTER */
 footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3rem) var(--pad);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 .flogo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:300;font-style:italic;color:var(--paper)}
 .fmeta{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;line-height:1.9;text-align:right}
- 
+
 /* FADE */
 .fi{opacity:0}
 .fi.v{animation:fu .7s ease forwards}
@@ -150,7 +150,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
 </style>
 </head>
 <body>
- 
+
 <!-- COVER -->
 <section class="cover" id="top">
   <div class="c-top">
@@ -180,15 +180,17 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
     <span class="sh"><span>↓</span>scroll to explore</span>
   </div>
 </section>
- 
+
 <!-- NAV -->
 <nav>
   <span class="nl">AI Ethics Survey 2026</span>
   <a href="#data">Survey Data</a>
   <a href="#archetypes">Archetypes</a>
   <a href="#voices">Voices</a>
+  <a href="#empathy">Empathy Maps</a>
+  <a href="#journey">Journey Maps</a>
 </nav>
- 
+
 <!-- SECTION 01: DATA -->
 <div id="data">
 <div class="sw fi">
@@ -246,7 +248,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
   </div>
 </div>
 </div>
- 
+
 <!-- SECTION 02: ARCHETYPES INTRO -->
 <div id="archetypes">
 <div class="db">
@@ -283,7 +285,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
 </div>
 </div>
 </div>
- 
+
 <!-- SECTION 03: ARCHETYPE CARDS -->
 <div class="sw fi">
   <div class="sh2">
@@ -299,7 +301,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
     <button class="fbtn" onclick="fa('libertarian',this)">Techno-Optimist</button>
   </div>
   <div class="as">
- 
+
     <!-- TYPE 01 -->
     <div class="ac" data-t="vigilant">
       <div class="al" style="background:#fdf8f4">
@@ -323,7 +325,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
         <div><p class="ast">Policy stance</p><div class="atr">Mandatory labeling laws</div><div class="atr">Corporate liability for AI-generated harm</div></div>
       </div>
     </div>
- 
+
     <!-- TYPE 02 -->
     <div class="ac" data-t="cautious">
       <div class="al" style="background:#f4f8f7">
@@ -347,7 +349,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
         <div><p class="ast">Policy stance</p><div class="atr">Mandatory citation standards for AI outputs</div><div class="atr">Creator compensation for training data</div></div>
       </div>
     </div>
- 
+
     <!-- TYPE 03 -->
     <div class="ac" data-t="idealist">
       <div class="al" style="background:#f5f6fb">
@@ -371,7 +373,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
         <div><p class="ast">Policy stance</p><div class="atr">International AI governance frameworks</div><div class="atr">Human oversight for automated decisions</div></div>
       </div>
     </div>
- 
+
     <!-- TYPE 04 -->
     <div class="ac" data-t="passive">
       <div class="al" style="background:#f8f5f8">
@@ -395,7 +397,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
         <div><p class="ast">Policy stance</p><div class="atr">Gradual environmental rules are fine</div><div class="atr">No strong opinion on labeling enforcement</div></div>
       </div>
     </div>
- 
+
     <!-- TYPE 05 -->
     <div class="ac" data-t="libertarian">
       <div class="al" style="background:#faf8f5">
@@ -419,10 +421,10 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
         <div><p class="ast">Policy stance</p><div class="atr">Minimal regulation, user-side responsibility</div><div class="atr">Freedom of speech as primary AI principle</div></div>
       </div>
     </div>
- 
+
   </div>
 </div>
- 
+
 <!-- SECTION 04: VOICES -->
 <div id="voices">
 <div class="sw fi">
@@ -443,18 +445,18 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
   </div>
 </div>
 </div>
- 
+
 <!-- FOOTER -->
 <footer>
   <span class="flogo">AI Ethics Survey</span>
   <div class="fmeta">48 respondents · April 2026<br>Public Opinion Research<br>5 archetypes · 13 questions</div>
 </footer>
- 
+
 <script>
 Chart.defaults.font.family="'Syne',sans-serif";
 Chart.defaults.color='#6b6760';
 const P=['#c85a2a','#1d6b52','#3a4f8c','#8c3a6e','#8c6030','#b8860b'];
- 
+
 function bar(id,labels,data,cols){
   const el=document.getElementById(id);if(!el)return;
   new Chart(el,{
@@ -493,7 +495,7 @@ function donut(id,labels,data){
     }
   });
 }
- 
+
 bar('c1',['Daily','Weekly','Rarely','Never'],[29,12,6,1]);
 donut('c2',['Study/Work','Coding','Entertainment','Non-user'],[33,10,3,2]);
 bar('c3',['Somewhat','Not much','Not at all','Completely'],[35,9,3,1]);
@@ -502,7 +504,7 @@ hbar('c5',['Yes, fully responsible','Shared responsibility','Not sure','Mostly u
 bar('c6',['Yes, very easily','Sometimes','Rarely'],[36,8,4]);
 donut('c7',['Somewhat concerned','Very concerned','Not very concerned'],[20,20,8]);
 hbar('c8',['Yes, always','Only in important cases','Not necessary'],[36,9,3],['#c85a2a','#1d6b52','#888780']);
- 
+
 function fa(t,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -510,10 +512,957 @@ function fa(t,btn){
     c.style.display=(t==='all'||c.dataset.t===t)?'':'none';
   });
 }
- 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')}),{threshold:.06});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')}),{threshold:0,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+
+// Journey map emotion curves
+function drawCurve(canvasId, scores, color) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width = canvas.offsetWidth;
+  const h = canvas.height = 90;
+  ctx.clearRect(0, 0, w, h);
+  const mid = h / 2;
+  const n = scores.length;
+  const xStep = w / (n - 1);
+  // grid line
+  ctx.strokeStyle = 'rgba(26,23,20,0.1)';
+  ctx.lineWidth = 0.5;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(0, mid); ctx.lineTo(w, mid); ctx.stroke();
+  ctx.setLineDash([]);
+  // curve
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  scores.forEach((s, i) => {
+    const x = i * xStep;
+    const y = mid - (s / 10) * (mid - 8);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  // dots
+  scores.forEach((s, i) => {
+    const x = i * xStep;
+    const y = mid - (s / 10) * (mid - 8);
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#f7f4ef';
+    ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI * 2); ctx.fill();
+  });
+  // pos/neg labels
+  ctx.fillStyle = 'rgba(26,23,20,0.3)';
+  ctx.font = '9px DM Mono, monospace';
+  ctx.fillText('positive', 4, 12);
+  ctx.fillText('negative', 4, h - 4);
+}
+
+window.addEventListener('load', () => {
+  drawCurve('jc1', [3, 5, 6, 7, 8], '#c85a2a');
+  drawCurve('jc2', [2, 3, 5, 6, 7], '#1d6b52');
+  drawCurve('jc3', [1, 2, 4, 5, 6], '#3a4f8c');
+  drawCurve('jc4', [5, 5, 4, 4, 3], '#8c3a6e');
+  drawCurve('jc5', [7, 8, 8, 6, 5], '#8c6030');
+});
+window.addEventListener('resize', () => {
+  drawCurve('jc1', [3, 5, 6, 7, 8], '#c85a2a');
+  drawCurve('jc2', [2, 3, 5, 6, 7], '#1d6b52');
+  drawCurve('jc3', [1, 2, 4, 5, 6], '#3a4f8c');
+  drawCurve('jc4', [5, 5, 4, 4, 3], '#8c3a6e');
+  drawCurve('jc5', [7, 8, 8, 6, 5], '#8c6030');
+});
+
+function emTab(btn, key) {
+  document.querySelectorAll('.em-tab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.em-panel').forEach(p => {
+    p.style.display = p.dataset.key === key ? 'block' : 'none';
+  });
+}
+
+function jmTab(btn, key) {
+  document.querySelectorAll('.jm-tab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.jm-panel').forEach(p => {
+    p.style.display = p.dataset.key === key ? 'block' : 'none';
+  });
+  // redraw curve for the newly visible panel
+  setTimeout(() => {
+    const curves = {
+      j1:['jc1',[3,5,6,7,8],'#c85a2a'],
+      j2:['jc2',[2,3,5,6,7],'#1d6b52'],
+      j3:['jc3',[1,2,4,5,6],'#3a4f8c'],
+      j4:['jc4',[5,5,4,4,3],'#8c3a6e'],
+      j5:['jc5',[7,8,8,6,5],'#8c6030'],
+    };
+    if (curves[key]) drawCurve(...curves[key]);
+  }, 50);
+}
+
+function switchMap(personaKey, btn, section) {
+  document.querySelectorAll(`.${section}-tab`).forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll(`.${section}-panel`).forEach(p => {
+    p.style.display = p.dataset.key === personaKey ? '' : 'none';
+  });
+}
 </script>
+
+<style>
+/* ── EMPATHY MAP ── */
+.em-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.em-tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:.5px solid var(--line);background:var(--paper);color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;white-space:nowrap}
+.em-tab:hover,.em-tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.em-panel{display:none}
+.em-panel.active-default{display:block}
+
+/* persona header */
+.em-persona{display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;padding:1.5rem;border:.5px solid var(--line);flex-wrap:wrap}
+.em-persona-dot{width:48px;height:48px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.em-persona-name{font-family:'Fraunces',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:400;line-height:1.1;margin-bottom:.25rem}
+.em-persona-name em{font-style:italic;font-weight:300}
+.em-persona-ctx{font-size:13px;color:var(--ink3);line-height:1.5}
+
+/* 4 quadrants */
+.em-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:1.5rem}
+@media(max-width:600px){.em-grid{grid-template-columns:1fr}}
+.em-quad{background:var(--paper);padding:1.5rem;min-height:180px}
+.em-quad-head{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:.5px solid var(--line)}
+.em-quad-icon{font-size:1.1rem}
+.em-quad-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+.em-item{font-size:clamp(11px,1.4vw,13px);color:var(--ink2);padding:5px 0;border-bottom:.5px solid rgba(26,23,20,0.06);line-height:1.45}
+.em-item:last-child{border-bottom:none}
+.em-item-quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(11px,1.4vw,13px);color:var(--ink2);padding:5px 0;border-bottom:.5px solid rgba(26,23,20,0.06);line-height:1.5}
+.em-item-quote:last-child{border-bottom:none}
+
+/* insights box */
+.em-insights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0}
+@media(max-width:600px){.em-insights{grid-template-columns:1fr}}
+.em-insight-box{background:var(--paper2);border:.5px solid var(--line);padding:1.25rem}
+.em-insight-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:.75rem}
+.em-insight-item{font-size:12px;color:var(--ink2);padding:4px 0;border-bottom:.5px solid rgba(26,23,20,0.06);line-height:1.4}
+.em-insight-item:last-child{border-bottom:none}
+
+/* ── JOURNEY MAP ── */
+.jm-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.jm-tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:.5px solid var(--line);background:var(--paper);color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;white-space:nowrap}
+.jm-tab:hover,.jm-tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.jm-panel{display:none}
+
+/* context bar */
+.jm-context{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;background:var(--paper2);border:.5px solid var(--line);padding:1.5rem;margin-bottom:1.5rem}
+@media(max-width:600px){.jm-context{grid-template-columns:1fr}}
+.jm-ctx-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:.4rem}
+.jm-ctx-val{font-size:13px;color:var(--ink2);line-height:1.5}
+
+/* timeline table */
+.jm-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:1.5rem}
+.jm-table{width:100%;min-width:700px;border-collapse:collapse;border:.5px solid var(--line)}
+.jm-table th,.jm-table td{border:.5px solid var(--line);padding:.75rem .85rem;vertical-align:top;text-align:left}
+.jm-row-label{background:var(--ink);color:var(--paper);width:120px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap;position:relative}
+.jm-row-label-icon{display:block;font-size:.9rem;margin-bottom:.3rem}
+.jm-row-label-txt{display:block;font-size:9px;letter-spacing:.12em}
+.jm-stage-head{background:var(--ink);color:var(--paper);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:.6rem .5rem}
+.jm-stage-sub{font-size:9px;color:rgba(247,244,239,.5);display:block;margin-top:.2rem;font-weight:400;letter-spacing:.1em;text-transform:none;font-family:'Syne',sans-serif}
+.jm-cell{font-size:clamp(11px,1.3vw,12px);color:var(--ink2);line-height:1.5;background:var(--paper)}
+.jm-cell-alt{background:var(--paper2)}
+.jm-cell ul{list-style:none;padding:0}
+.jm-cell ul li{padding:3px 0;border-bottom:.5px solid rgba(26,23,20,0.06)}
+.jm-cell ul li:last-child{border-bottom:none}
+.jm-cell ul li::before{content:'—';margin-right:.4rem;opacity:.35}
+.jm-cell-quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(10px,1.3vw,12px);color:var(--ink2);line-height:1.5;padding:4px 0;border-bottom:.5px solid rgba(26,23,20,0.06)}
+.jm-cell-quote:last-child{border-bottom:none}
+.jm-cell-quote::before{content:'"';opacity:.4;margin-right:.2rem}
+.jm-score{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;text-align:center;padding:.5rem;background:var(--paper)}
+.jm-score-pos{color:#1d6b52}
+.jm-score-neg{color:#c85a2a}
+.jm-score-neu{color:#6b6760}
+.jm-pain{font-size:clamp(10px,1.3vw,12px);color:var(--accent);line-height:1.5;padding:3px 0;border-bottom:.5px solid rgba(200,90,42,0.1)}
+.jm-pain:last-child{border-bottom:none}
+.jm-pain::before{content:'⚡';margin-right:.35rem;font-size:10px}
+.jm-opp{font-size:clamp(10px,1.3vw,12px);color:var(--green);line-height:1.5;padding:3px 0;border-bottom:.5px solid rgba(29,107,82,0.1)}
+.jm-opp:last-child{border-bottom:none}
+.jm-opp::before{content:'→';margin-right:.35rem;font-size:10px}
+
+/* curve row */
+.jm-curve-cell{background:var(--paper);padding:.5rem .85rem}
+.jm-curve-canvas{width:100%;display:block}
+</style>
+
+<!-- ═══════════ SECTION 05: EMPATHY MAPS ═══════════ -->
+<div id="empathy">
+<div class="sw">
+  <div class="sh2">
+    <span class="sn">05 —</span>
+    <h2 class="st">Empathy <em>maps</em></h2>
+  </div>
+  <p style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--ink2);line-height:1.7;max-width:680px;margin-bottom:2rem">Each empathy map captures what a persona <em>says</em>, <em>thinks</em>, <em>does</em>, and <em>feels</em> about AI — drawn from survey responses and open-text answers. The Says/Does gap surfaces the deepest contradictions.</p>
+
+  <div class="em-tabs">
+    <button class="em-tab on" onclick="emTab(this,'v1')">Vigilant Pragmatist</button>
+    <button class="em-tab" onclick="emTab(this,'v2')">Cautious Analyst</button>
+    <button class="em-tab" onclick="emTab(this,'v3')">Ethical Idealist</button>
+    <button class="em-tab" onclick="emTab(this,'v4')">Passive Consumer</button>
+    <button class="em-tab" onclick="emTab(this,'v5')">Techno-Optimist</button>
+  </div>
+
+  <!-- EM 1: VIGILANT PRAGMATIST -->
+  <div class="em-panel" data-key="v1" style="display:block">
+    <div class="em-persona">
+      <div class="em-persona-dot" style="background:#c85a2a">VP</div>
+      <div>
+        <div class="em-persona-name">The Vigilant <em>Pragmatist</em></div>
+        <div class="em-persona-ctx"><strong>Scenario:</strong> Using an AI tool to research a topic for work or study — then deciding how much to trust and act on the output.</div>
+      </div>
+    </div>
+    <div class="em-grid">
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🗣</span><span class="em-quad-label">Says</span></div>
+        <div class="em-item-quote">"AI shouldn't replace human critical thinking — use it as a helper."</div>
+        <div class="em-item-quote">"There should be strict rules against deepfakes that ruin reputations."</div>
+        <div class="em-item-quote">"AI content should always be clearly labeled — no exceptions."</div>
+        <div class="em-item-quote">"AI should prioritize human well-being, fairness, and transparency."</div>
+        <div class="em-item-quote">"You need to use AI — don't let AI use you."</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🧠</span><span class="em-quad-label">Thinks</span></div>
+        <div class="em-item">Can I actually trust this answer, or is it hallucinating?</div>
+        <div class="em-item">What happens when someone less critical sees this same output?</div>
+        <div class="em-item">Someone needs to be legally responsible when AI causes real harm.</div>
+        <div class="em-item">If I don't verify this, I'm part of the problem.</div>
+        <div class="em-item">The carbon cost of all this compute worries me a bit.</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🏃</span><span class="em-quad-label">Does</span></div>
+        <div class="em-item">Uses AI daily for study and work tasks</div>
+        <div class="em-item">Always or often cross-checks AI output against Google / trusted sources</div>
+        <div class="em-item">Advocates vocally for AI labeling and corporate accountability</div>
+        <div class="em-item">Notices and calls out AI-generated content in the wild</div>
+        <div class="em-item">Somewhat adjusts usage based on environmental concerns</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">😌</span><span class="em-quad-label">Feels</span></div>
+        <div class="em-item">Cautiously optimistic — AI is useful but risky</div>
+        <div class="em-item">Frustrated when others accept AI output uncritically</div>
+        <div class="em-item">Responsible — like a citizen with a duty to push back on bad AI</div>
+        <div class="em-item">Occasionally overwhelmed by how fast the landscape moves</div>
+        <div class="em-item">Satisfied after successfully verifying and using AI output well</div>
+      </div>
+    </div>
+    <div class="em-insights">
+      <div class="em-insight-box">
+        <p class="em-insight-title">Key Insights</p>
+        <div class="em-insight-item">Highest daily usage combined with highest verification rate — AI is essential but never trusted blindly</div>
+        <div class="em-insight-item">Strongly corporate-accountability focused; views companies as the primary responsible party</div>
+        <div class="em-insight-item">Labeling demand is near-absolute — transparency is a non-negotiable baseline</div>
+        <div class="em-insight-item">Environmental concern is present but secondary to misinformation/deepfake fears</div>
+      </div>
+      <div class="em-insight-box">
+        <p class="em-insight-title">Says vs. Does Contradiction</p>
+        <div class="em-insight-item">Says AI must be regulated and labeled — but still uses it daily and heavily, suggesting convenience overrides stated caution in practice</div>
+        <div class="em-insight-item">Advocates for others to verify AI, yet their own verification is often cursory ("sometimes" checks) rather than rigorous</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EM 2: CAUTIOUS ANALYST -->
+  <div class="em-panel" data-key="v2" style="display:none">
+    <div class="em-persona">
+      <div class="em-persona-dot" style="background:#1d6b52">CA</div>
+      <div>
+        <div class="em-persona-name">The Cautious <em>Analyst</em></div>
+        <div class="em-persona-ctx"><strong>Scenario:</strong> Using AI to look up factual information, then deciding whether the answer is reliable enough to share or act on.</div>
+      </div>
+    </div>
+    <div class="em-grid">
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🗣</span><span class="em-quad-label">Says</span></div>
+        <div class="em-item-quote">"AI shouldn't be a black box — companies must explain their reasoning."</div>
+        <div class="em-item-quote">"There should be a standard way to credit the authors AI was trained on."</div>
+        <div class="em-item-quote">"AI needs to prove where it's getting its info from."</div>
+        <div class="em-item-quote">"It shouldn't steal art from real artists without credit or compensation."</div>
+        <div class="em-item-quote">"Responsibility should be shared — not just companies, not just users."</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🧠</span><span class="em-quad-label">Thinks</span></div>
+        <div class="em-item">Where did this information actually come from? Show me the sources.</div>
+        <div class="em-item">This might sound right but could be completely fabricated.</div>
+        <div class="em-item">The artists and writers whose work trained this model deserve credit.</div>
+        <div class="em-item">Misinformation at scale is the most dangerous thing AI could do.</div>
+        <div class="em-item">Both companies and users need to be held accountable — not one or the other.</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🏃</span><span class="em-quad-label">Does</span></div>
+        <div class="em-item">Uses AI daily or weekly but never accepts output without checking</div>
+        <div class="em-item">Verifies against books, Wikipedia, official institutional sources</div>
+        <div class="em-item">Actively looks for original sources behind AI-surfaced claims</div>
+        <div class="em-item">Raises IP and attribution concerns in discussions about AI</div>
+        <div class="em-item">Somewhat concerned about environment — factors this into opinions</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">😌</span><span class="em-quad-label">Feels</span></div>
+        <div class="em-item">Deeply skeptical — low baseline trust in AI output</div>
+        <div class="em-item">Protective — wants to defend creators whose work was harvested</div>
+        <div class="em-item">Intellectually engaged — genuinely curious about how AI works</div>
+        <div class="em-item">Anxious about the misinformation implications at social scale</div>
+        <div class="em-item">Mildly hopeful if strong citation standards were ever enforced</div>
+      </div>
+    </div>
+    <div class="em-insights">
+      <div class="em-insight-box">
+        <p class="em-insight-title">Key Insights</p>
+        <div class="em-insight-item">Lowest trust score of all archetypes — but still a frequent user, revealing pragmatic necessity over ideological purity</div>
+        <div class="em-insight-item">IP and attribution is this persona's defining concern — unique among all five types</div>
+        <div class="em-insight-item">Prefers shared accountability model (not purely corporate, not purely user) — nuanced, not black-and-white</div>
+        <div class="em-insight-item">Verification is the highest priority behaviour — "always" or "often" checks every time</div>
+      </div>
+      <div class="em-insight-box">
+        <p class="em-insight-title">Says vs. Does Contradiction</p>
+        <div class="em-insight-item">Loudly argues AI should cite sources and compensate creators — but still uses AI tools that do neither, because the alternatives don't exist yet</div>
+        <div class="em-insight-item">Claims misinformation is AI's biggest risk, yet verifies primarily via other digital sources (Google, Wikipedia) which can themselves contain errors</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EM 3: ETHICAL IDEALIST -->
+  <div class="em-panel" data-key="v3" style="display:none">
+    <div class="em-persona">
+      <div class="em-persona-dot" style="background:#3a4f8c">EI</div>
+      <div>
+        <div class="em-persona-name">The Ethical <em>Idealist</em></div>
+        <div class="em-persona-ctx"><strong>Scenario:</strong> Encountering an AI system being used in a high-stakes context — hiring, credit, healthcare — and reflecting on its fairness implications.</div>
+      </div>
+    </div>
+    <div class="em-grid">
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🗣</span><span class="em-quad-label">Says</span></div>
+        <div class="em-item-quote">"Universal access to AI should be a priority — not just for the wealthy."</div>
+        <div class="em-item-quote">"Strict rules against using AI in hiring or credit scoring where bias ruins lives."</div>
+        <div class="em-item-quote">"People whose data trained AI should have a say in how it's used."</div>
+        <div class="em-item-quote">"AI shouldn't be a black box — especially for decisions that affect people."</div>
+        <div class="em-item-quote">"We need international governance, not just company self-regulation."</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🧠</span><span class="em-quad-label">Thinks</span></div>
+        <div class="em-item">Who is this system going to harm, and does anyone care?</div>
+        <div class="em-item">Bias isn't a bug — it reflects the values of whoever built this.</div>
+        <div class="em-item">AI equity is a justice issue, not just a tech problem.</div>
+        <div class="em-item">Data privacy violations are structural, not just accidental.</div>
+        <div class="em-item">No single company can govern itself — we need enforceable global standards.</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🏃</span><span class="em-quad-label">Does</span></div>
+        <div class="em-item">Uses AI daily but constantly questions its social implications</div>
+        <div class="em-item">Often brings up bias and access in conversations about AI</div>
+        <div class="em-item">Supports calls for international AI regulation and human oversight</div>
+        <div class="em-item">Very concerned about environmental impact; supports green AI policies</div>
+        <div class="em-item">Verifies AI outputs — but as much for bias-checking as fact-checking</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">😌</span><span class="em-quad-label">Feels</span></div>
+        <div class="em-item">Morally urgent — AI ethics is a present crisis, not a future risk</div>
+        <div class="em-item">Frustrated by the slow pace of meaningful regulation</div>
+        <div class="em-item">Hopeful when seeing community-led AI ethics initiatives</div>
+        <div class="em-item">Angry about AI being used to automate discrimination at scale</div>
+        <div class="em-item">Determined — feels a personal responsibility to speak up</div>
+      </div>
+    </div>
+    <div class="em-insights">
+      <div class="em-insight-box">
+        <p class="em-insight-title">Key Insights</p>
+        <div class="em-insight-item">Highest corporate accountability score — this persona wants full responsibility on companies, not shared or user-led</div>
+        <div class="em-insight-item">Unique in framing AI ethics as a civil rights and equity issue, not just a safety or accuracy problem</div>
+        <div class="em-insight-item">Environmental concern score is second-highest — systemic thinking extends beyond tech to climate</div>
+        <div class="em-insight-item">Calls for international governance frameworks — most globally-minded of all five archetypes</div>
+      </div>
+      <div class="em-insight-box">
+        <p class="em-insight-title">Says vs. Does Contradiction</p>
+        <div class="em-insight-item">Argues passionately against data extraction without consent — but uses AI tools daily that operate exactly on that model</div>
+        <div class="em-insight-item">Champions universal access but relies on AI products that require expensive subscriptions or devices, creating the very inequality they oppose</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EM 4: PASSIVE CONSUMER -->
+  <div class="em-panel" data-key="v4" style="display:none">
+    <div class="em-persona">
+      <div class="em-persona-dot" style="background:#8c3a6e">PC</div>
+      <div>
+        <div class="em-persona-name">The Passive <em>Consumer</em></div>
+        <div class="em-persona-ctx"><strong>Scenario:</strong> Using an AI chatbot to get a quick answer or complete a task — going about their day without thinking much about the implications.</div>
+      </div>
+    </div>
+    <div class="em-grid">
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🗣</span><span class="em-quad-label">Says</span></div>
+        <div class="em-item-quote">"Transparency and privacy." (complete survey response — unelaborated)</div>
+        <div class="em-item-quote">"There is not much we can do as end users except cross-verify."</div>
+        <div class="em-item-quote">"I guess AI content should probably be labeled in important cases."</div>
+        <div class="em-item-quote">"Privacy is important but I'm not sure exactly what rules should exist."</div>
+        <div class="em-item-quote">"It's convenient — I just want it to work."</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🧠</span><span class="em-quad-label">Thinks</span></div>
+        <div class="em-item">I hope this is roughly right — I'll just use it and move on.</div>
+        <div class="em-item">Someone else is probably thinking about all the ethics stuff.</div>
+        <div class="em-item">I wonder if my data is being used somewhere — a bit uncomfortable.</div>
+        <div class="em-item">I don't have time to read every AI policy document.</div>
+        <div class="em-item">Is the environmental thing actually a real issue? I hadn't thought about it.</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🏃</span><span class="em-quad-label">Does</span></div>
+        <div class="em-item">Uses AI weekly — light-to-moderate engagement</div>
+        <div class="em-item">Rarely or sometimes verifies AI output — mostly just accepts it</div>
+        <div class="em-item">Doesn't read terms of service or data usage policies</div>
+        <div class="em-item">Gives short answers in surveys — low investment in abstract questions</div>
+        <div class="em-item">Uses AI for convenience tasks, not deep analytical work</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">😌</span><span class="em-quad-label">Feels</span></div>
+        <div class="em-item">Largely indifferent to AI ethics debates — not their domain</div>
+        <div class="em-item">Mildly uncomfortable about data privacy but not enough to change behaviour</div>
+        <div class="em-item">Neutral-to-positive about AI — it's useful, that's enough</div>
+        <div class="em-item">Slightly overwhelmed if the topic gets too deep or abstract</div>
+        <div class="em-item">No strong emotional investment in AI outcomes either way</div>
+      </div>
+    </div>
+    <div class="em-insights">
+      <div class="em-insight-box">
+        <p class="em-insight-title">Key Insights</p>
+        <div class="em-insight-item">Survey response brevity is itself a data point — low word count correlates with low engagement across all open questions</div>
+        <div class="em-insight-item">Privacy concern exists but is untranslated into action — knows it matters, doesn't know what to do about it</div>
+        <div class="em-insight-item">Moderate trust combined with low verification creates the highest misinformation vulnerability of any archetype</div>
+        <div class="em-insight-item">Environmental impact was genuinely novel information for many in this group — not on their radar before the survey</div>
+      </div>
+      <div class="em-insight-box">
+        <p class="em-insight-title">Says vs. Does Contradiction</p>
+        <div class="em-insight-item">Says "there's not much end users can do" — but that framing itself is a choice not to try, enabling the status quo they're mildly uncomfortable with</div>
+        <div class="em-insight-item">Says privacy matters — but shares personal data with AI systems without reading how it's stored or used</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EM 5: LIBERTARIAN TECHNO-OPTIMIST -->
+  <div class="em-panel" data-key="v5" style="display:none">
+    <div class="em-persona">
+      <div class="em-persona-dot" style="background:#8c6030">LT</div>
+      <div>
+        <div class="em-persona-name">The Libertarian <em>Techno-Optimist</em></div>
+        <div class="em-persona-ctx"><strong>Scenario:</strong> Hearing about new proposed AI regulations and forming an opinion on whether they should be supported or resisted.</div>
+      </div>
+    </div>
+    <div class="em-grid">
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🗣</span><span class="em-quad-label">Says</span></div>
+        <div class="em-item-quote">"We shouldn't over-regulate AI — it will make it useless for the average person."</div>
+        <div class="em-item-quote">"Companies shouldn't over-censor AI just to be 'safe' — it kills creativity."</div>
+        <div class="em-item-quote">"The biggest rule should just be protecting basic user privacy."</div>
+        <div class="em-item-quote">"Guidelines should prioritize freedom of speech and expression."</div>
+        <div class="em-item-quote">"Users are smart enough to judge AI outputs themselves."</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🧠</span><span class="em-quad-label">Thinks</span></div>
+        <div class="em-item">Every new regulation is a step toward unusable, watered-down AI.</div>
+        <div class="em-item">The ethics crowd is more interested in control than in real safety.</div>
+        <div class="em-item">Privacy is the one real issue — everything else is performative.</div>
+        <div class="em-item">AI's power comes from its freedom — restrict it and you break it.</div>
+        <div class="em-item">The market will correct for bad AI faster than any government body.</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">🏃</span><span class="em-quad-label">Does</span></div>
+        <div class="em-item">Heaviest daily AI user of all five archetypes — fully integrated</div>
+        <div class="em-item">Rarely verifies output — high trust in AI relative to other groups</div>
+        <div class="em-item">Pushes back on AI ethics discourse in conversations</div>
+        <div class="em-item">Not concerned about environmental impact — deprioritises it entirely</div>
+        <div class="em-item">Uses AI for creative, professional, and exploratory tasks freely</div>
+      </div>
+      <div class="em-quad">
+        <div class="em-quad-head"><span class="em-quad-icon">😌</span><span class="em-quad-label">Feels</span></div>
+        <div class="em-item">Excited and empowered — AI is a force multiplier for capable people</div>
+        <div class="em-item">Impatient with what they see as moral panic around AI risks</div>
+        <div class="em-item">Protective of creative and intellectual freedom as a core value</div>
+        <div class="em-item">Dismissive of environmental arguments — sees them as scope-creep</div>
+        <div class="em-item">Confident in their own judgment — doesn't need guardrails</div>
+      </div>
+    </div>
+    <div class="em-insights">
+      <div class="em-insight-box">
+        <p class="em-insight-title">Key Insights</p>
+        <div class="em-insight-item">Highest trust + lowest verification = most exposed to AI error, yet feels least vulnerable — overconfidence is a defining trait</div>
+        <div class="em-insight-item">Privacy is the only legitimate concern in their framework — all other ethical concerns are dismissed as overreach</div>
+        <div class="em-insight-item">Smallest group (~7%) but loudest voice — likely overrepresented in online AI discourse relative to real-world prevalence</div>
+        <div class="em-insight-item">Lowest environmental concern score by a wide margin — systemic harms outside personal impact are not on their radar</div>
+      </div>
+      <div class="em-insight-box">
+        <p class="em-insight-title">Says vs. Does Contradiction</p>
+        <div class="em-insight-item">Argues users should take responsibility for verifying AI — but personally verifies the least of any archetype, relying on the trust they tell others not to have</div>
+        <div class="em-insight-item">Advocates for privacy protection as the only real rule — but uses AI tools that routinely harvest personal data without scrutiny</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ SECTION 06: JOURNEY MAPS ═══════════ -->
+<div id="journey">
+<div class="sw">
+  <div class="sh2">
+    <span class="sn">06 —</span>
+    <h2 class="st">Journey <em>maps</em></h2>
+  </div>
+  <p style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--ink2);line-height:1.7;max-width:680px;margin-bottom:2rem">Each journey maps the five-stage experience of encountering, using, questioning, and forming a settled view on AI — from the perspective of each archetype. The experience curve plots emotional score across stages.</p>
+
+  <div class="jm-tabs">
+    <button class="jm-tab on" onclick="jmTab(this,'j1')">Vigilant Pragmatist</button>
+    <button class="jm-tab" onclick="jmTab(this,'j2')">Cautious Analyst</button>
+    <button class="jm-tab" onclick="jmTab(this,'j3')">Ethical Idealist</button>
+    <button class="jm-tab" onclick="jmTab(this,'j4')">Passive Consumer</button>
+    <button class="jm-tab" onclick="jmTab(this,'j5')">Techno-Optimist</button>
+  </div>
+
+  <!-- ── JOURNEY 1: VIGILANT PRAGMATIST ── -->
+  <div class="jm-panel" data-key="j1" style="display:block">
+    <div class="jm-context">
+      <div><div class="jm-ctx-label">Persona / User</div><div class="jm-ctx-val"><strong>The Vigilant Pragmatist</strong> — daily AI user, study/work context, strong verification habits</div></div>
+      <div><div class="jm-ctx-label">Scenario / Goal</div><div class="jm-ctx-val">Research a complex topic using AI, verify the output, and decide how to act on it responsibly</div></div>
+    </div>
+    <div class="jm-table-wrap">
+    <table class="jm-table">
+      <thead>
+        <tr>
+          <th class="jm-row-label" style="background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:.1em;text-transform:uppercase">Stage</th>
+          <th class="jm-stage-head">1 — Discovery<span class="jm-stage-sub">First encounter with AI</span></th>
+          <th class="jm-stage-head">2 — Engagement<span class="jm-stage-sub">Active use begins</span></th>
+          <th class="jm-stage-head">3 — Doubt<span class="jm-stage-sub">Questions arise</span></th>
+          <th class="jm-stage-head">4 — Verification<span class="jm-stage-sub">Cross-checking output</span></th>
+          <th class="jm-stage-head">5 — Resolution<span class="jm-stage-sub">Settled stance</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🏃</span><span class="jm-row-label-txt">Actions</span></td>
+          <td class="jm-cell"><ul><li>Tries AI for a study/work task</li><li>Explores what it can do</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Uses AI daily for research</li><li>Asks follow-up questions</li></ul></td>
+          <td class="jm-cell"><ul><li>Spots a suspicious claim</li><li>Pauses before sharing output</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Cross-checks via Google</li><li>Finds discrepancy, adjusts</li></ul></td>
+          <td class="jm-cell"><ul><li>Adopts hybrid AI + verification workflow</li><li>Advocates for AI labeling</li></ul></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">📱</span><span class="jm-row-label-txt">Touchpoints</span></td>
+          <td class="jm-cell">ChatGPT / Gemini / school tools</td>
+          <td class="jm-cell jm-cell-alt">Daily AI sessions, browser tabs open</td>
+          <td class="jm-cell">Output that contradicts prior knowledge</td>
+          <td class="jm-cell jm-cell-alt">Google, Wikipedia, institutional sites</td>
+          <td class="jm-cell">News coverage of AI regulation, policy debates</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🧠</span><span class="jm-row-label-txt">Thoughts</span></td>
+          <td class="jm-cell">"This is genuinely useful — but I need to be careful."</td>
+          <td class="jm-cell jm-cell-alt">"I can get so much done, but I still need to check."</td>
+          <td class="jm-cell">"Wait — is this actually true? This doesn't sound right."</td>
+          <td class="jm-cell jm-cell-alt">"Good — caught the error. This is why you always verify."</td>
+          <td class="jm-cell">"AI is a helper. Not a replacement. Never let it think for you."</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🗣</span><span class="jm-row-label-txt">Says</span></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Wow, this is faster than searching manually.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">I always double-check important things though.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Something about this answer doesn't add up.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">See? You have to verify. It got that wrong.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">You need to use AI — don't let AI use you.</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">😌</span><span class="jm-row-label-txt">Feels</span></td>
+          <td class="jm-cell">Curious, cautiously optimistic</td>
+          <td class="jm-cell jm-cell-alt">Productive but watchful</td>
+          <td class="jm-cell">Alert, mildly suspicious</td>
+          <td class="jm-cell jm-cell-alt">Vindicated, satisfied</td>
+          <td class="jm-cell">Confident, responsible, slightly evangelical</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label" style="background:var(--paper2);color:var(--ink);font-size:9px;letter-spacing:.1em">Experience Curve</td>
+          <td class="jm-score jm-score-pos" colspan="5">
+            <canvas id="jc1" class="jm-curve-canvas" style="height:90px"></canvas>
+          </td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">⚡</span><span class="jm-row-label-txt">Pain Points</span></td>
+          <td class="jm-cell"><div class="jm-pain">No clear signal of AI confidence level</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Time cost of constant verification</div></td>
+          <td class="jm-cell"><div class="jm-pain">Hard to tell error from hallucination</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Sources don't always resolve the conflict</div></td>
+          <td class="jm-cell"><div class="jm-pain">Others around them don't verify — frustrating</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">→</span><span class="jm-row-label-txt">Opportunities</span></td>
+          <td class="jm-cell"><div class="jm-opp">Confidence scores visible in AI output</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Integrated source links per claim</div></td>
+          <td class="jm-cell"><div class="jm-opp">Flagging uncertain or contested claims</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Auto-suggest verification sources</div></td>
+          <td class="jm-cell"><div class="jm-opp">Mandatory AI labeling in public content</div></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── JOURNEY 2: CAUTIOUS ANALYST ── -->
+  <div class="jm-panel" data-key="j2" style="display:none">
+    <div class="jm-context">
+      <div><div class="jm-ctx-label">Persona / User</div><div class="jm-ctx-val"><strong>The Cautious Analyst</strong> — skeptical daily/weekly user, highest verification rate, IP-focused</div></div>
+      <div><div class="jm-ctx-label">Scenario / Goal</div><div class="jm-ctx-val">Use AI to look up factual or creative information, then trace the claim back to its source and assess reliability</div></div>
+    </div>
+    <div class="jm-table-wrap">
+    <table class="jm-table">
+      <thead>
+        <tr>
+          <th class="jm-row-label" style="background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:.1em;text-transform:uppercase">Stage</th>
+          <th class="jm-stage-head">1 — First Use<span class="jm-stage-sub">Initial interaction</span></th>
+          <th class="jm-stage-head">2 — Scepticism<span class="jm-stage-sub">Doubt sets in early</span></th>
+          <th class="jm-stage-head">3 — Investigation<span class="jm-stage-sub">Active source-tracing</span></th>
+          <th class="jm-stage-head">4 — IP Concern<span class="jm-stage-sub">Attribution issue surfaces</span></th>
+          <th class="jm-stage-head">5 — Advocacy<span class="jm-stage-sub">Settled critical stance</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🏃</span><span class="jm-row-label-txt">Actions</span></td>
+          <td class="jm-cell"><ul><li>Tries AI out of curiosity or necessity</li><li>Notes lack of citations immediately</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Instantly begins verifying claims</li><li>Searches for original sources</li></ul></td>
+          <td class="jm-cell"><ul><li>Traces AI claims to Wikipedia, books</li><li>Often finds discrepancies</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Realises AI was trained on uncredited work</li><li>Raises this concern publicly</li></ul></td>
+          <td class="jm-cell"><ul><li>Uses AI with consistent scepticism</li><li>Pushes for citation standards</li></ul></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">📱</span><span class="jm-row-label-txt">Touchpoints</span></td>
+          <td class="jm-cell">AI chatbots, search engines</td>
+          <td class="jm-cell jm-cell-alt">Fact-checking sites, Wikipedia</td>
+          <td class="jm-cell">Academic databases, news archives</td>
+          <td class="jm-cell jm-cell-alt">Art/writing communities, IP news</td>
+          <td class="jm-cell">Policy debates, academic literature on AI</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🧠</span><span class="jm-row-label-txt">Thoughts</span></td>
+          <td class="jm-cell">"Where is this coming from? There are no sources."</td>
+          <td class="jm-cell jm-cell-alt">"I can't trust this without checking it myself."</td>
+          <td class="jm-cell">"This claim traces back to a paraphrased Wikipedia article."</td>
+          <td class="jm-cell jm-cell-alt">"Someone's work trained this — they deserve credit and payment."</td>
+          <td class="jm-cell">"Useful tool, but built on a broken attribution model."</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🗣</span><span class="jm-row-label-txt">Says</span></td>
+          <td class="jm-cell"><div class="jm-cell-quote">It needs to prove where it's getting its info from.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">I always check before I use anything it gives me.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">That answer was basically paraphrased from one article.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">Artists and writers deserve credit and compensation.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">AI shouldn't be a black box — explain your reasoning.</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">😌</span><span class="jm-row-label-txt">Feels</span></td>
+          <td class="jm-cell">Curious but immediately wary</td>
+          <td class="jm-cell jm-cell-alt">Suspicious, investigative</td>
+          <td class="jm-cell">Engaged, alert, slightly vindicated</td>
+          <td class="jm-cell jm-cell-alt">Outraged on behalf of creators</td>
+          <td class="jm-cell">Resigned but principled — uses it anyway</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label" style="background:var(--paper2);color:var(--ink);font-size:9px;letter-spacing:.1em">Experience Curve</td>
+          <td class="jm-score" colspan="5">
+            <canvas id="jc2" class="jm-curve-canvas" style="height:90px"></canvas>
+          </td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">⚡</span><span class="jm-row-label-txt">Pain Points</span></td>
+          <td class="jm-cell"><div class="jm-pain">No citations or source attribution in output</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Verification is slow and effortful</div></td>
+          <td class="jm-cell"><div class="jm-pain">AI paraphrases without acknowledging the source</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">No mechanism to compensate original creators</div></td>
+          <td class="jm-cell"><div class="jm-pain">Companies resist citation transparency</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">→</span><span class="jm-row-label-txt">Opportunities</span></td>
+          <td class="jm-cell"><div class="jm-opp">Mandatory source citation in AI output</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">One-click verification of claims</div></td>
+          <td class="jm-cell"><div class="jm-opp">Training data transparency reports</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Creator compensation frameworks (licensing)</div></td>
+          <td class="jm-cell"><div class="jm-opp">Shared accountability regulation model</div></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── JOURNEY 3: ETHICAL IDEALIST ── -->
+  <div class="jm-panel" data-key="j3" style="display:none">
+    <div class="jm-context">
+      <div><div class="jm-ctx-label">Persona / User</div><div class="jm-ctx-val"><strong>The Ethical Idealist</strong> — daily user, equity and bias focused, strongest corporate accountability views</div></div>
+      <div><div class="jm-ctx-label">Scenario / Goal</div><div class="jm-ctx-val">Learn about an AI system being used in a high-stakes institutional context (hiring, lending, policing) and advocate for ethical safeguards</div></div>
+    </div>
+    <div class="jm-table-wrap">
+    <table class="jm-table">
+      <thead>
+        <tr>
+          <th class="jm-row-label" style="background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:.1em;text-transform:uppercase">Stage</th>
+          <th class="jm-stage-head">1 — Awareness<span class="jm-stage-sub">Learns of AI in high-stakes use</span></th>
+          <th class="jm-stage-head">2 — Concern<span class="jm-stage-sub">Bias implications emerge</span></th>
+          <th class="jm-stage-head">3 — Research<span class="jm-stage-sub">Investigates fairness implications</span></th>
+          <th class="jm-stage-head">4 — Advocacy<span class="jm-stage-sub">Takes a public position</span></th>
+          <th class="jm-stage-head">5 — Action<span class="jm-stage-sub">Pushes for systemic change</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🏃</span><span class="jm-row-label-txt">Actions</span></td>
+          <td class="jm-cell"><ul><li>Reads about AI being used in hiring or credit decisions</li><li>Starts asking questions</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Researches known bias cases</li><li>Reads academic papers on AI fairness</li></ul></td>
+          <td class="jm-cell"><ul><li>Finds documented examples of AI discrimination</li><li>Maps who bears the cost</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Writes, posts, discusses publicly</li><li>Connects AI ethics to civil rights</li></ul></td>
+          <td class="jm-cell"><ul><li>Supports regulation calls</li><li>Uses survey responses to push for policy</li></ul></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">📱</span><span class="jm-row-label-txt">Touchpoints</span></td>
+          <td class="jm-cell">News, LinkedIn, academic media</td>
+          <td class="jm-cell jm-cell-alt">Research papers, AI ethics orgs, ACLU reports</td>
+          <td class="jm-cell">ProPublica, academic databases, policy journals</td>
+          <td class="jm-cell jm-cell-alt">Social media, peer groups, surveys</td>
+          <td class="jm-cell">Petitions, government consultations, NGOs</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🧠</span><span class="jm-row-label-txt">Thoughts</span></td>
+          <td class="jm-cell">"Who decided this system was fair enough to use on real people?"</td>
+          <td class="jm-cell jm-cell-alt">"This will disproportionately affect already-marginalised groups."</td>
+          <td class="jm-cell">"The bias isn't accidental — it's a reflection of the training data."</td>
+          <td class="jm-cell jm-cell-alt">"I need to be vocal about this — silence is complicity."</td>
+          <td class="jm-cell">"We need enforceable international law, not voluntary pledges."</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🗣</span><span class="jm-row-label-txt">Says</span></td>
+          <td class="jm-cell"><div class="jm-cell-quote">AI in hiring needs strict human oversight.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">Bias isn't a bug — it's a feature of who built it.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">These decisions affect real people's lives and livelihoods.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">AI should be a public good, not a private tool of power.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">We need international frameworks — self-regulation doesn't work.</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">😌</span><span class="jm-row-label-txt">Feels</span></td>
+          <td class="jm-cell">Alarmed, morally activated</td>
+          <td class="jm-cell jm-cell-alt">Outraged, determined</td>
+          <td class="jm-cell">Vindicated by evidence, angrier</td>
+          <td class="jm-cell jm-cell-alt">Purposeful, slightly isolated in their view</td>
+          <td class="jm-cell">Hopeful but impatient — change is too slow</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label" style="background:var(--paper2);color:var(--ink);font-size:9px;letter-spacing:.1em">Experience Curve</td>
+          <td class="jm-score" colspan="5">
+            <canvas id="jc3" class="jm-curve-canvas" style="height:90px"></canvas>
+          </td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">⚡</span><span class="jm-row-label-txt">Pain Points</span></td>
+          <td class="jm-cell"><div class="jm-pain">AI deployed without adequate public consultation</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Hard to prove intent behind algorithmic outcomes</div></td>
+          <td class="jm-cell"><div class="jm-pain">Training data bias is invisible to most users</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Advocacy dismissed as "anti-progress"</div></td>
+          <td class="jm-cell"><div class="jm-pain">Regulation moves far slower than AI deployment</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">→</span><span class="jm-row-label-txt">Opportunities</span></td>
+          <td class="jm-cell"><div class="jm-opp">Pre-deployment fairness audits (mandatory)</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Bias transparency reports published publicly</div></td>
+          <td class="jm-cell"><div class="jm-opp">Training data diversity requirements</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Community representation in AI governance</div></td>
+          <td class="jm-cell"><div class="jm-opp">UN / international AI ethics treaty framework</div></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── JOURNEY 4: PASSIVE CONSUMER ── -->
+  <div class="jm-panel" data-key="j4" style="display:none">
+    <div class="jm-context">
+      <div><div class="jm-ctx-label">Persona / User</div><div class="jm-ctx-val"><strong>The Passive Consumer</strong> — weekly user, low verification, privacy-aware but not action-oriented</div></div>
+      <div><div class="jm-ctx-label">Scenario / Goal</div><div class="jm-ctx-val">Use an AI chatbot to quickly answer a question or complete a routine task — with minimal friction and no ethical deliberation</div></div>
+    </div>
+    <div class="jm-table-wrap">
+    <table class="jm-table">
+      <thead>
+        <tr>
+          <th class="jm-row-label" style="background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:.1em;text-transform:uppercase">Stage</th>
+          <th class="jm-stage-head">1 — Discovery<span class="jm-stage-sub">Finds out AI exists</span></th>
+          <th class="jm-stage-head">2 — Casual Use<span class="jm-stage-sub">Uses it for convenience</span></th>
+          <th class="jm-stage-head">3 — Mild Unease<span class="jm-stage-sub">Privacy nag surfaces</span></th>
+          <th class="jm-stage-head">4 — Continuation<span class="jm-stage-sub">Uses it anyway</span></th>
+          <th class="jm-stage-head">5 — Normalisation<span class="jm-stage-sub">AI becomes background</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🏃</span><span class="jm-row-label-txt">Actions</span></td>
+          <td class="jm-cell"><ul><li>Hears about AI from friends or media</li><li>Tries it once out of curiosity</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Uses AI weekly for quick tasks</li><li>Rarely questions the output</li></ul></td>
+          <td class="jm-cell"><ul><li>Sees a news story about AI data collection</li><li>Feels briefly uncomfortable</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Continues using as before</li><li>Doesn't change settings or behavior</li></ul></td>
+          <td class="jm-cell"><ul><li>AI becomes a routine tool</li><li>Ethics thinking entirely outsourced</li></ul></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">📱</span><span class="jm-row-label-txt">Touchpoints</span></td>
+          <td class="jm-cell">Social media, word of mouth</td>
+          <td class="jm-cell jm-cell-alt">Mobile AI apps, browser plugins</td>
+          <td class="jm-cell">News headline, social media post</td>
+          <td class="jm-cell jm-cell-alt">Same apps as before — no change</td>
+          <td class="jm-cell">AI embedded in everyday tools (search, writing)</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🧠</span><span class="jm-row-label-txt">Thoughts</span></td>
+          <td class="jm-cell">"That's pretty clever — I should try that."</td>
+          <td class="jm-cell jm-cell-alt">"This saves time. I'll just use it for this."</td>
+          <td class="jm-cell">"Oh. Is my data actually safe? I didn't read the terms."</td>
+          <td class="jm-cell jm-cell-alt">"I can't really do much about it anyway."</td>
+          <td class="jm-cell">"There's probably people thinking about all this. Not my job."</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🗣</span><span class="jm-row-label-txt">Says</span></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Oh cool, I should try this.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">Yeah I just use it sometimes, it's handy.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Privacy is important — I do care about that.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">There's not much end users can do anyway.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Transparency and privacy. (survey answer, complete)</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">😌</span><span class="jm-row-label-txt">Feels</span></td>
+          <td class="jm-cell">Curious, low-stakes excitement</td>
+          <td class="jm-cell jm-cell-alt">Comfortable, slightly passive</td>
+          <td class="jm-cell">Briefly uneasy, then dismissive</td>
+          <td class="jm-cell jm-cell-alt">Resigned, indifferent</td>
+          <td class="jm-cell">Neutral — AI is just there now</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label" style="background:var(--paper2);color:var(--ink);font-size:9px;letter-spacing:.1em">Experience Curve</td>
+          <td class="jm-score" colspan="5">
+            <canvas id="jc4" class="jm-curve-canvas" style="height:90px"></canvas>
+          </td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">⚡</span><span class="jm-row-label-txt">Pain Points</span></td>
+          <td class="jm-cell"><div class="jm-pain">No easy way to understand what data is collected</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Terms of service too long to read</div></td>
+          <td class="jm-cell"><div class="jm-pain">Privacy news creates anxiety without actionable guidance</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Feels powerless — no visible user controls</div></td>
+          <td class="jm-cell"><div class="jm-pain">Ethical weight of AI use never surfaced or prompted</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">→</span><span class="jm-row-label-txt">Opportunities</span></td>
+          <td class="jm-cell"><div class="jm-opp">Simple plain-language data policy summaries</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Gentle nudges to verify high-stakes AI output</div></td>
+          <td class="jm-cell"><div class="jm-opp">One-tap privacy control in AI interfaces</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Default opt-out for training data use</div></td>
+          <td class="jm-cell"><div class="jm-opp">AI literacy built into school and workplace training</div></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ── JOURNEY 5: LIBERTARIAN TECHNO-OPTIMIST ── -->
+  <div class="jm-panel" data-key="j5" style="display:none">
+    <div class="jm-context">
+      <div><div class="jm-ctx-label">Persona / User</div><div class="jm-ctx-val"><strong>The Libertarian Techno-Optimist</strong> — heaviest AI user, lowest verification, strongly anti-regulation</div></div>
+      <div><div class="jm-ctx-label">Scenario / Goal</div><div class="jm-ctx-val">Hear about a proposed AI regulation bill and form a strong opinion — then use AI creatively for professional work without second-guessing the output</div></div>
+    </div>
+    <div class="jm-table-wrap">
+    <table class="jm-table">
+      <thead>
+        <tr>
+          <th class="jm-row-label" style="background:var(--ink);color:var(--paper);font-size:9px;letter-spacing:.1em;text-transform:uppercase">Stage</th>
+          <th class="jm-stage-head">1 — Adoption<span class="jm-stage-sub">Early and enthusiastic</span></th>
+          <th class="jm-stage-head">2 — Mastery<span class="jm-stage-sub">Full integration into work</span></th>
+          <th class="jm-stage-head">3 — Resistance<span class="jm-stage-sub">Regulation news arrives</span></th>
+          <th class="jm-stage-head">4 — Pushback<span class="jm-stage-sub">Argues against rules</span></th>
+          <th class="jm-stage-head">5 — Entrenchment<span class="jm-stage-sub">Settled libertarian stance</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🏃</span><span class="jm-row-label-txt">Actions</span></td>
+          <td class="jm-cell"><ul><li>Among first to adopt AI tools</li><li>Integrates immediately into workflow</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Uses AI daily for creative and professional work</li><li>Rarely verifies output</li></ul></td>
+          <td class="jm-cell"><ul><li>Reads about proposed AI content labeling law</li><li>Immediately critical</li></ul></td>
+          <td class="jm-cell jm-cell-alt"><ul><li>Debates actively against over-regulation online</li><li>Frames it as censorship</li></ul></td>
+          <td class="jm-cell"><ul><li>Continues heavy use unchanged</li><li>Only concedes basic privacy rules</li></ul></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">📱</span><span class="jm-row-label-txt">Touchpoints</span></td>
+          <td class="jm-cell">Tech media, developer communities</td>
+          <td class="jm-cell jm-cell-alt">AI tools across multiple platforms daily</td>
+          <td class="jm-cell">Tech news, policy Twitter/X, opinion pieces</td>
+          <td class="jm-cell jm-cell-alt">Forums, social media, comment sections</td>
+          <td class="jm-cell">Same tools — no change in behaviour</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🧠</span><span class="jm-row-label-txt">Thoughts</span></td>
+          <td class="jm-cell">"This is going to change everything. I need to be ahead of this."</td>
+          <td class="jm-cell jm-cell-alt">"I know how to use this effectively — most people don't."</td>
+          <td class="jm-cell">"These regulations will kill the technology before it matures."</td>
+          <td class="jm-cell jm-cell-alt">"This is moral panic dressed up as safety policy."</td>
+          <td class="jm-cell">"The market will self-correct faster than any government body."</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">🗣</span><span class="jm-row-label-txt">Says</span></td>
+          <td class="jm-cell"><div class="jm-cell-quote">This is genuinely transformative — I'm all in.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">I use AI for everything now — it just works.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Over-regulation will make AI useless for the average person.</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-cell-quote">Freedom of expression should be the primary AI guideline.</div></td>
+          <td class="jm-cell"><div class="jm-cell-quote">Just protect basic privacy. That's it. Nothing else needed.</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">😌</span><span class="jm-row-label-txt">Feels</span></td>
+          <td class="jm-cell">Excited, ahead of the curve</td>
+          <td class="jm-cell jm-cell-alt">Empowered, confident, slightly superior</td>
+          <td class="jm-cell">Irritated, defensive</td>
+          <td class="jm-cell jm-cell-alt">Indignant, energised by the argument</td>
+          <td class="jm-cell">Certain, unmoved — this is a settled identity</td>
+        </tr>
+        <tr>
+          <td class="jm-row-label" style="background:var(--paper2);color:var(--ink);font-size:9px;letter-spacing:.1em">Experience Curve</td>
+          <td class="jm-score" colspan="5">
+            <canvas id="jc5" class="jm-curve-canvas" style="height:90px"></canvas>
+          </td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">⚡</span><span class="jm-row-label-txt">Pain Points</span></td>
+          <td class="jm-cell"><div class="jm-pain">AI tools occasionally over-censored for their use case</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Safety filters block creative or edgy content</div></td>
+          <td class="jm-cell"><div class="jm-pain">Regulation proposals feel like attacks on capability</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-pain">Feels unheard in public AI ethics discourse</div></td>
+          <td class="jm-cell"><div class="jm-pain">Privacy-focused regulation conflated with content restriction</div></td>
+        </tr>
+        <tr>
+          <td class="jm-row-label"><span class="jm-row-label-icon">→</span><span class="jm-row-label-txt">Opportunities</span></td>
+          <td class="jm-cell"><div class="jm-opp">Clear distinction: safety rules vs. content censorship</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">User-controlled safety settings (not platform-default)</div></td>
+          <td class="jm-cell"><div class="jm-opp">Engage this persona in proportionate regulation design</div></td>
+          <td class="jm-cell jm-cell-alt"><div class="jm-opp">Lightweight privacy-first policy that preserves capability</div></td>
+          <td class="jm-cell"><div class="jm-opp">Involve power users in defining what "minimal rules" means</div></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="flogo">AI Ethics Survey</span>
+  <div class="fmeta">48 respondents · April 2026<br>Public Opinion Research<br>5 archetypes · 13 questions</div>
+</footer>
+
+
 </body>
 </html>
- 
