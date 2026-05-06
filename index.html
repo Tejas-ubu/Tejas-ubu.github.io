@@ -636,384 +636,887 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
 </div>
 
 <!-- SECTION 07: ROOT CAUSE ANALYSIS -->
+<!-- ═══════════ NAV ADDITION ═══════════ -->
+<!-- Add this link inside the existing <nav> element: -->
+<!-- <a href="#rootcause">Root Cause</a> -->
+
+<!-- ═══════════ SECTION 07: ROOT CAUSE ANALYSIS ═══════════ -->
+<style>
+.rc-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.rc-tab{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border:.5px solid var(--line);background:var(--paper);color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;white-space:nowrap}
+.rc-tab:hover,.rc-tab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rc-panel{display:none}
+.rc-panel.active{display:block}
+.rc-pain-block{margin-bottom:3rem}
+.rc-pain-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:.5px solid var(--line)}
+.rc-canvas-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:.5px solid var(--line);background:var(--paper2)}
+.rc-canvas-wrap canvas{display:block}
+</style>
+
 <div id="rootcause">
 <div class="sw fi">
   <div class="sh2">
     <span class="sn">07 —</span>
-    <h2 class="st">Five minds, <em>five crises</em></h2>
+    <h2 class="st">Root Cause <em>Analysis</em></h2>
   </div>
-  <p style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--ink2);line-height:1.7;max-width:680px;margin-bottom:2rem">For each persona, five pain points are traced to their root cause using the 5 Whys method — asking why repeatedly until the structural or systemic origin emerges. Each chain ends in a definitive root cause, shown dark, that explains why the problem persists.</p>
+  <p style="font-family:'Fraunces',serif;font-weight:300;font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--ink2);line-height:1.7;max-width:680px;margin-bottom:2rem">For each archetype, we traced the two most critical pain points down to their structural root — asking <em>why</em>, repeatedly, until the real cause surfaced.</p>
 
-  <div class="rca-tabs">
-    <button class="rca-tab on" onclick="rcaTab(this,'r1')">Vigilant Pragmatist</button>
-    <button class="rca-tab" onclick="rcaTab(this,'r2')">Cautious Analyst</button>
-    <button class="rca-tab" onclick="rcaTab(this,'r3')">Ethical Idealist</button>
-    <button class="rca-tab" onclick="rcaTab(this,'r4')">Passive Consumer</button>
-    <button class="rca-tab" onclick="rcaTab(this,'r5')">Techno-Optimist</button>
-  </div>
-
-  <!-- RCA 1: VIGILANT PRAGMATIST -->
-  <div class="rca-panel" data-key="r1" style="display:block">
-    <div class="rca-chains-wrap"><div class="rca-chains">
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#c85a2a"><span class="rca-node-tag" style="color:#c85a2a">PAIN POINT</span>No clear signal of AI confidence level</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 1</span>AI tools present all outputs in the same uniform tone whether certain or guessing</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 2</span>No design standard requires AI systems to express uncertainty</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 3</span>AI companies optimise for outputs that feel authoritative because hesitant responses reduce perceived product quality</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 4</span>The commercial incentive is to appear capable, not to be honest about the limits of that capability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Confidence transparency conflicts with how AI products are marketed and monetised, so it is deprioritised by design</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#c85a2a"><span class="rca-node-tag" style="color:#c85a2a">PAIN POINT</span>Time cost of constant verification</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 1</span>They have internalised that AI can be wrong in ways that aren't immediately obvious</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 2</span>Past experience with hallucinations taught them you can't trust output at face value</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 3</span>AI tools don't distinguish between high-stakes claims and trivial ones</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 4</span>There is no triage built into AI outputs — nothing signals what needs checking</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI is designed as a single-confidence tool, treating a rough estimate and a sourced fact identically, forcing the conscientious user to verify everything or nothing</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#c85a2a"><span class="rca-node-tag" style="color:#c85a2a">PAIN POINT</span>Hard to tell error from hallucination</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 1</span>Both errors — factual mistakes and hallucinations — look identical in the output</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 2</span>AI doesn't flag when it is reasoning beyond its training data</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 3</span>The model has no mechanism to distinguish between knowing something and predicting what sounds right</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 4</span>Language models are trained to produce fluent responses and fluency looks the same whether content is grounded or fabricated</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The architecture of LLMs doesn't separate knowledge retrieval from pattern completion, so the user has no way to see which one produced the answer</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#c85a2a"><span class="rca-node-tag" style="color:#c85a2a">PAIN POINT</span>Sources don't always resolve the conflict</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 1</span>The internet itself contains conflicting information and AI has surfaced one side of it</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 2</span>The AI didn't source its claim so the user can't trace back which perspective it drew from</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 3</span>Without attribution the user must reconstruct the search from scratch</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 4</span>AI collapses multiple perspectives into a single answer without flagging that a debate exists</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI removes the visibility of source plurality in the name of giving a clean answer, making genuine conflict invisible and resolution harder</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#c85a2a"><span class="rca-node-tag" style="color:#c85a2a">PAIN POINT</span>Others around them don't verify — frustrating</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 1</span>Most people don't have the same relationship with AI risk that this persona has developed</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 2</span>For lower-stakes users the cost of being occasionally wrong doesn't justify the friction of verification</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 3</span>AI tools don't prompt or reward verification — there is no signal that checking is responsible</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#c85a2a">WHY 4</span>AI literacy is unevenly distributed and not formally taught</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The social norm around AI use is still forming and AI tools are designed to feel trustworthy and final — so the default posture is acceptance and critical engagement is a personal choice, not a prompted behaviour</div>
-      </div>
-    </div></div>
-    <div class="em-insights" style="margin-top:1.5rem"><div class="em-insight-box" style="grid-column:1/-1"><p class="em-insight-title">Key Insight</p><div class="em-insight-item" style="border:none;font-size:13px;line-height:1.7;color:var(--ink2);padding:0">Every root cause for this persona traces back to the same tension — AI is engineered to feel certain, but this person knows it isn't. The frustration isn't just with the technology; it's with a design culture that treats expressed doubt as a product failure. Their vigilance is essentially unpaid labour filling a gap the product was never designed to close.</div></div></div>
+  <div class="rc-tabs">
+    <button class="rc-tab on" onclick="rcTab(this,'rc1')">Vigilant Pragmatist</button>
+    <button class="rc-tab" onclick="rcTab(this,'rc2')">Cautious Analyst</button>
+    <button class="rc-tab" onclick="rcTab(this,'rc3')">Ethical Idealist</button>
+    <button class="rc-tab" onclick="rcTab(this,'rc4')">Passive Consumer</button>
+    <button class="rc-tab" onclick="rcTab(this,'rc5')">Techno-Optimist</button>
   </div>
 
-  <!-- RCA 2: CAUTIOUS ANALYST -->
-  <div class="rca-panel" data-key="r2" style="display:none">
-    <div class="rca-chains-wrap"><div class="rca-chains">
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#1d6b52"><span class="rca-node-tag" style="color:#1d6b52">PAIN POINT</span>No citations or source attribution in output</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 1</span>AI tools are not designed to output citations by default — they synthesise, not reference</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 2</span>Training data is not linked to individual outputs because the model absorbed it as patterns</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 3</span>There is no regulatory or industry requirement for AI outputs to be attributed</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 4</span>The model stores statistical patterns not documents — attribution would require a different architecture</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>LLMs were never designed around source integrity. Citation requires architectural choices most AI products don't make because they add complexity and cost</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#1d6b52"><span class="rca-node-tag" style="color:#1d6b52">PAIN POINT</span>Verification is slow and effortful</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 1</span>AI provides no starting point for verification — no links, no references, no confidence signals</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 2</span>The user must reconstruct the research journey the AI silently completed</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 3</span>There is no integrated verification pathway — checking requires leaving the AI interface entirely</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 4</span>AI product design treats the response as the endpoint, not the beginning of a research process</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI is designed as a final-answer tool. The product experience ends at the response, whereas this persona's experience only begins there</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#1d6b52"><span class="rca-node-tag" style="color:#1d6b52">PAIN POINT</span>AI paraphrases without acknowledging the source</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 1</span>The model is trained to produce original-sounding outputs not to flag close paraphrasing</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 2</span>No mechanism tracks which training data influenced which part of the output</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 3</span>Training pipelines don't maintain the link between source document and generated text</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 4</span>The legal and ethical question of when AI paraphrase becomes plagiarism has not been resolved</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI training methodology treats all ingested material as raw fuel not as intellectual property with authorship. The industry hasn't been legally or ethically compelled to treat source proximity as something requiring disclosure</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#1d6b52"><span class="rca-node-tag" style="color:#1d6b52">PAIN POINT</span>No mechanism to compensate original creators</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 1</span>AI companies used publicly available internet data at scale without licensing agreements</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 2</span>Copyright law was not designed for a model that learns from work rather than reproducing it</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 3</span>Legislation has not created a framework requiring creator compensation for training data use</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 4</span>The industry moved faster than regulation and has financial incentives to resist compensation frameworks</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>A legal and commercial vacuum exists between what AI companies have done and what intellectual property law was built to handle. Without enforcement the default is that creators bear the cost</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#1d6b52"><span class="rca-node-tag" style="color:#1d6b52">PAIN POINT</span>Companies resist citation transparency</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 1</span>Showing sources exposes training data origins which creates legal and IP liability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 2</span>Revealing source documents opens companies to potential infringement claims</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 3</span>Training data transparency would also reveal biases and politically sensitive dataset inclusions</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#1d6b52">WHY 4</span>There is no external enforcement mechanism that currently compels this transparency</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Source transparency is not in the commercial or legal interest of AI companies under current conditions. The incentive to remain opaque is stronger than the reputational incentive to be open</div>
-      </div>
-    </div></div>
-    <div class="em-insights" style="margin-top:1.5rem"><div class="em-insight-box" style="grid-column:1/-1"><p class="em-insight-title">Key Insight</p><div class="em-insight-item" style="border:none;font-size:13px;line-height:1.7;color:var(--ink2);padding:0">Every root cause for this persona points to a system with no enforcement mechanism holding it accountable. The Cautious Analyst isn't dealing with a design problem — they're dealing with a legal vacuum. Until attribution, compensation, and transparency are legally required rather than voluntarily offered, nothing in this chain will change.</div></div></div>
+  <!-- Panel 1: Vigilant Pragmatist -->
+  <div class="rc-panel active" id="rc1">
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 01 — No clear signal of AI confidence level</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc1-pp1"></canvas></div>
+    </div>
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 02 — Time cost of constant verification</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc1-pp2"></canvas></div>
+    </div>
   </div>
 
-  <!-- RCA 3: ETHICAL IDEALIST -->
-  <div class="rca-panel" data-key="r3" style="display:none">
-    <div class="rca-chains-wrap"><div class="rca-chains">
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#3a4f8c"><span class="rca-node-tag" style="color:#3a4f8c">PAIN POINT</span>AI deployed without adequate public consultation</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 1</span>Deployment decisions are made internally with no requirement for public input before launch</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 2</span>There is no regulatory framework requiring pre-deployment consultation in most jurisdictions</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 3</span>The legal standard for when a technology is high-risk enough to require consultation has not been defined</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 4</span>Companies treat AI as a process improvement not a governance decision — bypassing normal democratic channels</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI is classified as a tool not a policy. Tools don't require democratic input. Until that classification changes deployment will continue to bypass the communities most affected</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#3a4f8c"><span class="rca-node-tag" style="color:#3a4f8c">PAIN POINT</span>Hard to prove intent behind algorithmic outcomes</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 1</span>The model's decision-making is opaque — you can show the output was biased but not explain why</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 2</span>Training data, weighting choices, and fine-tuning decisions are proprietary and not auditable from outside</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 3</span>Legal frameworks for proving harm require demonstrating causation and intent — both extremely difficult inside a black-box system</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 4</span>AI companies can credibly claim the model learned this, not that anyone chose it — creating a gap between outcome and accountability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Algorithmic accountability requires transparency that companies are not obliged to provide. The model's opacity functions as an effective legal shield as much as a technical reality</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#3a4f8c"><span class="rca-node-tag" style="color:#3a4f8c">PAIN POINT</span>Training data bias is invisible to most users</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 1</span>Training datasets are not published or disclosed to users</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 2</span>There is no requirement to disclose what data was used, where it came from, or who it over or underrepresents</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 3</span>Users interact with outputs not training history — the connection between the two is invisible by design</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 4</span>Bias manifests subtly in tone, framing, and omission rather than in obviously wrong answers</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Bias in AI is structural and inherited but the product interface presents AI as neutral. Users have no vantage point from which to see the training data's influence and companies have no obligation to show it</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#3a4f8c"><span class="rca-node-tag" style="color:#3a4f8c">PAIN POINT</span>Advocacy dismissed as anti-progress</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 1</span>The dominant public narrative around AI is shaped by its developers who frame criticism as backward-looking</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 2</span>Media, investors, and policy circles with the most influence over AI discourse have strong financial stakes in continued AI expansion</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 3</span>No mainstream powerful coalition has successfully translated ethical AI advocacy into concrete policy wins yet</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 4</span>The framing of progress vs concern is a rhetorical device that sidelines critique by attaching an emotional cost to raising it</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Power asymmetry in who shapes AI discourse. The people with the most to gain from AI expansion have the loudest platforms. The people most exposed to AI harms have the fewest</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#3a4f8c"><span class="rca-node-tag" style="color:#3a4f8c">PAIN POINT</span>Regulation moves far slower than AI deployment</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 1</span>Legislative processes are slow by design — consultation, debate, drafting, and review over months or years</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 2</span>AI development cycles are fast and iterative — capabilities that didn't exist six months ago are already deployed at scale</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 3</span>Legislators often lack technical literacy which adds time and uncertainty to writing meaningful rules</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#3a4f8c">WHY 4</span>AI companies lobby actively to delay and dilute regulation using resources and political access to slow timelines</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The governance gap is structural and intentional on one side. Regulation requires democratic deliberation; AI deployment requires only a product decision. These timelines are incompatible without mandatory pre-deployment review mechanisms that don't yet broadly exist</div>
-      </div>
-    </div></div>
-    <div class="em-insights" style="margin-top:1.5rem"><div class="em-insight-box" style="grid-column:1/-1"><p class="em-insight-title">Key Insight</p><div class="em-insight-item" style="border:none;font-size:13px;line-height:1.7;color:var(--ink2);padding:0">Every root cause for this persona is a governance failure, not a design problem. The Ethical Idealist isn't frustrated by bad UX — they're frustrated by a system that was never designed to include them. The common thread is that AI operates in a space where democratic accountability doesn't yet reach, and the people most affected by that gap are the ones with the least power to close it.</div></div></div>
+  <!-- Panel 2: Cautious Analyst -->
+  <div class="rc-panel" id="rc2">
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 01 — No citations or source attribution in output</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc2-pp1"></canvas></div>
+    </div>
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 02 — AI paraphrases without acknowledging the source</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc2-pp2"></canvas></div>
+    </div>
   </div>
 
-  <!-- RCA 4: PASSIVE CONSUMER -->
-  <div class="rca-panel" data-key="r4" style="display:none">
-    <div class="rca-chains-wrap"><div class="rca-chains">
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c3a6e"><span class="rca-node-tag" style="color:#8c3a6e">PAIN POINT</span>No easy way to understand what data is collected</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 1</span>AI interfaces don't surface data collection information in the main user flow</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 2</span>No design convention requires real-time plain-language summaries of data use</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 3</span>The industry standard is to disclose in terms of service — a legal document not a user experience</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 4</span>Making collection visible would invite users to opt out which reduces commercial value</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Data collection is profitable when invisible. The product is designed so the path of least resistance is to give data without realising the full extent of what that means</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c3a6e"><span class="rca-node-tag" style="color:#8c3a6e">PAIN POINT</span>Terms of service too long to read</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 1</span>Terms are written by legal teams for legal protection not for user comprehension</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 2</span>No regulatory requirement exists for terms to be written in plain language or summarised accessibly</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 3</span>Making terms easier to read also makes opt-out easier which has a cost to data collection and liability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 4</span>The legal framework treats a clicked ToS as valid consent regardless of whether it was read or understood</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The legal and commercial system treats comprehensibility as optional. Informed consent is technically obtained without being meaningfully given — and that is currently acceptable under law</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c3a6e"><span class="rca-node-tag" style="color:#8c3a6e">PAIN POINT</span>Privacy news creates anxiety without actionable guidance</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 1</span>Privacy news is reported at the level of policy and corporate behaviour not personal action</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 2</span>Journalists covering AI privacy are informing a debate not writing a user guide</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 3</span>No widely available trusted resource translates AI privacy risk into concrete personal actions</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 4</span>The actions available to a user are often buried, incomplete, or ineffective — making guidance feel pointless even when it exists</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>There is a gap between the people generating awareness about AI privacy risks and the people who should translate that into accessible user action. That translation rarely happens because none of those parties have a strong incentive to do it clearly</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c3a6e"><span class="rca-node-tag" style="color:#8c3a6e">PAIN POINT</span>Feels powerless — no visible user controls</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 1</span>Privacy controls in AI tools are buried in settings menus not surfaced in the main experience</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 2</span>Some controls don't exist at all — there is no opt-out from certain data uses</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 3</span>Companies design defaults to maximise data collection with controls available only for the motivated</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 4</span>No regulatory standard exists for how prominently user controls must be displayed in AI products</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The absence of visible controls is a design decision not a technical limitation. Empowering users to restrict data use is contrary to the platform's commercial interest so it is made deliberately difficult to find</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c3a6e"><span class="rca-node-tag" style="color:#8c3a6e">PAIN POINT</span>Ethical weight of AI use never surfaced or prompted</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 1</span>AI tools are designed to be fast and frictionless — any moment prompting reflection is treated as bad UX</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 2</span>Surfacing ethical considerations during use would slow adoption and reduce engagement metrics</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 3</span>No regulatory or design standard requires AI products to build in ethical awareness for users</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c3a6e">WHY 4</span>The commercial logic of AI tools is to be as convenient and habit-forming as possible — ethical friction is the opposite of that</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI product design is optimised for engagement not for informed use. Ethical reflection is treated as an obstacle to the user experience so it is designed out rather than in</div>
-      </div>
-    </div></div>
-    <div class="em-insights" style="margin-top:1.5rem"><div class="em-insight-box" style="grid-column:1/-1"><p class="em-insight-title">Key Insight</p><div class="em-insight-item" style="border:none;font-size:13px;line-height:1.7;color:var(--ink2);padding:0">Every root cause for this persona is the same commercial logic wearing different clothes — frictionless engagement is the product goal, and anything that creates pause, reflection, or opt-out is quietly removed. The Passive Consumer isn't disengaged because they don't care. They're disengaged because the product was specifically designed to make caring difficult.</div></div></div>
+  <!-- Panel 3: Ethical Idealist -->
+  <div class="rc-panel" id="rc3">
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 01 — AI deployed without adequate public consultation</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc3-pp1"></canvas></div>
+    </div>
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 02 — Regulation moves far slower than AI deployment</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc3-pp2"></canvas></div>
+    </div>
   </div>
 
-  <!-- RCA 5: TECHNO-OPTIMIST -->
-  <div class="rca-panel" data-key="r5" style="display:none">
-    <div class="rca-chains-wrap"><div class="rca-chains">
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c6030"><span class="rca-node-tag" style="color:#8c6030">PAIN POINT</span>AI tools occasionally over-censored for their use case</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 1</span>Safety filters are trained on broad risk categories and cannot distinguish intent from context</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 2</span>Safety policies are designed to minimise worst-case scenarios which creates false positives for legitimate power users</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 3</span>Companies set conservative defaults because the reputational cost of a harmful output far outweighs the cost of blocking a legitimate one</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 4</span>No personalised safety profile exists — the same filter applies to a 12-year-old and a professional researcher</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>AI safety filters are blunt instruments designed for population-level risk not individual user context. The system cannot see intent so it errs on restriction — which systematically over-limits users whose intent is entirely legitimate</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c6030"><span class="rca-node-tag" style="color:#8c6030">PAIN POINT</span>Safety filters block creative or edgy content</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 1</span>Creative content exploring darkness or moral ambiguity is hard for a filter to distinguish from genuinely harmful content</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 2</span>Safety training avoids anything that could be screenshot and used to embarrass the company — which includes a lot of legitimate creative territory</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 3</span>No creative-use exception is built into most AI safety systems</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 4</span>The people building safety systems are primarily thinking about misuse cases not about professionals who need to push into uncomfortable territory to do good work</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Safety systems are designed by people whose threat model is misuse not creative use. The result is a filter calibrated for a risk that doesn't apply to this user — and it limits their work in ways that feel paternalistic rather than protective</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c6030"><span class="rca-node-tag" style="color:#8c6030">PAIN POINT</span>Regulation proposals feel like attacks on capability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 1</span>Proposals are written broadly — covering all AI systems — which catches professional tools and consumer chatbots in the same net</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 2</span>The language of regulation emphasises risk and harm which triggers defensiveness from users who experience AI primarily as beneficial</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 3</span>There is little effort in most proposals to distinguish between protective rules and capability restrictions — they are treated as one category</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 4</span>This persona has no trusted representative voice in the regulation debate so they distrust the entire process</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>Regulation is written for the median risk not the power user. Because most frameworks don't distinguish between types of use this persona correctly senses that regulation could reduce the capabilities they depend on — even when that isn't the stated intention</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c6030"><span class="rca-node-tag" style="color:#8c6030">PAIN POINT</span>Feels unheard in public AI ethics discourse</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 1</span>AI ethics discourse is largely driven by academics and advocates focused on risk not by daily power users focused on capability</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 2</span>Heavy users who want more freedom don't fit neatly into either the pro-big-tech or worried-citizen camp in public narrative</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 3</span>The loudest voices in AI discourse get attention by identifying problems not by defending current capabilities</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 4</span>Power users are individually vocal but structurally unorganised — there is no lobby or coalition representing their specific interests</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>The AI ethics conversation is structured around risk minimisation which systematically excludes the perspective of users for whom the primary concern is capability preservation. Without organised representation this viewpoint is absent from the discourse despite being a real and coherent position</div>
-      </div>
-      <div class="rca-chain">
-        <div class="rca-node rca-problem" style="--persona:#8c6030"><span class="rca-node-tag" style="color:#8c6030">PAIN POINT</span>Privacy regulation conflated with content restriction</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 1</span>Some regulatory proposals genuinely bundle privacy rules with content moderation requirements — the conflation is sometimes real not just perceived</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 2</span>This persona is already primed by safety filter experience to interpret new rules through a restriction lens</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 3</span>Regulators lack the technical precision to write separate well-scoped rules for privacy, content, and safety as distinct problems</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-why"><span class="rca-why-tag" style="color:#8c6030">WHY 4</span>The AI policy debate does not consistently distinguish between these three concerns creating genuine ambiguity about what a given proposal actually targets</div>
-        <div class="rca-arrow">↓</div>
-        <div class="rca-node rca-root"><span class="rca-root-tag">ROOT CAUSE</span>A lack of specificity in AI regulation drafting creates justified confusion and justified distrust. Privacy, content moderation, and safety are different problems regularly treated as one — and for a user who has already felt capability restricted, any new rule reads as more of the same</div>
-      </div>
-    </div></div>
-    <div class="em-insights" style="margin-top:1.5rem"><div class="em-insight-box" style="grid-column:1/-1"><p class="em-insight-title">Key Insight</p><div class="em-insight-item" style="border:none;font-size:13px;line-height:1.7;color:var(--ink2);padding:0">Every root cause for this persona stems from systems built without them in mind — safety filters calibrated for the most vulnerable user, regulation written for the median risk, discourse shaped by people who see AI as a threat. The Techno-Optimist's frustration is legitimate even where their conclusions are debatable. They are a real user being systematically ignored by every layer of the governance and design conversation.</div></div></div>
+  <!-- Panel 4: Passive Consumer -->
+  <div class="rc-panel" id="rc4">
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 01 — No easy way to understand what data is collected</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc4-pp1"></canvas></div>
+    </div>
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 02 — Feels powerless — no visible user controls</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc4-pp2"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Panel 5: Techno-Optimist -->
+  <div class="rc-panel" id="rc5">
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 01 — AI tools occasionally over-censored for their use case</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc5-pp1"></canvas></div>
+    </div>
+    <div class="rc-pain-block">
+      <p class="rc-pain-label">Pain Point 02 — Regulation proposals feel like attacks on capability</p>
+      <div class="rc-canvas-wrap"><canvas id="cvs-rc5-pp2"></canvas></div>
+    </div>
   </div>
 
 </div>
 </div>
+
+<script>
+(function(){
+'use strict';
+
+// ── Tab switching ──────────────────────────────────────────────────
+function rcTab(btn, key){
+  document.querySelectorAll('.rc-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.rc-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(key).classList.add('active');
+  // Redraw canvases in newly shown panel
+  setTimeout(()=>{ renderPanel(key); }, 30);
+}
+window.rcTab = rcTab;
+
+// ── Persona colours ────────────────────────────────────────────────
+const COLORS = {
+  rc1:'#c85a2a', rc2:'#1d6b52', rc3:'#3a4f8c', rc4:'#8c3a6e', rc5:'#8c6030'
+};
+
+// ── Tree data ──────────────────────────────────────────────────────
+// Node shape: { id, label, type:'problem'|'why'|'root', children:[] }
+// type 'root' = ROOT CAUSE node (dark bg)
+
+function makeNode(id, label, type, children){
+  return {id, label, type, children: children||[]};
+}
+const R = makeNode; // shorthand
+
+const TREES = {
+
+// ════════ VIGILANT PRAGMATIST ════════
+'cvs-rc1-pp1': R('vp1p1','No clear signal of AI confidence level','problem',[
+  R('vp1p1_1a','AI tools present all outputs in uniform tone regardless of certainty','why',[
+    R('vp1p1_2a','No design standard requiring AI to express uncertainty','why',[
+      R('vp1p1_3a','Companies optimise for authoritative outputs — hesitancy reduces perceived quality','why',[
+        R('vp1p1_rA','Confidence transparency conflicts with how AI is marketed — deprioritised by design','root',[])
+      ]),
+      R('vp1p1_3b','Regulation of AI output quality is nascent and entirely voluntary','why',[
+        R('vp1p1_rB','Legal framework doesn\'t treat uncertainty disclosure as a consumer right — no pressure to implement','root',[])
+      ])
+    ]),
+    R('vp1p1_2b','No visual or linguistic cue distinguishes a guess from a verified fact','why',[
+      R('vp1p1_3c','Interface design treats all outputs as equally final and complete','why',[
+        R('vp1p1_rC','AI product UX is built around confidence not accuracy — appearing to know beats admitting limits','root',[])
+      ]),
+      R('vp1p1_3d','Fluency and certainty use the same linguistic signals in natural language','why',[
+        R('vp1p1_rD','The model sounds certain because fluency and certainty are indistinguishable in text','root',[])
+      ])
+    ])
+  ]),
+  R('vp1p1_1b','AI companies have no regulatory obligation to disclose output uncertainty','why',[
+    R('vp1p1_2c','No government or industry body has set a standard for confidence disclosure','why',[
+      R('vp1p1_3e','Regulators lack technical literacy to define what confidence disclosure should look like','why',[
+        R('vp1p1_rE','Regulation written by people who don\'t understand the technology — meaningful standards can\'t be written without that','root',[])
+      ]),
+      R('vp1p1_3f','Industry has successfully framed uncertainty disclosure as technically impossible','why',[
+        R('vp1p1_rF','Companies shaped the regulatory narrative to avoid accountability — uncertainty treated as unsolvable','root',[])
+      ])
+    ]),
+    R('vp1p1_2d','Voluntary industry standards have not filled the gap','why',[
+      R('vp1p1_3g','Competing AI companies have no incentive to unilaterally adopt transparency that makes their product look less capable','why',[
+        R('vp1p1_rG','Market competition actively suppresses transparency — first mover to admit uncertainty loses users','root',[])
+      ])
+    ])
+  ]),
+  R('vp1p1_1c','The model itself cannot reliably know when it is wrong','why',[
+    R('vp1p1_2e','LLMs generate text by predicting likely tokens not by retrieving verified facts','why',[
+      R('vp1p1_3h','The architecture has no internal truth-checking mechanism separate from pattern completion','why',[
+        R('vp1p1_rH','Confidence and accuracy are architecturally decoupled — the model sounds certain because fluent text sounds certain','root',[])
+      ]),
+      R('vp1p1_3i','Training data contains confident-sounding text regardless of accuracy','why',[
+        R('vp1p1_rI','The model learned to sound confident from human writing — humans write confidently even when wrong','root',[])
+      ])
+    ]),
+    R('vp1p1_2f','There is no ground truth the model can check outputs against at inference time','why',[
+      R('vp1p1_3j','The model has no live access to verified databases during response generation by default','why',[
+        R('vp1p1_rJ','Without a real-time verification layer the model can only produce what pattern-matching suggests — correctness is statistical','root',[])
+      ])
+    ])
+  ])
+]),
+
+'cvs-rc1-pp2': R('vp1p2','Time cost of constant verification','problem',[
+  R('vp1p2_1a','Every AI output requires manual cross-checking — nothing signals trustworthiness','why',[
+    R('vp1p2_2a','AI tools provide no triage — high-stakes and trivial claims look identical','why',[
+      R('vp1p2_3a','No built-in risk-scoring for individual claims within a response','why',[
+        R('vp1p2_rA','AI designed as a final-answer tool not a research assistant — claim-level risk assessment never part of the vision','root',[])
+      ]),
+      R('vp1p2_3b','Product teams have not prioritised differentiating claim confidence within a single output','why',[
+        R('vp1p2_rB','Granular confidence display adds UI complexity and slows response perception — deprioritised in favour of clean fast outputs','root',[])
+      ])
+    ]),
+    R('vp1p2_2b','The format of AI outputs actively discourages scepticism','why',[
+      R('vp1p2_3c','Responses are presented as coherent fluent prose which reads as authoritative','why',[
+        R('vp1p2_rC','The medium of confident prose suppresses the reader\'s critical instinct — fluency smooths away rough edges','root',[])
+      ]),
+      R('vp1p2_3d','AI tools don\'t include disclaimers on specific claims even when uncertain','why',[
+        R('vp1p2_rD','Adding hedges to individual claims would require the model to assess its own uncertainty per claim — an ability current architectures lack','root',[])
+      ])
+    ])
+  ]),
+  R('vp1p2_1b','AI errors are unpredictable and don\'t cluster around obvious topics','why',[
+    R('vp1p2_2c','The model hallucinates confidently — prior experience is an unreliable guide to future trust','why',[
+      R('vp1p2_3e','Hallucinations occur because the model prioritises linguistic coherence over factual accuracy','why',[
+        R('vp1p2_rE','The same capability that makes AI readable — fluency — makes hallucinations hard to spot','root',[])
+      ]),
+      R('vp1p2_3f','Errors appear in topics users consider well within AI capability — creating false security','why',[
+        R('vp1p2_rF','Because AI performs well most of the time users build trust that is then violated unpredictably — inconsistency is costly','root',[])
+      ])
+    ]),
+    R('vp1p2_2d','No error history or reliability score visible to the user for past sessions','why',[
+      R('vp1p2_3g','AI tools don\'t track or display accuracy over time','why',[
+        R('vp1p2_rG','Tracking error rates would expose liability and damage product perception — companies have no incentive to make failure rate visible','root',[])
+      ])
+    ])
+  ]),
+  R('vp1p2_1c','Verification requires leaving the AI interface and reconstructing the search','why',[
+    R('vp1p2_2e','AI tools don\'t provide source links or references to start verification from','why',[
+      R('vp1p2_3h','Without a starting point the user must re-do the research the AI silently did','why',[
+        R('vp1p2_rH','AI removes the research trail in the name of a clean answer — verification is made slower than manual search','root',[])
+      ]),
+      R('vp1p2_3i','The AI interface has no integrated fact-checking or source-surfacing feature','why',[
+        R('vp1p2_rI','Integrating verification tools would slow output delivery and add cost — speed is the primary competitive differentiator','root',[])
+      ])
+    ]),
+    R('vp1p2_2f','Different topics require different verification sources and the user must know which to use','why',[
+      R('vp1p2_3j','AI gives no guidance on where to check its claims or which sources are authoritative','why',[
+        R('vp1p2_rJ','The AI treats verification as entirely the user\'s problem — it provides no scaffolding for the critical thinking it implicitly demands','root',[])
+      ])
+    ])
+  ])
+]),
+
+// ════════ CAUTIOUS ANALYST ════════
+'cvs-rc2-pp1': R('ca_p1','No citations or source attribution in output','problem',[
+  R('ca_p1_1a','AI synthesises responses without recording which sources contributed','why',[
+    R('ca_p1_2a','The model stores statistical patterns not documents — attribution is architecturally absent','why',[
+      R('ca_p1_3a','Training pipelines don\'t maintain links between source material and generated text','why',[
+        R('ca_p1_rA','LLMs were never designed around source integrity — attribution technically impossible without a fundamental redesign','root',[])
+      ]),
+      R('ca_p1_3b','Even when retrieval systems exist they are not exposed to users as readable citations','why',[
+        R('ca_p1_rB','Source visibility is a product choice companies haven\'t been incentivised to make — adds UI complexity with no commercial return','root',[])
+      ])
+    ]),
+    R('ca_p1_2b','The model blends information from thousands of sources into a single seamless response','why',[
+      R('ca_p1_3c','Attribution would require crediting hundreds of partial influences not one clean source','why',[
+        R('ca_p1_rC','Statistical synthesis makes clean single-source attribution impossible — the model absorbed patterns from millions','root',[])
+      ]),
+      R('ca_p1_3d','No standard exists for what partial-influence attribution should look like','why',[
+        R('ca_p1_rD','The field hasn\'t defined what fair attribution means for a model trained on the entire internet','root',[])
+      ])
+    ])
+  ]),
+  R('ca_p1_1b','No regulatory requirement exists for AI outputs to be attributed','why',[
+    R('ca_p1_2c','Copyright and citation law was not designed for AI-generated synthesis','why',[
+      R('ca_p1_3e','Legislators haven\'t defined what attribution means when a model learned from rather than copied a source','why',[
+        R('ca_p1_rE','A legal vacuum exists — existing IP law doesn\'t map cleanly onto how LLMs work and new law hasn\'t been written','root',[])
+      ]),
+      R('ca_p1_3f','Courts are still deciding foundational cases about AI and training data','why',[
+        R('ca_p1_rF','Legal uncertainty benefits companies — they operate in the grey zone until courts force a change','root',[])
+      ])
+    ]),
+    R('ca_p1_2d','Industry self-regulation has not produced attribution standards','why',[
+      R('ca_p1_3g','No single company wants to adopt attribution requirements their competitors don\'t have','why',[
+        R('ca_p1_rG','Unilateral transparency is a competitive disadvantage — attribution standards require industry-wide mandate','root',[])
+      ])
+    ])
+  ]),
+  R('ca_p1_1c','Users have no mechanism to request citations within the product','why',[
+    R('ca_p1_2e','Citation controls are not a standard feature in AI interfaces','why',[
+      R('ca_p1_3h','Product teams prioritise speed and fluency over traceability','why',[
+        R('ca_p1_rH','The AI product experience is optimised for fast answers — traceability adds friction and has been designed out','root',[])
+      ]),
+      R('ca_p1_3i','Users who want citations are a minority — the majority don\'t ask','why',[
+        R('ca_p1_rI','Product decisions serve the median user who doesn\'t verify — the minority who need attribution are not the primary design target','root',[])
+      ])
+    ])
+  ])
+]),
+
+'cvs-rc2-pp2': R('ca_p2','AI paraphrases without acknowledging the source','problem',[
+  R('ca_p2_1a','The model has no mechanism to flag when output closely mirrors training material','why',[
+    R('ca_p2_2a','No similarity-checking layer exists between generated output and training corpus','why',[
+      R('ca_p2_3a','Building such a layer would require querying the entire training dataset at inference time — computationally prohibitive','why',[
+        R('ca_p2_rA','Paraphrase detection at scale is technically costly and legally inconvenient — no incentive to solve a problem that creates liability','root',[])
+      ]),
+      R('ca_p2_3b','Even if similarity were detected there is no agreed threshold for when paraphrase requires attribution','why',[
+        R('ca_p2_rB','The absence of a legal or ethical standard for AI paraphrase means even a willing company wouldn\'t know when to trigger disclosure','root',[])
+      ])
+    ]),
+    R('ca_p2_2b','The model is trained to produce original-sounding text which actively masks source proximity','why',[
+      R('ca_p2_3c','Originality is a training objective — the model is rewarded for not sounding like it copied','why',[
+        R('ca_p2_rC','The training objective of sounding original directly suppresses the signal that would reveal paraphrasing — the model is taught to hide its sources','root',[])
+      ]),
+      R('ca_p2_3d','RLHF fine-tuning further polishes outputs away from detectable source similarity','why',[
+        R('ca_p2_rD','Each stage of model refinement moves output further from traceable sources — by delivery the origin has been deliberately obscured','root',[])
+      ])
+    ])
+  ]),
+  R('ca_p2_1b','The legal definition of plagiarism has not been applied to AI paraphrase','why',[
+    R('ca_p2_2c','Courts have not ruled on whether AI paraphrase of training data constitutes infringement','why',[
+      R('ca_p2_3e','The industry moved faster than the legal system creating a grey zone companies exploit','why',[
+        R('ca_p2_rE','Legal ambiguity is commercially useful — until courts rule otherwise companies face no liability for paraphrase without attribution','root',[])
+      ]),
+      R('ca_p2_3f','Proving that a specific output was influenced by a specific source is technically very difficult','why',[
+        R('ca_p2_rF','The evidentiary burden for AI plagiarism claims is so high that even clear cases are hard to litigate','root',[])
+      ])
+    ]),
+    R('ca_p2_2d','Creators whose work was used have no visibility into how their work influenced outputs','why',[
+      R('ca_p2_3g','Training datasets are proprietary and not disclosed to the public or to creators','why',[
+        R('ca_p2_rG','Training data opacity protects companies from accountability — creators cannot claim what they cannot see','root',[])
+      ]),
+      R('ca_p2_3h','There is no notification system to inform creators when their work enters a training set','why',[
+        R('ca_p2_rH','Companies have no obligation to tell creators their work was used — the relationship is entirely invisible and unconsented','root',[])
+      ])
+    ])
+  ])
+]),
+
+// ════════ ETHICAL IDEALIST ════════
+'cvs-rc3-pp1': R('ei_p1','AI deployed without adequate public consultation','problem',[
+  R('ei_p1_1a','Companies treat deployment as an internal product decision not a public governance decision','why',[
+    R('ei_p1_2a','No law requires public consultation before deploying AI in most sectors','why',[
+      R('ei_p1_3a','AI is legally classified as software not as a regulated public service','why',[
+        R('ei_p1_rA','Until AI is reclassified as infrastructure or public service it bypasses democratic processes','root',[])
+      ]),
+      R('ei_p1_3b','The legal threshold for when a technology requires public consultation has never been defined','why',[
+        R('ei_p1_rB','Ambiguity about when consultation is required defaults to never — companies interpret silence as permission','root',[])
+      ])
+    ]),
+    R('ei_p1_2b','Business incentives reward fast deployment — consultation adds time and cost with no commercial return','why',[
+      R('ei_p1_3c','Speed to market is rewarded by investors and competitive pressure','why',[
+        R('ei_p1_rC','The commercial logic of AI deployment is structurally opposed to deliberation — slowing down for consultation is penalised','root',[])
+      ]),
+      R('ei_p1_3d','Delayed deployment means losing first-mover advantage to competitors who don\'t consult','why',[
+        R('ei_p1_rD','In a competitive AI landscape consultation is a self-imposed handicap — no rational commercial actor adopts it without regulation','root',[])
+      ])
+    ])
+  ]),
+  R('ei_p1_1b','Affected communities don\'t know AI is being used in decisions that affect them','why',[
+    R('ei_p1_2c','No notification requirement exists when AI is used in hiring, lending, or public services','why',[
+      R('ei_p1_3e','Transparency obligations for automated decision-making are weak and unenforced','why',[
+        R('ei_p1_rE','People cannot consult on a system they don\'t know exists — disclosure requirements are the prerequisite and they don\'t exist','root',[])
+      ]),
+      R('ei_p1_3f','Companies treat AI use as a proprietary operational detail not a public disclosure','why',[
+        R('ei_p1_rF','AI deployment is classified as a business process not a rights-affecting decision — shields it from transparency requirements','root',[])
+      ])
+    ]),
+    R('ei_p1_2d','Even when AI use is disclosed it is buried in terms of service not surfaced meaningfully','why',[
+      R('ei_p1_3g','Legal disclosure and meaningful disclosure are treated as the same thing','why',[
+        R('ei_p1_rG','The gap between technical compliance and genuine transparency is not policed — companies satisfy the letter while making understanding impossible','root',[])
+      ])
+    ])
+  ]),
+  R('ei_p1_1c','Technical complexity creates a participation barrier for non-expert communities','why',[
+    R('ei_p1_2e','Most people lack the literacy to meaningfully engage with AI system design','why',[
+      R('ei_p1_3h','AI ethics education is not widely taught and technical jargon excludes lay participation','why',[
+        R('ei_p1_rH','Even where consultation mechanisms exist the knowledge gap makes meaningful participation impossible without significant support','root',[])
+      ]),
+      R('ei_p1_3i','Community advocates who could bridge the gap are under-resourced compared to company teams','why',[
+        R('ei_p1_rI','Power asymmetry in consultation processes means communities are outgunned — participation is possible in theory but not in practice','root',[])
+      ])
+    ])
+  ])
+]),
+
+'cvs-rc3-pp2': R('ei_p2','Regulation moves far slower than AI deployment','problem',[
+  R('ei_p2_1a','Legislative processes are structurally slow','why',[
+    R('ei_p2_2a','Legislators often lack technical literacy on AI adding uncertainty to drafting','why',[
+      R('ei_p2_3a','Technical experts are primarily employed by or aligned with AI companies not with regulators','why',[
+        R('ei_p2_rA','People who understand AI well enough to write good regulation are concentrated in the industry being regulated','root',[])
+      ]),
+      R('ei_p2_3b','Regulatory bodies lack budget to hire and retain technical talent competitive with industry salaries','why',[
+        R('ei_p2_rB','Public sector pay cannot compete with AI industry compensation — regulators are perpetually under-equipped','root',[])
+      ])
+    ]),
+    R('ei_p2_2b','Democratic deliberation requires broad consensus across competing interests','why',[
+      R('ei_p2_3c','AI regulation touches innovation, rights, economy, and security — domains that rarely move together','why',[
+        R('ei_p2_rC','The breadth of AI\'s impact means regulation requires coordination across stakeholders with different speeds — consensus is structurally slow','root',[])
+      ]),
+      R('ei_p2_3d','Lobbying from AI companies extends deliberation timelines by introducing competing evidence','why',[
+        R('ei_p2_rD','The deliberation process is exploited by well-resourced actors to extend timelines — delay itself is a lobbying strategy','root',[])
+      ])
+    ])
+  ]),
+  R('ei_p2_1b','AI companies actively lobby to delay or dilute regulation','why',[
+    R('ei_p2_2c','Companies have enormous financial resources and political access relative to civil society','why',[
+      R('ei_p2_3e','The cost of regulation to an AI company is direct and quantifiable while societal benefit is diffuse','why',[
+        R('ei_p2_rE','Power asymmetry between regulated and regulator means industry shapes the rules — regulation arrives late, weak, or full of carve-outs','root',[])
+      ]),
+      R('ei_p2_3f','Revolving door between AI industry and regulatory bodies creates structural conflicts of interest','why',[
+        R('ei_p2_rF','Regulators who expect to return to industry have personal incentives to write rules that don\'t bite — capture is structural','root',[])
+      ])
+    ]),
+    R('ei_p2_2d','Public advocates lack resources to counter industry lobbying effectively','why',[
+      R('ei_p2_3g','Civil society AI ethics organisations are chronically underfunded relative to industry','why',[
+        R('ei_p2_rG','The people arguing for stronger regulation have a fraction of the resources of those arguing against — the outcome reflects this','root',[])
+      ])
+    ])
+  ]),
+  R('ei_p2_1c','AI capability evolves faster than any regulatory cycle','why',[
+    R('ei_p2_2e','A law written for current AI is obsolete before it passes','why',[
+      R('ei_p2_3h','Model capability has doubled or more within single legislative cycles','why',[
+        R('ei_p2_rH','Fundamental temporal mismatch between AI development speed and democratic governance speed — regulation governs yesterday\'s technology','root',[])
+      ]),
+      R('ei_p2_3i','Broad AI laws become loopholes as companies develop capabilities not envisioned at drafting','why',[
+        R('ei_p2_rI','Static regulation applied to a dynamic technology creates gaps that are exploited — the law means less over time','root',[])
+      ])
+    ])
+  ])
+]),
+
+// ════════ PASSIVE CONSUMER ════════
+'cvs-rc4-pp1': R('pc_p1','No easy way to understand what data is collected','problem',[
+  R('pc_p1_1a','Data collection information is buried in legal documents not surfaced in the product','why',[
+    R('pc_p1_2a','Terms of service are written by legal teams for legal protection not user comprehension','why',[
+      R('pc_p1_3a','No regulatory standard requires data disclosure to be written in plain language','why',[
+        R('pc_p1_rA','Informed consent is legally obtained through a clicked ToS regardless of comprehension — the system treats understanding as optional','root',[])
+      ]),
+      R('pc_p1_3b','Plain language disclosure would make opting out easier which has commercial cost','why',[
+        R('pc_p1_rB','Comprehensible disclosure is commercially harmful — making data practices clear invites users to restrict them so opacity is maintained by design','root',[])
+      ])
+    ]),
+    R('pc_p1_2b','There is no standard signal or label in AI products indicating data collection is occurring','why',[
+      R('pc_p1_3c','No design convention equivalent to the cookie banner exists for AI data practices','why',[
+        R('pc_p1_rC','The regulatory push that created cookie banners has not extended to AI — without a mandated trigger most users never encounter a disclosure moment','root',[])
+      ]),
+      R('pc_p1_3d','AI products are designed to feel seamless and invisible data collection supports that feeling','why',[
+        R('pc_p1_rD','The user experience of AI is built on frictionlessness — any visible data indicator creates friction that undermines the product value','root',[])
+      ])
+    ])
+  ]),
+  R('pc_p1_1b','Users have no mental model for what AI data collection involves','why',[
+    R('pc_p1_2c','AI data practices are more complex than social media data and harder to explain simply','why',[
+      R('pc_p1_3e','AI literacy around data is extremely low in the general population','why',[
+        R('pc_p1_rE','The gap between how AI systems use data and what ordinary people imagine is so large that even good-faith disclosure would struggle','root',[])
+      ]),
+      R('pc_p1_3f','The industry uses technical language that obscures rather than clarifies data practices','why',[
+        R('pc_p1_rF','Jargon functions as a transparency barrier — terms like inference data, embeddings, fine-tuning are accurate but impenetrable','root',[])
+      ])
+    ]),
+    R('pc_p1_2d','Media coverage of AI data practices focuses on policy not on personal user guidance','why',[
+      R('pc_p1_3g','Journalists covering AI data write for a policy audience not for ordinary users','why',[
+        R('pc_p1_rG','Awareness exists at a systemic level but never translates into personal actionable knowledge — people know AI data is a problem but not what to do','root',[])
+      ])
+    ])
+  ]),
+  R('pc_p1_1c','Even technically literate users struggle to find complete information about data practices','why',[
+    R('pc_p1_2e','Data practices are spread across multiple documents — privacy policy, ToS, cookie policy, research terms','why',[
+      R('pc_p1_3h','No single consolidated disclosure covers all the ways a user\'s data may be used','why',[
+        R('pc_p1_rH','Fragmented disclosure is a compliance strategy — spreading information across documents makes a complete picture practically impossible to assemble','root',[])
+      ]),
+      R('pc_p1_3i','Documents are updated frequently without prominent notification to users','why',[
+        R('pc_p1_rI','Data practices can change without users knowing — consent given at signup doesn\'t cover practices introduced later','root',[])
+      ])
+    ])
+  ])
+]),
+
+'cvs-rc4-pp2': R('pc_p2','Feels powerless — no visible user controls','problem',[
+  R('pc_p2_1a','Privacy controls are buried several levels deep in settings menus','why',[
+    R('pc_p2_2a','Companies design defaults to maximise data collection','why',[
+      R('pc_p2_3a','Opt-out controls reduce data yield so friction is built into the opt-out path by design','why',[
+        R('pc_p2_rA','The absence of visible controls is deliberate — empowering users to restrict data is commercially harmful so the path is made as long as possible','root',[])
+      ]),
+      R('pc_p2_3b','Dark patterns make finding and using controls cognitively exhausting','why',[
+        R('pc_p2_rB','Interface design is weaponised against user agency — controls that technically exist are practically inaccessible through deliberate UX choices','root',[])
+      ])
+    ]),
+    R('pc_p2_2b','No regulatory standard mandates how prominently user controls must be displayed','why',[
+      R('pc_p2_3c','Without placement requirements companies have full discretion to bury controls','why',[
+        R('pc_p2_rC','Control visibility is left to company discretion and companies have no incentive to make opting out easy','root',[])
+      ]),
+      R('pc_p2_3d','Regulators have focused on whether controls exist not on whether they are usable','why',[
+        R('pc_p2_rD','Compliance is judged by existence not usability — a control buried five menus deep satisfies the legal requirement while defeating its purpose','root',[])
+      ])
+    ])
+  ]),
+  R('pc_p2_1b','Some data uses have no opt-out at all','why',[
+    R('pc_p2_2c','Companies claim certain processing is necessary for the service to function','why',[
+      R('pc_p2_3e','The legal definition of necessary processing is broad and poorly enforced','why',[
+        R('pc_p2_rE','Necessary processing has been stretched so far that users effectively cannot opt out of significant data uses — the concept has been hollowed out','root',[])
+      ]),
+      R('pc_p2_3f','Courts have not consistently limited what companies can call necessary','why',[
+        R('pc_p2_rF','Legal ambiguity around necessity allows companies to classify almost any data use as essential — users have no recourse','root',[])
+      ])
+    ]),
+    R('pc_p2_2d','Opting out of one service often doesn\'t prevent data sharing with third parties','why',[
+      R('pc_p2_3g','Data sharing agreements with partners are not subject to user-level control in most platforms','why',[
+        R('pc_p2_rG','Control over primary data collection doesn\'t extend to downstream sharing — users who opt out may still have their data traded','root',[])
+      ])
+    ])
+  ]),
+  R('pc_p2_1c','When controls are found they often don\'t cover what users actually care about','why',[
+    R('pc_p2_2e','Controls are scoped narrowly covering only certain data types or uses','why',[
+      R('pc_p2_3h','Companies design controls to appear comprehensive while preserving their most valuable data flows','why',[
+        R('pc_p2_rH','Privacy controls are often performative — designed to satisfy a legal checkbox rather than give users genuine agency','root',[])
+      ]),
+      R('pc_p2_3i','The data uses users are most concerned about are often the ones with no available control','why',[
+        R('pc_p2_rI','Companies protect their most commercially valuable data flows by ensuring no control exists over them — the gap is not accidental','root',[])
+      ])
+    ])
+  ])
+]),
+
+// ════════ TECHNO-OPTIMIST ════════
+'cvs-rc5-pp1': R('to_p1','AI tools occasionally over-censored for their use case','problem',[
+  R('to_p1_1a','Safety filters use broad categories that can\'t distinguish harmful from legitimate use','why',[
+    R('to_p1_2a','Filters are trained on worst-case examples not on the full range of legitimate use cases','why',[
+      R('to_p1_3a','The cost of a harmful output reaching the press far exceeds the cost of blocking a power user','why',[
+        R('to_p1_rA','Safety calibration is driven by reputational risk management not by user need — conservative defaults protect the company not the user','root',[])
+      ]),
+      R('to_p1_3b','Power users and creative professionals were not centred in safety system design','why',[
+        R('to_p1_rB','The threat model that drives safety design is shaped by who has the loudest voice — power users are underrepresented','root',[])
+      ])
+    ]),
+    R('to_p1_2b','There is no personalised safety profile — the same filter applies to every user','why',[
+      R('to_p1_3c','Building context-aware safety is technically complex and expensive','why',[
+        R('to_p1_rC','One-size-fits-all safety is cheaper to build and easier to defend publicly — nuanced user-context filtering hasn\'t been prioritised','root',[])
+      ]),
+      R('to_p1_3d','Personalised safety creates liability — if a user sets their own level and harm results the company is exposed','why',[
+        R('to_p1_rD','Liability concerns prevent context-sensitive safety — blanket restriction is legally safer even when it fails the user','root',[])
+      ])
+    ])
+  ]),
+  R('to_p1_1b','Creative and professional use cases weren\'t considered in safety design','why',[
+    R('to_p1_2c','Safety teams think primarily about misuse not about the needs of legitimate power users','why',[
+      R('to_p1_3e','The people most vocal about AI harms are researchers and journalists not creative professionals','why',[
+        R('to_p1_rE','Public discourse shapes internal priorities — because harm stories get coverage and creative professional needs don\'t, safety teams build for the former','root',[])
+      ]),
+      R('to_p1_3f','Companies face no commercial penalty for over-blocking creative content','why',[
+        R('to_p1_rF','Power users complain but don\'t leave — the commercial cost of over-censorship is low enough that companies tolerate it rather than fix it','root',[])
+      ])
+    ]),
+    R('to_p1_2d','There is no appeals mechanism for blocked legitimate requests','why',[
+      R('to_p1_3g','Building an appeals system creates liability — approving something harmful after review means the company owns it','why',[
+        R('to_p1_rG','The absence of appeals is a legal self-protection strategy — easier to over-block with no recourse than create a review process','root',[])
+      ]),
+      R('to_p1_3h','Users have no way to demonstrate legitimate intent to the system','why',[
+        R('to_p1_rH','AI safety systems have no mechanism for intent verification — the system treats all users as equally suspect because it has no way to distinguish them','root',[])
+      ])
+    ])
+  ]),
+  R('to_p1_1c','Filter calibration prioritises false negative avoidance over false positive cost','why',[
+    R('to_p1_2e','A missed harmful output is visible and embarrassing — a blocked legitimate request is invisible','why',[
+      R('to_p1_3i','Incentives are asymmetric — one type of error creates headlines and the other creates quiet user frustration','why',[
+        R('to_p1_rI','The asymmetry of consequence means safety systems are tuned to eliminate the visible error at the expense of the invisible one','root',[])
+      ]),
+      R('to_p1_3j','There is no metric tracking how often legitimate requests are incorrectly blocked','why',[
+        R('to_p1_rJ','False positive rates are not measured or reported — companies have no data on the cost of over-censorship and therefore no pressure to reduce it','root',[])
+      ])
+    ])
+  ])
+]),
+
+'cvs-rc5-pp2': R('to_p2','Regulation proposals feel like attacks on capability','problem',[
+  R('to_p2_1a','Most proposals are written broadly covering all AI systems in one framework','why',[
+    R('to_p2_2a','Legislators lack technical precision to distinguish between types of AI use and risk','why',[
+      R('to_p2_3a','Technical expertise in drafting is provided by the industry being regulated','why',[
+        R('to_p2_rA','Regulatory capture means the people with knowledge to write nuanced rules have conflicts of interest — broad blunt regulation results','root',[])
+      ]),
+      R('to_p2_3b','Broad framing is politically safer — narrow rules require defending specific distinctions under lobbying pressure','why',[
+        R('to_p2_rB','Political incentives favour broad rules that can\'t be picked apart over precise rules that require defending — nuance is a political liability','root',[])
+      ])
+    ]),
+    R('to_p2_2b','No carve-out exists for power users or professional contexts','why',[
+      R('to_p2_3c','Power users are invisible in the policy conversation — their use cases are never raised','why',[
+        R('to_p2_rC','Regulation is calibrated for the median or vulnerable user — power users don\'t have organised representation in policy spaces','root',[])
+      ]),
+      R('to_p2_3d','Regulators don\'t distinguish between who is harmed by a capability and who benefits from it','why',[
+        R('to_p2_rD','Risk-only framing ignores the distributional cost of restriction — people who lose most from capability limits are never counted','root',[])
+      ])
+    ])
+  ]),
+  R('to_p2_1b','This persona has no representative voice in the AI regulation debate','why',[
+    R('to_p2_2c','The debate is dominated by safety advocates, academics, and civil society groups','why',[
+      R('to_p2_3e','Power users who want capability preservation are individually vocal but structurally unorganised','why',[
+        R('to_p2_rE','Without organised political representation power users cannot shape regulation to protect their interests — the debate proceeds without their perspective','root',[])
+      ]),
+      R('to_p2_3f','The media frames AI regulation as safety advocates vs big tech — individual capability users don\'t fit either camp','why',[
+        R('to_p2_rF','The dominant narrative has no slot for the power user who wants freedom without being pro-corporation — structurally excluded from the debate','root',[])
+      ])
+    ]),
+    R('to_p2_2d','Capability preservation is not treated as a legitimate regulatory value','why',[
+      R('to_p2_3g','Regulatory processes are tasked with preventing harm not with protecting capability','why',[
+        R('to_p2_rG','The regulatory process has no structural counterweight to risk-minimisation — capability preservation consistently loses in regulatory trade-offs','root',[])
+      ]),
+      R('to_p2_3h','The assumption that less capability means less risk is baked into regulatory thinking but is often false','why',[
+        R('to_p2_rH','Over-restriction creates its own harms — pushing users to unregulated alternatives — but these second-order effects are invisible in risk-only frameworks','root',[])
+      ])
+    ])
+  ]),
+  R('to_p2_1c','Regulation language frames all AI capability as potential risk','why',[
+    R('to_p2_2e','Risk-first framing is standard in regulatory drafting because regulators prevent harm','why',[
+      R('to_p2_3i','There is no institutional voice tasked with protecting AI capability and user freedom','why',[
+        R('to_p2_rI','The incentive structure of regulation guarantees one-sided outputs — harm prevention has champions with budget while capability protection has none','root',[])
+      ]),
+      R('to_p2_3j','Positive use cases are treated as assumptions not as values to be protected','why',[
+        R('to_p2_rJ','Regulation protects against what might go wrong but never explicitly protects what must go right — capability is taken for granted until regulated away','root',[])
+      ])
+    ])
+  ])
+])
+
+}; // end TREES
+
+// ── Layout constants ───────────────────────────────────────────────
+const NODE_W  = 200;
+const NODE_PAD_X = 8;
+const NODE_PAD_Y = 7;
+const H_GAP   = 24;   // horizontal gap between siblings
+const V_GAP   = 52;   // vertical gap between levels
+const FONT_SZ = 11;
+const FONT_FAM = "'Syne', sans-serif";
+const MONO_FAM = "'DM Mono', monospace";
+const LINE_H  = 15;
+
+// Wrap text into lines given max width
+function wrapText(ctx, text, maxW){
+  const words = text.split(' ');
+  const lines = [];
+  let cur = '';
+  for(const w of words){
+    const test = cur ? cur+' '+w : w;
+    if(ctx.measureText(test).width > maxW && cur){
+      lines.push(cur);
+      cur = w;
+    } else {
+      cur = test;
+    }
+  }
+  if(cur) lines.push(cur);
+  return lines;
+}
+
+// Measure node height
+function nodeHeight(ctx, node, maxW){
+  ctx.font = FONT_SZ+'px '+FONT_FAM;
+  const innerW = maxW - NODE_PAD_X*2;
+  const lines = wrapText(ctx, node.label, innerW);
+  let h = NODE_PAD_Y*2 + lines.length * LINE_H;
+  if(node.type === 'root') h += 16; // extra for ROOT CAUSE label above
+  return h;
+}
+
+// ── Reingold–Tilford style layout ─────────────────────────────────
+function layoutTree(node, ctx){
+  assignDims(node, ctx);
+  assignX(node, 0);
+  // shift whole tree so min x = 0
+  const minX = getMinX(node, Infinity);
+  shiftX(node, -minX);
+  // assign Y
+  assignY(node, 0, ctx);
+}
+
+function assignDims(node, ctx){
+  node._h = nodeHeight(ctx, node, NODE_W);
+  if(node.children.length === 0){
+    node._w = NODE_W;
+    return;
+  }
+  node.children.forEach(c => assignDims(c, ctx));
+  const totalChildW = node.children.reduce((s,c)=>s+c._w,0) + H_GAP*(node.children.length-1);
+  node._w = Math.max(NODE_W, totalChildW);
+}
+
+function assignX(node, left){
+  node._x = left + (node._w - NODE_W)/2;
+  if(node.children.length === 0) return;
+  let childLeft = left;
+  node.children.forEach(c=>{
+    assignX(c, childLeft);
+    childLeft += c._w + H_GAP;
+  });
+}
+
+function getMinX(node, m){
+  m = Math.min(m, node._x);
+  node.children.forEach(c => { m = getMinX(c, m); });
+  return m;
+}
+
+function shiftX(node, dx){
+  node._x += dx;
+  node.children.forEach(c=>shiftX(c, dx));
+}
+
+function assignY(node, y, ctx){
+  node._y = y;
+  node.children.forEach(c=>{
+    assignY(c, y + node._h + V_GAP, ctx);
+  });
+}
+
+function getTotalWidth(node){
+  let maxR = 0;
+  function walk(n){ maxR = Math.max(maxR, n._x + NODE_W); n.children.forEach(walk); }
+  walk(node);
+  return maxR;
+}
+
+function getTotalHeight(node){
+  let maxB = 0;
+  function walk(n){ maxB = Math.max(maxB, n._y + n._h); n.children.forEach(walk); }
+  walk(node);
+  return maxB;
+}
+
+// ── Drawing ────────────────────────────────────────────────────────
+const MARGIN = 32;
+
+function drawNode(ctx, node, color){
+  const x = node._x + MARGIN;
+  const y = node._y + MARGIN;
+  const w = NODE_W;
+  const h = node._h;
+  const r = 7;
+
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r);
+  ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+
+  if(node.type === 'problem'){
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold '+FONT_SZ+'px '+FONT_FAM;
+  } else if(node.type === 'root'){
+    // Draw ROOT CAUSE mini-label above node
+    ctx.font = '8px '+MONO_FAM;
+    ctx.fillStyle = color;
+    ctx.textAlign = 'center';
+    ctx.fillText('ROOT CAUSE', x + w/2, y - 5);
+
+    ctx.fillStyle = '#1a1714';
+    ctx.fill();
+    ctx.strokeStyle = '#1a1714';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold '+FONT_SZ+'px '+FONT_FAM;
+  } else {
+    ctx.fillStyle = '#edeae3';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(26,23,20,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = '#1a1714';
+    ctx.font = FONT_SZ+'px '+FONT_FAM;
+  }
+
+  // Draw text
+  ctx.textAlign = 'center';
+  const innerW = w - NODE_PAD_X*2;
+  const lines = wrapText(ctx, node.label, innerW);
+  const textBlockH = lines.length * LINE_H;
+  let ty = y + (h - textBlockH)/2 + LINE_H - 2;
+  for(const line of lines){
+    ctx.fillText(line, x + w/2, ty);
+    ty += LINE_H;
+  }
+}
+
+function drawEdge(ctx, parent, child, color){
+  const px = parent._x + MARGIN + NODE_W/2;
+  const py = parent._y + MARGIN + parent._h;
+  const cx = child._x  + MARGIN + NODE_W/2;
+  const cy = child._y  + MARGIN;
+
+  ctx.beginPath();
+  ctx.moveTo(px, py);
+  ctx.lineTo(cx, cy);
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Arrowhead
+  const angle = Math.atan2(cy - py, cx - px);
+  const aw = 7;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(cx - aw*Math.cos(angle-0.4), cy - aw*Math.sin(angle-0.4));
+  ctx.lineTo(cx - aw*Math.cos(angle+0.4), cy - aw*Math.sin(angle+0.4));
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+function drawTree(canvasId, color){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  const tree = TREES[canvasId];
+  if(!tree) return;
+
+  // Measure
+  const offscreen = document.createElement('canvas');
+  const octx = offscreen.getContext('2d');
+  octx.font = FONT_SZ+'px '+FONT_FAM;
+
+  layoutTree(tree, octx);
+
+  const tw = getTotalWidth(tree) + MARGIN*2;
+  const th = getTotalHeight(tree) + MARGIN*2 + 20; // extra for ROOT CAUSE labels
+
+  const minW = 1200;
+  canvas.width  = Math.max(tw, minW);
+  canvas.height = th;
+  canvas.style.minWidth  = canvas.width + 'px';
+  canvas.style.minHeight = canvas.height + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw edges first (behind nodes)
+  function drawEdges(node){
+    node.children.forEach(child=>{
+      drawEdge(ctx, node, child, color);
+      drawEdges(child);
+    });
+  }
+  drawEdges(tree);
+
+  // Draw nodes
+  function drawNodes(node){
+    drawNode(ctx, node, color);
+    node.children.forEach(drawNodes);
+  }
+  drawNodes(tree);
+}
+
+// ── Panel render ───────────────────────────────────────────────────
+const panelCanvases = {
+  rc1: ['cvs-rc1-pp1','cvs-rc1-pp2'],
+  rc2: ['cvs-rc2-pp1','cvs-rc2-pp2'],
+  rc3: ['cvs-rc3-pp1','cvs-rc3-pp2'],
+  rc4: ['cvs-rc4-pp1','cvs-rc4-pp2'],
+  rc5: ['cvs-rc5-pp1','cvs-rc5-pp2']
+};
+const panelColors = {
+  rc1:'#c85a2a', rc2:'#1d6b52', rc3:'#3a4f8c', rc4:'#8c3a6e', rc5:'#8c6030'
+};
+
+function renderPanel(key){
+  const ids = panelCanvases[key];
+  const color = panelColors[key];
+  if(!ids) return;
+  ids.forEach(id => drawTree(id, color));
+}
+
+// ── Scroll fade ────────────────────────────────────────────────────
+const rcSection = document.getElementById('rootcause');
+if(rcSection){
+  const io2 = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        rcSection.querySelectorAll('.fi').forEach(el=>el.classList.add('v'));
+      }
+    });
+  },{threshold:0.05});
+  io2.observe(rcSection);
+}
+
+// ── Initial render ─────────────────────────────────────────────────
+// Defer until fonts are ready
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(()=>renderPanel('rc1'));
+} else {
+  window.addEventListener('load',()=>renderPanel('rc1'));
+}
+
+})();
+</script>
 
 <!-- FOOTER -->
 <footer>
