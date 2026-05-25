@@ -110,31 +110,18 @@
         color: "#8b5cf6",
         methods: [
           {
-            name: "FONC — First Order Necessary Conditions",
+            name: "FONC & SONC",
             tag: "Theory",
-            theory: "For $x^*$ to be a local minimum of $f(x)$, the gradient must vanish at $x^*$. This is necessary but NOT sufficient.",
+            theory: "Necessary conditions for finding and classifying local extrema of a multivariable function.",
             steps: [
-              "Compute the gradient vector: $\\nabla f(x) = [\\frac{\\partial f}{\\partial x_1}, \\dots, \\frac{\\partial f}{\\partial x_n}]^T$",
-              "Set $\\nabla f(x^*) = 0$ (each partial derivative = 0)",
-              "Solve the system of equations for $x^*$",
-              "These are 'stationary points' — could be min, max, or saddle points"
-            ],
-            keyFormula: "\\nabla f(x^*) = 0",
-            tip: "FONC alone is not enough. Always check SONC."
-          },
-          {
-            name: "SONC — Second Order Necessary Conditions",
-            tag: "Theory",
-            theory: "At a local minimum $x^*$, the Hessian matrix $H(x^*)$ must be positive semi-definite ($H \\succeq 0$). For a strict local min, $H \\succ 0$.",
-            steps: [
-              "Compute the Hessian matrix $H(x^*)$ — matrix of second partial derivatives",
-              "Check eigenvalues of $H(x^*)$",
-              "All eigenvalues $> 0 \\rightarrow$ Positive Definite $\\rightarrow$ Local MINIMUM",
-              "All eigenvalues $< 0 \\rightarrow$ Negative Definite $\\rightarrow$ Local MAXIMUM",
-              "Mixed eigenvalues $\\rightarrow$ Saddle Point"
+              "Compute gradient vector $\\nabla f(x)$ and set it to $0$ to find stationary points.",
+              "Compute the Hessian matrix $H(x^*)$ — the matrix of second partial derivatives.",
+              "Check eigenvalues of $H(x^*)$.",
+              "All eigenvalues $> 0 \\rightarrow$ Positive Definite $\\rightarrow$ Local MINIMUM.",
+              "All eigenvalues $< 0 \\rightarrow$ Negative Definite $\\rightarrow$ Local MAXIMUM."
             ],
             keyFormula: "H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}",
-            tip: "For 2D: check determinant $|H| > 0$ and $H_{11} > 0$ for a minimum."
+            tip: "For a 2x2 Hessian matrix, you can verify it is positive definite by checking if its determinant $|H| > 0$ AND $H_{11} > 0$."
           },
           {
             name: "Gradient Descent / Steepest Descent",
@@ -147,7 +134,7 @@
               "Check: $\\|\\nabla f(x^{(k+1)})\\| < \\epsilon \\rightarrow$ STOP"
             ],
             keyFormula: "x^{(k+1)} = x^{(k)} - \\alpha_k \\nabla f(x^{(k)})",
-            tip: "Slow convergence (linear). Can zigzag near minimum."
+            tip: "Slow convergence (linear). Can zigzag heavily near the minimum."
           },
           {
             name: "Conjugate Gradient Method",
@@ -158,11 +145,48 @@
               "Line search to find optimal $\\alpha_k$",
               "Update: $x^{(k+1)} = x^{(k)} + \\alpha_k d^{(k)}$",
               "Compute new gradient: $g^{(k+1)} = \\nabla f(x^{(k+1)})$",
-              "Compute $\\beta_k$ (Fletcher-Reeves)",
+              "Compute $\\beta_k$ (weight of previous direction)",
               "New direction: $d^{(k+1)} = -g^{(k+1)} + \\beta_k d^{(k)}$"
             ],
             keyFormula: "\\beta_k = \\frac{\\|\\nabla f(x^{(k+1)})\\|^2}{\\|\\nabla f(x^{(k)})\\|^2}",
-            tip: "Faster than steepest descent. Two directions are conjugate if $d_i^T H d_j = 0$."
+            tip: "Faster than steepest descent. Conjugate directions ensure you never 'undo' progress made in a previous search dimension."
+          },
+          {
+            name: "Quasi-Newton (BFGS)",
+            tag: "Algorithm",
+            theory: "Instead of computing the exact Hessian matrix which is computationally expensive, BFGS builds an approximation $B^{(k)}$ using gradient differences from successive iterations.",
+            steps: [
+              "Compute position difference: $\\Delta x^{(k)} = x^{(k)} - x^{(k-1)}$",
+              "Compute gradient difference: $z_1 = g^{(k)} - g^{(k-1)}$",
+              "Compute scaling factor 1: $\\gamma_1 = \\frac{1}{z_1^T \\Delta x^{(k)}}$",
+              "Compute intermediate vector: $z_2 = B^{(k-1)} \\Delta x^{(k)}$",
+              "Compute scaling factor 2: $\\gamma_2 = \\frac{-1}{(\\Delta x^{(k)})^T B^{(k-1)} \\Delta x^{(k)}}$",
+              "Update Hessian estimate: $B^{(k)} = B^{(k-1)} + \\gamma_1 z_1 z_1^T + \\gamma_2 z_2 z_2^T$"
+            ],
+            keyFormula: "B^{(k)} = B^{(k-1)} + \\gamma_1 z_1 z_1^T + \\gamma_2 z_2 z_2^T",
+            tip: "Matrix multiplication order matters here! $z_1 z_1^T$ produces a matrix, not a scalar. Also, in 1D optimization, this BFGS update formula mathematically simplifies to the exact second derivative estimate used by the Secant Method."
+          }
+        ]
+      },
+      {
+        q: "Q8",
+        title: "Swarm-Based Optimization",
+        color: "#f59e0b",
+        methods: [
+          {
+            name: "Particle Swarm Optimization (PSO)",
+            tag: "Metaheuristic",
+            theory: "A population-based algorithm where particles move through a search space. Each particle updates its velocity based on its own inertia, its personal best known position, and the global best known position of the entire swarm.",
+            steps: [
+              "Identify parameters: inertia $w$, cognitive $c_1$, social $c_2$, and random vectors $r_1, r_2$.",
+              "Identify particle's current pos $x_i^{(t)}$, velocity $v_i^{(t)}$, personal best $p_i^{(t)}$, and global best $g^{(t)}$.",
+              "Compute Cognitive Component: $c_1 r_1 \\circ (p_i^{(t)} - x_i^{(t)})$",
+              "Compute Social Component: $c_2 r_2 \\circ (g^{(t)} - x_i^{(t)})$",
+              "Update Velocity: $v_i^{(t+1)} = w \\cdot v_i^{(t)} + \\text{Cognitive} + \\text{Social}$",
+              "Update Position: $x_i^{(t+1)} = x_i^{(t)} + v_i^{(t+1)}$"
+            ],
+            keyFormula: "v_i^{(t+1)} = w v_i^{(t)} + c_1 r_1 \\circ (p_i - x_i) + c_2 r_2 \\circ (g - x_i)",
+            tip: "The operation $\\circ$ is element-wise multiplication (Hadamard product). Just like balancing ISO and aperture for a perfectly exposed shot, tuning the inertia weight ($w$) and coefficients ($c_1, c_2$) balances exploration and exploitation of the search space."
           }
         ]
       },
@@ -186,22 +210,8 @@
             tip: "Standard form is mandatory before applying algorithms like Simplex."
           },
           {
-            name: "Basic Feasible Solutions (BFS)",
-            tag: "Algorithm",
-            theory: "An algebraic method to find the vertices of the feasible set. A BFS corresponds exactly to an extreme point (vertex) of the polytope.",
-            steps: [
-              "Given equality constraints $Ax = b$, with $m$ equations and $n$ variables.",
-              "Partition variables into Basic Variables ($m$) and Non-Basic Variables ($n-m$).",
-              "Set all $(n-m)$ Non-Basic Variables strictly to $0$.",
-              "Solve the remaining system for the $m$ Basic Variables.",
-              "If the resulting solution vector satisfies $x \\ge 0$, it is a Basic Feasible Solution."
-            ],
-            keyFormula: "x_B = B^{-1}b \\ge 0 \\quad (\\text{where } x_N = 0)",
-            tip: "Test different combinations of which variables are chosen as 'non-basic'. Total combinations = ${}^nC_m$."
-          },
-          {
             name: "Two-Phase Simplex Method",
-            tag: "Algorithm (Lec 29)",
+            tag: "Algorithm",
             theory: "Required to find an initial BFS for standard LPs when no obvious identity matrix exists (e.g., when adding artificial variables $y_i$).",
             steps: [
               "Phase 1: Introduce artificial variables $y \\in \\mathbb{R}^m$ to constraints: $Ax + y = b$.",
@@ -212,19 +222,6 @@
             ],
             keyFormula: "\\text{Phase 1 Obj: } \\min y_1 + y_2 + \\dots + y_m",
             tip: "Artificial variables $y$ are strictly for Phase 1. Once Phase 1 is optimal and obj is 0, they are discarded."
-          },
-          {
-            name: "Duality & Weak Duality",
-            tag: "Theory (Lec 31-32)",
-            theory: "Every Primal LP has an equivalent Dual LP. Weak Duality states that any feasible solution to the Dual provides a lower bound for the Primal.",
-            steps: [
-              "Primal: $\\min c^T x$ subject to $Ax = b$ and $x \\ge 0$.",
-              "Dual: $\\max \\lambda^T b$ subject to $\\lambda^T A \\le c^T$.",
-              "If primal has $n$ variables and $m$ constraints $\\rightarrow$ dual has $m$ variables and $n$ constraints.",
-              "Weak Duality Proof: $\\lambda^T A x \\le c^T x \\implies \\lambda^T b \\le c^T x$."
-            ],
-            keyFormula: "\\text{Weak Duality: } c^T x \\ge \\lambda^T b",
-            tip: "If Primal is a MINIMIZATION problem, the Dual gives a LOWER bound. Used as a termination criteria."
           }
         ]
       },
@@ -233,19 +230,6 @@
         title: "Integer Programming",
         color: "#ef4444",
         methods: [
-          {
-            name: "Relaxing an Optimization Problem",
-            tag: "Theory (Lec 33-34)",
-            theory: "If we drop the integer constraint ($x \\in \\mathbb{Z}^n \\rightarrow x \\in \\mathbb{R}^n$), the feasible set becomes larger. The optimal solution of the relaxed problem provides a lower bound.",
-            steps: [
-              "Define IP: $\\min f(x)$ s.t. $h(x) \\le 0, x \\in \\mathbb{Z}^n$ (Feasible set $S_1$)",
-              "Define Relaxed OP: $\\min f(x)$ s.t. $h(x) \\le 0, x \\in \\mathbb{R}^n$ (Feasible set $S_2$)",
-              "Because $S_1 \\subseteq S_2$, the minimum over the bigger set $S_2$ will always be lesser or equal.",
-              "Therefore: $Z_2^* \\le Z_1^*$ (where $Z$ is the optimal objective value)."
-            ],
-            keyFormula: "Z_{\\text{relaxed}}^* \\le Z_{\\text{integer}}^*",
-            tip: "If the optimal solution of the relaxed problem happens to be all integers, it is identically the optimal solution for the IP!"
-          },
           {
             name: "Branch and Bound Algorithm",
             tag: "Algorithm",
@@ -295,42 +279,28 @@
             ],
             keyFormula: "\\nabla f(x^*) + \\sum_{i=1}^m \\lambda_i^* \\nabla h_i(x^*) = 0",
             tip: "This is a NECESSARY condition, not sufficient. Finding a point doesn't guarantee a minimum, but if a minimum exists, it WILL satisfy this equation."
-          },
-          {
-            name: "Gradient Descent for Lagrangian",
-            tag: "Algorithm",
-            theory: "An algorithmic way to solve Equality Constrained NLP by updating $x$ and $\\lambda$ iteratively (Lecture 35).",
-            steps: [
-              "Initialize starting points for $x^{(k)}$ and $\\lambda^{(k)}$.",
-              "Compute the gradients: $\\nabla_x L$ and $\\nabla_\\lambda L$.",
-              "Update $x$ by stepping AGAINST the gradient (descent):",
-              "   $\\rightarrow x^{(k+1)} = x^{(k)} - \\alpha^{(k)} \\nabla_x L$",
-              "Update $\\lambda$ by stepping against the gradient w.r.t $\\lambda$:",
-              "   $\\rightarrow \\lambda^{(k+1)} = \\lambda^{(k)} - \\tilde{\\alpha}^{(k)} \\nabla_\\lambda L$"
-            ],
-            keyFormula: "\\lambda^{(k+1)} \\leftarrow \\lambda^{(k)} - \\tilde{\\alpha}^{(k)} \\nabla_\\lambda L",
-            tip: "Pay close attention to the minus signs in the updates as defined in Lec 35! Always substitute $\\lambda^{(k)}$ when evaluating derivatives."
           }
         ]
       },
       {
-        q: "Q8",
+        q: "Form",
         title: "Problem Formulation",
         color: "#6366f1",
         methods: [
           {
-            name: "Set Cover Problem",
-            tag: "Formulation (Lec 26)",
-            theory: "There is a universe $U$ of grid points. To install a sensor at location $i$, there is cost $C_i$. Let $S_i$ be the subset of grids observed by sensor $i$. Goal: Minimize total cost.",
+            name: "Optimal Production Problem",
+            tag: "Formulation",
+            theory: "A factory produces $n$ products and shares $m$ limited resources ($v_i$). Goal: Decide how many units of each product ($x_j$) to make to maximize total profit ($p_j$).",
             steps: [
-              "Decision Variables: $x_i \\in \\{0, 1\\}$ (1 if sensor placed at $i$, 0 otherwise).",
-              "Objective: Minimize total installation cost: $\\min \\sum_{i=1}^m C_i x_i$.",
-              "Coverage Constraint: If $Z_{ij} = 1$ (sensor $i$ covers grid $j$), grid $j$ must be observed at least once.",
-              "Formulate constraint: $\\sum_{i=1}^m Z_{ij} x_i \\ge 1$ for all $j = 1, 2, \\dots, n$.",
-              "Variant 1: No installation cost, max $P$ sensors $\\rightarrow$ Objective is $0$, add constraint $\\sum x_i \\le P$."
+              "Decision Variables: $x_j =$ Number of units of product $j$ to produce.",
+              "Objective: Maximize sum of profits. $\\max \\sum p_j \\cdot x_j$.",
+              "Resource limits: To make 1 unit of product $j$, you need $c_{j,i}$ units of resource $i$.",
+              "Total resource $i$ used by all products cannot exceed available $v_i$.",
+              "Formulate constraint: $\\sum c_{j,i} \\cdot x_j \\le v_i$ for each resource $i$.",
+              "Non-negativity: $x_j \\ge 0$."
             ],
-            keyFormula: "\\min \\sum C_i x_i \\quad \\text{s.t.} \\quad \\sum Z_{ij} x_i \\ge 1, \\; x_i \\in \\{0,1\\}",
-            tip: "This is a classic Combinatorial Integer Programming problem. You MUST state $x_i \\in \\{0,1\\}$ to get full marks."
+            keyFormula: "\\max \\sum p_j x_j \\quad \\text{s.t.} \\quad \\sum c_{j,i} x_j \\le v_i",
+            tip: "Always ensure units match up. Think of resource limits like managing ingredients in your room—you only have so much Indrayani rice and eggs for a kettle meal, so you optimize for maximum output within your feasible set!"
           },
           {
             name: "Optimal Server Management",
@@ -345,22 +315,7 @@
               "Replace $\\max()$ in objective with $y_t$. Add linear constraints: $x_t - x_{t-1} \\le y_t$ AND $y_t \\ge 0$."
             ],
             keyFormula: "\\min \\sum (c x_t + \\theta y_t) \\quad \\text{s.t.} \\quad x_t - x_{t-1} \\le y_t",
-            tip: "This trick of replacing $\\max(0, \\text{eq})$ with $y \\ge \\text{eq}$ and $y \\ge 0$ is a vital LP linearization trick."
-          },
-          {
-            name: "Optimal Production Problem",
-            tag: "Formulation",
-            theory: "A factory produces $n$ products and shares $m$ limited resources ($v_i$). Goal: Decide how many units of each product ($x_j$) to make to maximize total profit ($p_j$).",
-            steps: [
-              "Decision Variables: $x_j =$ Number of units of product $j$ to produce.",
-              "Objective: Maximize sum of profits. $\\max \\sum p_j \\cdot x_j$.",
-              "Resource limits: To make 1 unit of product $j$, you need $c_{j,i}$ units of resource $i$.",
-              "Total resource $i$ used by all products cannot exceed available $v_i$.",
-              "Formulate constraint: $\\sum c_{j,i} \\cdot x_j \\le v_i$ for each resource $i$.",
-              "Non-negativity: $x_j \\ge 0$."
-            ],
-            keyFormula: "\\max \\sum p_j x_j \\quad \\text{s.t.} \\quad \\sum c_{j,i} x_j \\le v_i",
-            tip: "Always ensure units match up. If resource 1 is 'hours', the sum of (hours/product $\\times$ products) must be $\\le$ total hours."
+            tip: "This trick of replacing $\\max(0, \\text{eq})$ with $y \\ge \\text{eq}$ and $y \\ge 0$ is a vital LP linearization trick you will need for your EndSem!"
           }
         ]
       }
@@ -370,14 +325,9 @@
       "Bracketing": "#3b82f6",
       "Gradient-Based": "#8b5cf6",
       "Theory": "#64748b",
-      "Theory (Lec 31-32)": "#64748b",
-      "Theory (Lec 33-34)": "#64748b",
       "Algorithm": "#059669",
-      "Algorithm (Lec 29)": "#059669",
       "Metaheuristic": "#f59e0b",
-      "Formulation": "#6366f1",
-      "Formulation (Lec 26)": "#6366f1",
-      "Technique": "#ec4899"
+      "Formulation": "#6366f1"
     };
 
     function ExamGuide() {
@@ -405,7 +355,7 @@
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                 <button onClick={() => { setActiveQ(null); setExpandedMethod(null); }} style={{ padding: "6px 14px", borderRadius: 20, cursor: "pointer", fontSize: 12, fontWeight: activeQ === null ? 700 : 500, fontFamily: "inherit", border: `1px solid ${activeQ === null ? "#94a3b8" : "#334155"}`, background: activeQ === null ? "#334155" : "transparent", color: activeQ === null ? "#f1f5f9" : "#64748b", transition: "all 0.2s" }}>ALL</button>
                 {topics.map((t, i) => (
-                  <button key={i} onClick={() => { setActiveQ(activeQ === i ? null : i); setExpandedMethod(null); }} style={{ padding: "6px 14px", borderRadius: 20, cursor: "pointer", fontSize: 12, fontWeight: activeQ === i ? 700 : 500, fontFamily: "inherit", border: `1px solid ${activeQ === i ? t.color : "#334155"}`, background: activeQ === i ? t.color + "33" : "transparent", color: activeQ === i ? t.color : "#64748b", transition: "all 0.2s" }}>{t.q}</button>
+                  <button key={i} onClick={() => { setActiveQ(activeQ === i ? null : i); setExpandedMethod(null); }} style={{ padding: "6px 14px", borderRadius: 20, cursor: "pointer", fontSize: 12, fontWeight: activeQ === i ? 700 : 500, fontFamily: "inherit", border: `1px solid ${activeQ === i ? t.color : "#334155"}`, background: activeQ === i ? t.color + "33" : "transparent", color: activeQ === i ? t.color : "#64748b", transition: "all 0.2s" }}>{t.title}</button>
                 ))}
               </div>
             </div>
