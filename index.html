@@ -4,11 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS2203 Exam Guide</title>
+  
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
   <style>
     body, html { margin: 0; padding: 0; background: #0a0a0f; }
+    
+    /* Custom scrollbar for a polished look */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    /* Ensure math blends nicely in dark mode */
+    .katex { color: #fde047; font-size: 1.05em !important; }
+    .step-math .katex { color: #e2e8f0; font-size: 1em !important; }
   </style>
 </head>
 <body>
@@ -16,6 +31,19 @@
 
   <script type="text/babel">
     const { useState } = React;
+
+    // Helper to render inline math (text wrapped in $)
+    const renderMathText = (text) => {
+      const parts = text.split(/(\$.*?\$)/g);
+      return parts.map((part, index) => {
+        if (part.startsWith('$') && part.endsWith('$')) {
+          const math = part.slice(1, -1);
+          const html = katex.renderToString(math, { throwOnError: false });
+          return <span key={index} className="step-math" dangerouslySetInnerHTML={{ __html: html }} />;
+        }
+        return <span key={index}>{part}</span>;
+      });
+    };
 
     const topics = [
       {
@@ -26,171 +54,150 @@
           {
             name: "Bisection Method",
             tag: "Bracketing",
-            theory: "Works on f'(x). Requires a bracketing interval [a,b] where f'(a) < 0 and f'(b) > 0 (for minimization). Guaranteed to converge.",
+            theory: "Works on $f'(x)$. Requires a bracketing interval $[a,b]$ where $f'(a) < 0$ and $f'(b) > 0$ (for minimization). Guaranteed to converge.",
             steps: [
-              "Find interval [a, b] such that f'(a) · f'(b) < 0",
-              "Compute midpoint: x_m = (a + b) / 2",
-              "Evaluate f'(x_m)",
-              "If f'(x_m) < 0 → set a = x_m",
-              "If f'(x_m) > 0 → set b = x_m",
-              "Repeat until |b - a| < ε (tolerance)",
-              "Minimum ≈ x_m"
+              "Find interval $[a, b]$ such that $f'(a) \\cdot f'(b) < 0$",
+              "Compute midpoint: $x_m = \\frac{a + b}{2}$",
+              "Evaluate $f'(x_m)$",
+              "If $f'(x_m) < 0 \\rightarrow$ set $a = x_m$",
+              "If $f'(x_m) > 0 \\rightarrow$ set $b = x_m$",
+              "Repeat until $|b - a| < \\epsilon$ (tolerance)",
+              "Minimum $\\approx x_m$"
             ],
-            keyFormula: "x_m = (a + b) / 2",
-            tip: "Each iteration halves the interval. Convergence rate = O(1/2^n)"
+            keyFormula: "x_m = \\frac{a + b}{2}",
+            tip: "Each iteration halves the interval. Convergence rate = $\\mathcal{O}(1/2^n)$"
           },
           {
             name: "Golden Section Search",
             tag: "Bracketing",
-            theory: "Uses the golden ratio φ ≈ 0.618 to reduce the search interval. More efficient than bisection (reduces by factor 0.618 per iteration vs 0.5). Works on f(x) directly — no derivative needed.",
+            theory: "Uses the golden ratio $\\phi \\approx 0.618$ to reduce the search interval. Works on $f(x)$ directly — no derivative needed.",
             steps: [
-              "Set initial interval [a, b]",
-              "Compute: x₁ = a + (1-φ)(b-a),  x₂ = a + φ(b-a)  where φ = 0.618",
-              "Evaluate f(x₁) and f(x₂)",
-              "If f(x₁) < f(x₂): discard [x₂, b], set b = x₂",
-              "If f(x₁) > f(x₂): discard [a, x₁], set a = x₁",
-              "Reuse one function evaluation (key efficiency gain)",
-              "Repeat until |b - a| < ε"
+              "Set initial interval $[a, b]$",
+              "Compute: $x_1 = a + (1-\\phi)(b-a)$ and $x_2 = a + \\phi(b-a)$",
+              "Evaluate $f(x_1)$ and $f(x_2)$",
+              "If $f(x_1) < f(x_2)$: discard $[x_2, b]$, set $b = x_2$",
+              "If $f(x_1) > f(x_2)$: discard $[a, x_1]$, set $a = x_1$",
+              "Reuse one function evaluation for the next step",
+              "Repeat until $|b - a| < \\epsilon$"
             ],
-            keyFormula: "φ = (√5 - 1)/2 ≈ 0.618",
+            keyFormula: "\\phi = \\frac{\\sqrt{5} - 1}{2} \\approx 0.618",
             tip: "Golden ratio means one of the two interior points is reused each iteration — only 1 new evaluation per step."
           },
           {
             name: "Newton's Method (1D)",
             tag: "Gradient-Based",
-            theory: "Uses both first and second derivatives. Fits a local quadratic approximation. Very fast (quadratic convergence) but needs f''(x) and a good starting point.",
+            theory: "Uses both first and second derivatives. Fits a local quadratic approximation. Very fast (quadratic convergence) but needs $f''(x)$ and a good starting point.",
             steps: [
-              "Choose initial guess x₀",
-              "Compute f'(xₙ) and f''(xₙ)",
-              "Update: x_{n+1} = xₙ - f'(xₙ) / f''(xₙ)",
-              "Check convergence: |x_{n+1} - xₙ| < ε",
+              "Choose initial guess $x_0$",
+              "Compute $f'(x_k)$ and $f''(x_k)$",
+              "Update: $x_{k+1} = x_k - \\frac{f'(x_k)}{f''(x_k)}$",
+              "Check convergence: $|x_{k+1} - x_k| < \\epsilon$",
               "Repeat until converged"
             ],
-            keyFormula: "x_{n+1} = xₙ - f'(xₙ) / f''(xₙ)",
-            tip: "Quadratic convergence near the minimum. Can diverge if f''(x) ≈ 0 or starting point is far from optimum."
+            keyFormula: "x_{k+1} = x_k - \\frac{f'(x_k)}{f''(x_k)}",
+            tip: "Quadratic convergence near the minimum. Can diverge if $f''(x) \\approx 0$ or starting point is far from optimum."
           },
           {
             name: "Secant Method (1D)",
             tag: "Gradient-Based",
-            theory: "Approximates f''(x) using finite differences of f'(x). Avoids computing the second derivative analytically. Superlinear convergence.",
+            theory: "Approximates $f''(x)$ using finite differences of $f'(x)$. Avoids computing the second derivative analytically. Superlinear convergence.",
             steps: [
-              "Choose two initial points x₀, x₁",
-              "Approximate second derivative: f''≈ [f'(x₁) - f'(x₀)] / (x₁ - x₀)",
-              "Update: x₂ = x₁ - f'(x₁) · (x₁ - x₀) / [f'(x₁) - f'(x₀)]",
-              "Set x₀ = x₁, x₁ = x₂",
-              "Repeat until |x₂ - x₁| < ε"
+              "Choose two initial points $x_0, x_1$",
+              "Approximate second derivative: $f'' \\approx \\frac{f'(x_1) - f'(x_0)}{x_1 - x_0}$",
+              "Update: $x_2 = x_1 - f'(x_1) \\frac{x_1 - x_0}{f'(x_1) - f'(x_0)}$",
+              "Set $x_0 = x_1, x_1 = x_2$",
+              "Repeat until $|x_2 - x_1| < \\epsilon$"
             ],
-            keyFormula: "x_{n+1} = xₙ - f'(xₙ)·(xₙ - x_{n-1}) / [f'(xₙ) - f'(x_{n-1})]",
-            tip: "Needs 2 starting points. Convergence order ≈ 1.618 (golden ratio!). No need for f''."
+            keyFormula: "x_{k+1} = x_k - f'(x_k)\\frac{x_k - x_{k-1}}{f'(x_k) - f'(x_{k-1})}",
+            tip: "Needs 2 starting points. Convergence order $\\approx 1.618$ (golden ratio). No need to compute $f''(x)$."
           }
         ]
       },
       {
         q: "Q3",
-        title: "Nonlinear Unconstrained Optimization",
+        title: "Nonlinear Unconstrained",
         color: "#8b5cf6",
         methods: [
           {
             name: "FONC — First Order Necessary Conditions",
             tag: "Theory",
-            theory: "For x* to be a local minimum of f(x), the gradient must vanish at x*. This is necessary but NOT sufficient.",
+            theory: "For $x^*$ to be a local minimum of $f(x)$, the gradient must vanish at $x^*$. This is necessary but NOT sufficient.",
             steps: [
-              "Compute the gradient: ∇f(x) = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ",
-              "Set ∇f(x*) = 0 (each partial derivative = 0)",
-              "Solve the system of equations for x*",
-              "These are 'stationary points' — could be min, max, or saddle point",
-              "Must apply SONC to classify"
+              "Compute the gradient vector: $\\nabla f(x) = [\\frac{\\partial f}{\\partial x_1}, \\frac{\\partial f}{\\partial x_2}, \\dots, \\frac{\\partial f}{\\partial x_n}]^T$",
+              "Set $\\nabla f(x^*) = 0$ (each partial derivative = 0)",
+              "Solve the system of equations for $x^*$",
+              "These are 'stationary points' — could be min, max, or saddle points"
             ],
-            keyFormula: "∇f(x*) = 0",
-            tip: "FONC alone is not enough. A point satisfying FONC could be a maximum or saddle point."
+            keyFormula: "\\nabla f(x^*) = 0",
+            tip: "FONC alone is not enough. A point satisfying FONC could be a maximum or saddle point. Always check SONC."
           },
           {
             name: "SONC — Second Order Necessary Conditions",
             tag: "Theory",
-            theory: "At a local minimum x*, the Hessian matrix H(x*) must be positive semi-definite (H ≽ 0). For a strict local min, H must be positive definite (H ≻ 0).",
+            theory: "At a local minimum $x^*$, the Hessian matrix $H(x^*)$ must be positive semi-definite ($H \\succeq 0$). For a strict local min, $H$ must be positive definite ($H \\succ 0$).",
             steps: [
-              "Compute the Hessian matrix H(x*) — matrix of second partial derivatives",
-              "Check eigenvalues of H(x*)",
-              "All eigenvalues > 0 → Positive Definite → Local MINIMUM ✓",
-              "All eigenvalues < 0 → Negative Definite → Local MAXIMUM",
-              "Mixed eigenvalues → Saddle Point",
-              "Any eigenvalue = 0 → Positive Semi-Definite → inconclusive (need higher order)"
+              "Compute the Hessian matrix $H(x^*)$ — matrix of second partial derivatives",
+              "Check eigenvalues of $H(x^*)$",
+              "All eigenvalues $> 0 \\rightarrow$ Positive Definite $\\rightarrow$ Local MINIMUM",
+              "All eigenvalues $< 0 \\rightarrow$ Negative Definite $\\rightarrow$ Local MAXIMUM",
+              "Mixed eigenvalues $\\rightarrow$ Saddle Point"
             ],
-            keyFormula: "H_ij = ∂²f / (∂xᵢ ∂xⱼ)",
-            tip: "For 2D: check det(H) > 0 and H₁₁ > 0 for minimum. det(H) < 0 → saddle point."
+            keyFormula: "H_{ij} = \\frac{\\partial^2 f}{\\partial x_i \\partial x_j}",
+            tip: "For 2D: check determinant $|H| > 0$ and $H_{11} > 0$ for a minimum."
           },
           {
             name: "Gradient Descent / Steepest Descent",
             tag: "Algorithm",
-            theory: "Iteratively move in the direction of the negative gradient (steepest descent direction). Step size α (learning rate) determines how far to move each step.",
+            theory: "Iteratively move in the direction of the negative gradient (steepest descent direction). Step size $\\alpha$ (learning rate) determines how far to move.",
             steps: [
-              "Choose starting point x₀ and step size α (or use line search)",
-              "Compute gradient: ∇f(xₖ)",
-              "Update: x_{k+1} = xₖ - α·∇f(xₖ)",
-              "Check: ||∇f(x_{k+1})|| < ε → STOP",
-              "Else: k = k+1, repeat",
-              "For optimal α: solve min_α f(xₖ - α·∇f(xₖ)) (exact line search)"
+              "Choose starting point $x^{(0)}$ and step size $\\alpha$",
+              "Compute gradient: $\\nabla f(x^{(k)})$",
+              "Update: $x^{(k+1)} = x^{(k)} - \\alpha_k \\nabla f(x^{(k)})$",
+              "Check: $\\|\\nabla f(x^{(k+1)})\\| < \\epsilon \\rightarrow$ STOP",
+              "Else: $k = k+1$, repeat"
             ],
-            keyFormula: "x_{k+1} = xₖ - αₖ·∇f(xₖ)",
+            keyFormula: "x^{(k+1)} = x^{(k)} - \\alpha_k \\nabla f(x^{(k)})",
             tip: "Slow convergence (linear). Can zigzag near minimum."
           },
           {
             name: "Conjugate Gradient Method",
             tag: "Algorithm",
-            theory: "Improves on steepest descent by choosing search directions that are mutually conjugate (H-orthogonal). Converges in at most n steps for quadratic functions.",
+            theory: "Improves on steepest descent by choosing search directions that are mutually conjugate (H-orthogonal). Converges in at most $n$ steps for quadratic functions.",
             steps: [
-              "Set x₀, d₀ = -∇f(x₀)",
-              "Line search: αₖ = -dₖᵀ·∇f(xₖ) / (dₖᵀ·H·dₖ)",
-              "Update: x_{k+1} = xₖ + αₖ·dₖ",
-              "Compute new gradient: gₖ₊₁ = ∇f(x_{k+1})",
-              "Compute β (Fletcher-Reeves): βₖ = ||gₖ₊₁||² / ||gₖ||²",
-              "New direction: d_{k+1} = -g_{k+1} + βₖ·dₖ",
-              "Repeat until converged"
+              "Set $x^{(0)}, d^{(0)} = -\\nabla f(x^{(0)})$",
+              "Line search to find optimal $\\alpha_k$",
+              "Update: $x^{(k+1)} = x^{(k)} + \\alpha_k d^{(k)}$",
+              "Compute new gradient: $g^{(k+1)} = \\nabla f(x^{(k+1)})$",
+              "Compute $\\beta_k$ (Fletcher-Reeves)",
+              "New direction: $d^{(k+1)} = -g^{(k+1)} + \\beta_k d^{(k)}$"
             ],
-            keyFormula: "βₖ = ||∇f(xₖ₊₁)||² / ||∇f(xₖ)||²",
-            tip: "Faster than steepest descent. Two directions are conjugate if dᵢᵀ·H·dⱼ = 0."
-          },
-          {
-            name: "BFGS Method (Quasi-Newton)",
-            tag: "Algorithm",
-            theory: "Approximates the inverse Hessian using gradient information only. Updates the approximation Hₖ using a rank-2 update. Superlinear convergence.",
-            steps: [
-              "Initialize: H₀ = I (identity), x₀",
-              "Compute direction: dₖ = -Hₖ · ∇f(xₖ)",
-              "Line search for αₖ",
-              "Update: x_{k+1} = xₖ + αₖ·dₖ",
-              "Compute: sₖ = αₖ·dₖ,  yₖ = ∇f(x_{k+1}) - ∇f(xₖ)",
-              "BFGS update to Hₖ₊₁ using sₖ and yₖ",
-              "Repeat until ||∇f|| < ε"
-            ],
-            keyFormula: "Bₖ₊₁·sₖ = yₖ  (Secant Condition)",
-            tip: "Best general-purpose unconstrained optimizer. Avoids calculating expensive second derivatives."
+            keyFormula: "\\beta_k = \\frac{\\|\\nabla f(x^{(k+1)})\\|^2}{\\|\\nabla f(x^{(k)})\\|^2}",
+            tip: "Faster than steepest descent. Two directions are conjugate if $d_i^T H d_j = 0$."
           }
         ]
       },
       {
         q: "Q4",
-        title: "Particle Swarm Optimisation (PSO)",
+        title: "Particle Swarm (PSO)",
         color: "#f59e0b",
         methods: [
           {
             name: "PSO — Full Algorithm",
             tag: "Metaheuristic",
-            theory: "Population-based stochastic method inspired by bird flocking. Each 'particle' has a position and velocity. Particles are attracted toward their personal best and the global best.",
+            theory: "Population-based stochastic method inspired by bird flocking. Particles are attracted toward their personal best ($pBest$) and the global best ($gBest$).",
             steps: [
-              "Initialize N particles with random positions xᵢ and velocities vᵢ",
-              "Set pBest_i = xᵢ (personal best) for each particle",
-              "Set gBest = best position among all particles (global best)",
+              "Initialize $N$ particles with random positions $x_i$ and velocities $v_i$",
+              "Set $pBest_i = x_i$ for each particle",
+              "Set $gBest$ = best position among all particles",
               "For each iteration:",
-              "  → Update velocity: vᵢ = w·vᵢ + c₁·r₁·(pBest_i - xᵢ) + c₂·r₂·(gBest - xᵢ)",
-              "  → Update position: xᵢ = xᵢ + vᵢ",
-              "  → Evaluate f(xᵢ)",
-              "  → If f(xᵢ) < f(pBest_i): update pBest_i = xᵢ",
-              "  → If f(xᵢ) < f(gBest): update gBest = xᵢ",
-              "Repeat until max iterations or convergence"
+              "  $\\rightarrow$ Update velocity: $v_i = w v_i + c_1 r_1 (pBest_i - x_i) + c_2 r_2 (gBest - x_i)$",
+              "  $\\rightarrow$ Update position: $x_i = x_i + v_i$",
+              "  $\\rightarrow$ Evaluate $f(x_i)$",
+              "  $\\rightarrow$ If $f(x_i) < f(pBest_i)$: update $pBest_i = x_i$",
+              "  $\\rightarrow$ If $f(x_i) < f(gBest)$: update $gBest = x_i$"
             ],
-            keyFormula: "vᵢ = w·vᵢ + c₁r₁(pBest - x) + c₂r₂(gBest - x)",
-            tip: "w = inertia, c₁ = cognitive coeff, c₂ = social coeff. No gradient needed!"
+            keyFormula: "v_i^{(t+1)} = w v_i^{(t)} + c_1 r_1 (pBest_i - x_i^{(t)}) + c_2 r_2 (gBest - x_i^{(t)})",
+            tip: "$w$ = inertia, $c_1$ = cognitive coeff, $c_2$ = social coeff. No gradient needed!"
           }
         ]
       },
@@ -202,60 +209,44 @@
           {
             name: "Converting to Standard Form LP",
             tag: "Theory",
-            theory: "Standard form requires: A minimization objective, equality constraints (Ax = b), and non-negative variables (x ≥ 0).",
+            theory: "Standard form requires: A minimization objective, equality constraints ($Ax = b$), and non-negative variables ($x \\ge 0$).",
             steps: [
-              "CASE 1 (Max to Min): To maximize cᵀx, you instead minimize -cᵀx.",
-              "CASE 2 (≥ to ≤): Multiply the entire inequality constraint by -1. (e.g., x + y ≥ 2 becomes -x - y ≤ -2)",
-              "CASE 3 (Inequality to Equality): Add a non-negative Slack Variable (S).",
-              "  → a₁x₁ + a₂x₂ ≤ b becomes a₁x₁ + a₂x₂ + S = b (where S ≥ 0).",
-              "CASE 4 (Unconstrained Variables): If x is unconstrained, replace it with the difference of two non-negative variables.",
-              "  → Substitute x = y₁ - y₂, where y₁ ≥ 0 and y₂ ≥ 0."
+              "CASE 1 (Max to Min): To maximize $c^T x$, you instead minimize $-c^T x$.",
+              "CASE 2 ($\\ge$ to $\\le$): Multiply the entire inequality constraint by $-1$.",
+              "CASE 3 (Inequality to Equality): Add a non-negative Slack Variable ($S \\ge 0$).",
+              "  $\\rightarrow a_1 x_1 + a_2 x_2 \\le b \\implies a_1 x_1 + a_2 x_2 + S = b$",
+              "CASE 4 (Unconstrained Variables): Replace $x$ with $y_1 - y_2$, where $y_1 \\ge 0, y_2 \\ge 0$."
             ],
-            keyFormula: "min cᵀx  s.t. Ax = b, x ≥ 0",
-            tip: "Standard form is mandatory before applying algorithms. Don't forget to explicitly state that the new slack/unconstrained variables are ≥ 0."
-          },
-          {
-            name: "Geometry of LP Constraints",
-            tag: "Theory",
-            theory: "The objective function and constraints have specific geometric shapes in n-dimensional space that define the optimization landscape.",
-            steps: [
-              "1. Objective Contours: Contours of linear objective functions are hyperplanes (lines in 2D, planes in 3D). They are always parallel to each other.",
-              "2. Gradient Direction: The gradient is always orthogonal (perpendicular) to the contour hyperplanes.",
-              "3. Half-Spaces: An inequality constraint (Ax ≤ b) divides the space in half, creating a 'half-space'.",
-              "4. Feasible Set (Polytope): The intersection of all constraint half-spaces creates the feasible set, known as a Polytope (or Polyhedron).",
-              "5. Bounded vs Unbounded: The feasible set can be enclosed (bounded) or extend infinitely (unbounded)."
-            ],
-            keyFormula: "S = {x : Ax ≤ b, x ≥ 0}",
-            tip: "The shaded feasible region must be a CONVEX set. If plotting visually, the valid region is the intersection where all constraint arrows point inward."
+            keyFormula: "\\min c^T x \\quad \\text{s.t.} \\quad Ax = b, \\; x \\ge 0",
+            tip: "Standard form is mandatory before applying algorithms like Simplex."
           },
           {
             name: "Fundamental Theorem of LP",
             tag: "Theory",
             theory: "If an optimal solution to a Linear Programming problem exists, it will always lie on the boundary of the feasible set, specifically at a vertex (extreme point).",
             steps: [
-              "Plot the feasible polytope from the constraints.",
+              "Plot the feasible polytope $S$ from the constraints.",
               "Determine the gradient direction of the objective function.",
-              "Push the objective contour along the gradient (for max) or against it (for min) until it's about to leave the feasible set.",
-              "The last point of contact will be a vertex (or an entire edge/face if the contour is perfectly parallel to a constraint).",
-              "NOTE: If the feasible set is unbounded in the direction of optimization, no maximum/minimum may exist."
+              "Push the objective contour along/against the gradient until it's about to leave the feasible set.",
+              "The last point of contact will be a vertex.",
+              "NOTE: If the feasible set is unbounded in the direction of optimization, no optimum may exist."
             ],
-            keyFormula: "Optimal x* ∈ Vertices(S)",
-            tip: "Because the optimum is guaranteed to be at a vertex, LP algorithms only need to search the corners of the polytope, not the infinite interior space."
+            keyFormula: "x^* \\in \\text{Vertices}(S)",
+            tip: "Because the optimum is guaranteed to be at a vertex, LP algorithms only need to search the corners of the polytope."
           },
           {
             name: "Basic Feasible Solutions (BFS)",
             tag: "Algorithm",
             theory: "An algebraic method to find the vertices of the feasible set. A BFS corresponds exactly to an extreme point (vertex) of the polytope.",
             steps: [
-              "Given equality constraints Ax = b, with m equations and n variables (assume n > m).",
-              "Partition the n variables into Basic Variables (size m) and Non-Basic Variables (size n-m).",
-              "Set all (n-m) Non-Basic Variables strictly to 0.",
-              "Solve the remaining system of linear equations for the m Basic Variables.",
-              "If the resulting solution vector satisfies x ≥ 0, it is a Basic Feasible Solution (BFS).",
-              "Check the objective value for this BFS."
+              "Given equality constraints $Ax = b$, with $m$ equations and $n$ variables (assume $n > m$).",
+              "Partition variables into Basic Variables ($m$) and Non-Basic Variables ($n-m$).",
+              "Set all $(n-m)$ Non-Basic Variables strictly to $0$.",
+              "Solve the remaining system for the $m$ Basic Variables.",
+              "If the resulting solution vector satisfies $x \\ge 0$, it is a Basic Feasible Solution."
             ],
-            keyFormula: "Set (n-m) variables to 0, solve for remaining m.",
-            tip: "You must test different combinations of which variables are chosen as 'non-basic' (set to 0). Total possible combinations = nCr(n, m)."
+            keyFormula: "x_B = B^{-1}b \\ge 0 \\quad (\\text{where } x_N = 0)",
+            tip: "You must test different combinations of which variables are chosen as 'non-basic' ($0$). Total combinations = ${}^nC_m$."
           }
         ]
       },
@@ -267,97 +258,80 @@
           {
             name: "Relaxing an Optimization Problem",
             tag: "Theory",
-            theory: "If we drop (relax) the integer constraint (e.g., x ∈ Zⁿ becomes x ∈ Rⁿ), the feasible set becomes larger. The optimal solution of the relaxed problem provides a lower bound for the integer problem.",
+            theory: "If we drop the integer constraint ($x \\in \\mathbb{Z}^n \\rightarrow x \\in \\mathbb{R}^n$), the feasible set becomes larger. The optimal solution of the relaxed problem provides a lower bound for the integer problem.",
             steps: [
-              "Define IP: min f(x) s.t. h(x) ≤ 0, g(x) = 0, x ∈ Zⁿ (Feasible set S₁)",
-              "Define Relaxed OP: min f(x) s.t. h(x) ≤ 0, g(x) = 0, x ∈ Rⁿ (Feasible set S₂)",
-              "Because S₁ ⊆ S₂ (the integer points are a subset of the continuous space), the minimum over the bigger set S₂ will always be lesser or equal.",
-              "Therefore: Z₂* ≤ Z₁* (where Z is the optimal objective value)."
+              "Define IP: $\\min f(x)$ s.t. $h(x) \\le 0, x \\in \\mathbb{Z}^n$ (Feasible set $S_1$)",
+              "Define Relaxed OP: $\\min f(x)$ s.t. $h(x) \\le 0, x \\in \\mathbb{R}^n$ (Feasible set $S_2$)",
+              "Because $S_1 \\subseteq S_2$, the minimum over the bigger set $S_2$ will always be lesser or equal.",
+              "Therefore: $Z_2^* \\le Z_1^*$ (where $Z$ is the optimal objective value)."
             ],
-            keyFormula: "Z_relaxed* ≤ Z_integer*",
-            tip: "If the optimal solution of the relaxed problem happens to be all integers, then it is perfectly valid and is identically the optimal solution for the Integer Program!"
+            keyFormula: "Z_{\\text{relaxed}}^* \\le Z_{\\text{integer}}^*",
+            tip: "If the optimal solution of the relaxed problem happens to be all integers, it is identically the optimal solution for the IP!"
           },
           {
             name: "Branch and Bound Algorithm",
             tag: "Algorithm",
-            theory: "A systematic search that solves relaxed OPs. If a solution is decimal, it 'branches' the problem by adding floor/ceiling bounds to that variable to force it toward integers.",
+            theory: "A systematic search that solves relaxed OPs. If a solution is decimal, it 'branches' the problem by adding floor/ceiling bounds to force it toward integers.",
             steps: [
-              "1. Initialize z* = ∞ (current best integer obj) and list L containing the relaxed version of the IP.",
-              "2. While L is not empty, pop an OP from L and solve it to get optimal solution x̂* and value ẑ*.",
-              "3. If ẑ* < z* (the relaxed branch shows promise):",
-              "   → If all elements of x̂* are integers: We found a better IP solution! Update z* = ẑ* and x* = x̂*.",
-              "   → If x̂* has decimal values: Pick a decimal element x_k* (e.g., 4.2).",
-              "4. Branching (Split into 2 new OPs):",
-              "   → OP_left = OP + constraint (x_k ≤ ⌊x_k*⌋)  // e.g., x_k ≤ 4",
-              "   → OP_right = OP + constraint (x_k ≥ ⌈x_k*⌉)  // e.g., x_k ≥ 5",
-              "5. Append both new OPs to list L.",
-              "6. Repeat until L is empty. Return x*."
+              "1. Initialize $z^* = \\infty$ (current best integer obj) and list $L$ containing the relaxed IP.",
+              "2. While $L$ is not empty, pop an OP and solve it to get solution $\\hat{x}^*$ and value $\\hat{z}^*$.",
+              "3. If $\\hat{z}^* < z^*$ (the relaxed branch shows promise):",
+              "   $\\rightarrow$ If all elements of $\\hat{x}^*$ are integers: Update $z^* = \\hat{z}^*$ and $x^* = \\hat{x}^*$.",
+              "   $\\rightarrow$ If $\\hat{x}^*$ has decimals: Pick a decimal element $x_k^*$.",
+              "4. Branching (Split into 2 new OPs appended to $L$):",
+              "   $\\rightarrow \\text{OP}_{\\text{left}} = \\text{OP} + \\text{constraint } (x_k \\le \\lfloor x_k^* \\rfloor)$",
+              "   $\\rightarrow \\text{OP}_{\\text{right}} = \\text{OP} + \\text{constraint } (x_k \\ge \\lceil x_k^* \\rceil)$"
             ],
-            keyFormula: "Branch: OP_left (x_k ≤ ⌊x_k*⌋) and OP_right (x_k ≥ ⌈x_k*⌉)",
-            tip: "We PRUNE (ignore) a branch if solving its relaxed OP yields an infeasible region OR if its ẑ* > z* (because adding more integer constraints to that branch will only make the objective worse, never better)."
+            keyFormula: "\\text{Branch:} \\quad x_k \\le \\lfloor x_k^* \\rfloor \\quad \\text{OR} \\quad x_k \\ge \\lceil x_k^* \\rceil",
+            tip: "We PRUNE a branch if its relaxed OP yields an infeasible region OR if $\\hat{z}^* > z^*$ (it can never yield a better integer solution)."
           }
         ]
       },
       {
         q: "Q7",
-        title: "Nonlinear Constrained Optimization",
+        title: "Nonlinear Constrained",
         color: "#ec4899",
         methods: [
           {
             name: "The Lagrangian Function",
             tag: "Theory",
-            theory: "Used for nonlinear optimization with EQUALITY constraints. It combines the objective function and the constraints into a single unconstrained formula using Lagrange Multipliers (λ).",
+            theory: "Used for nonlinear optimization with EQUALITY constraints. It combines the objective function and the constraints into a single unconstrained formula.",
             steps: [
-              "Given Problem: min f(x) subject to h_i(x) = 0 for i = 1 to m.",
-              "Where x ∈ Rⁿ, f: Rⁿ → R (scalar output), and h: Rⁿ → Rᵐ (m equality constraints).",
-              "Multiply each constraint h_i(x) by a corresponding multiplier λ_i.",
-              "Add these terms to the original objective function f(x).",
-              "Result is the Lagrangian L(x, λ)."
+              "Given Problem: $\\min f(x)$ subject to $h_i(x) = 0$ for $i = 1 \\dots m$.",
+              "Multiply each constraint $h_i(x)$ by a corresponding multiplier $\\lambda_i$.",
+              "Add these terms to the original objective function $f(x)$.",
+              "Result is the Lagrangian $L(x, \\lambda)$."
             ],
-            keyFormula: "L(x, λ) = f(x) + Σ λ_i · h_i(x)",
-            tip: "If (x*, λ*) is the minima of the Lagrangian function L, then x* is guaranteed to be an optimal feasible solution to the original constrained problem."
+            keyFormula: "L(x, \\lambda) = f(x) + \\sum_{i=1}^m \\lambda_i h_i(x)",
+            tip: "If $(x^*, \\lambda^*)$ is the minima of the Lagrangian $L$, then $x^*$ is guaranteed to be an optimal feasible solution to the original problem."
           },
           {
             name: "Lagrange Theorem (FONC)",
             tag: "Theory",
-            theory: "First Order Necessary Condition. At a local minimum, the gradient of the Lagrangian with respect to both x and λ must be exactly zero.",
+            theory: "First Order Necessary Condition. At a local minimum, the gradient of the Lagrangian with respect to both $x$ and $\\lambda$ must be exactly zero.",
             steps: [
-              "Form the Lagrangian L(x, λ).",
-              "Take the partial derivative of L with respect to every variable x_j.",
-              "Take the partial derivative of L with respect to every multiplier λ_i.",
-              "Set all partial derivatives to 0 to create a system of equations.",
-              "Solve the system for x* and λ*."
+              "Form the Lagrangian $L(x, \\lambda)$.",
+              "Take the partial derivative of $L$ with respect to every variable $x_j$ (set $= 0$).",
+              "Take the partial derivative of $L$ with respect to every multiplier $\\lambda_i$ (set $= 0$).",
+              "Solve the resulting system of equations for $x^*$ and $\\lambda^*$."
             ],
-            keyFormula: "∇f(x*) + Σ λ_i* · ∇h_i(x*) = 0",
-            tip: "IMPORTANT: This is a NECESSARY condition, not sufficient. Finding a point that satisfies this equation doesn't guarantee it's a minimum (it could be a maximum or saddle point). But if a minimum exists, it WILL satisfy this equation."
-          },
-          {
-            name: "Geometric Viewpoint of Lagrange",
-            tag: "Framework",
-            theory: "Geometrically, at a local minimum, the contour line of the objective function f(x) will be exactly tangent to the curve of the constraint h(x)=0.",
-            steps: [
-              "The gradient of a function at a point is always perpendicular to its tangent at that point.",
-              "If the objective contour and the constraint curve are tangent (touching at exactly one point), their gradients must be collinear.",
-              "Therefore, the gradient of f(x) is either parallel or anti-parallel to the gradient of h(x).",
-              "Mathematically, if vector V₁ is parallel to V₂, then V₁ = λ·V₂."
-            ],
-            keyFormula: "∇f(x*) = λ* · ∇h(x*)",
-            tip: "If the gradients are not parallel at a point on the constraint, the objective contour is crossing the constraint line, meaning you can still move along the constraint to find a lower value."
+            keyFormula: "\\nabla f(x^*) + \\sum_{i=1}^m \\lambda_i^* \\nabla h_i(x^*) = 0",
+            tip: "This is a NECESSARY condition, not sufficient. Finding a point doesn't guarantee a minimum, but if a minimum exists, it WILL satisfy this equation."
           },
           {
             name: "Gradient Descent for Lagrangian",
             tag: "Algorithm",
-            theory: "An algorithmic way to solve the Equality Constrained Nonlinear Optimization problem by updating x and λ iteratively using learning rates.",
+            theory: "An algorithmic way to solve Equality Constrained NLP by updating $x$ and $\\lambda$ iteratively.",
             steps: [
-              "Initialize starting points for x_k and λ_k.",
-              "Compute the gradient of L with respect to x: ∂L/∂x.",
-              "Compute the gradient of L with respect to λ: ∂L/∂λ.",
-              "Update x by stepping AGAINST the gradient (descent): x^{(k+1)} ← x^{(k)} - α^{(k)} · (∂L/∂x)",
-              "Update λ by stepping against the gradient w.r.t λ: λ^{(k+1)} ← λ^{(k)} - α̃^{(k)} · (∂L/∂λ)",
-              "Repeat until convergence."
+              "Initialize starting points for $x^{(k)}$ and $\\lambda^{(k)}$.",
+              "Compute the gradients: $\\frac{\\partial L}{\\partial x}$ and $\\frac{\\partial L}{\\partial \\lambda}$.",
+              "Update $x$ by stepping AGAINST the gradient (descent):",
+              "   $\\rightarrow x^{(k+1)} = x^{(k)} - \\alpha^{(k)} \\frac{\\partial L}{\\partial x}$",
+              "Update $\\lambda$ by stepping against the gradient w.r.t $\\lambda$:",
+              "   $\\rightarrow \\lambda^{(k+1)} = \\lambda^{(k)} - \\tilde{\\alpha}^{(k)} \\frac{\\partial L}{\\partial \\lambda}$"
             ],
-            keyFormula: "λ^{(k+1)} ← λ^{(k)} - α̃^{(k)} · (∂L/∂λ)",
-            tip: "Pay close attention to the minus signs in the updates as defined in Lecture 35-36! Always substitute λ = λ^{(k)} when evaluating the partial derivatives."
+            keyFormula: "\\lambda^{(k+1)} \\leftarrow \\lambda^{(k)} - \\tilde{\\alpha}^{(k)} \\nabla_\\lambda L",
+            tip: "Pay close attention to the minus signs in the updates as defined in Lecture 35! Always substitute $\\lambda^{(k)}$ when evaluating derivatives."
           }
         ]
       },
@@ -367,63 +341,45 @@
         color: "#6366f1",
         methods: [
           {
-            name: "Optimal Production Problem",
-            tag: "Framework",
-            theory: "A classic LP problem: A factory produces n products and shares m limited resources. Goal: Decide how many units of each product to make to maximize total profit.",
-            steps: [
-              "DECISION VARIABLES: x_j = Number of units of product j to produce.",
-              "OBJECTIVE: Maximize sum of profits. max Σ p_j · x_j  (or in matrix form: max pᵀx).",
-              "CONSTRAINTS (Resource limits): To make 1 unit of product j, you need c_{j,i} units of resource i.",
-              "Total resource i used by all products cannot exceed available v_i.",
-              "Formulate constraint: Σ c_{j,i} · x_j ≤ v_i  (for each resource i).",
-              "NON-NEGATIVITY: x_j ≥ 0 (cannot produce negative products)."
-            ],
-            keyFormula: "max pᵀx  s.t. Cx ≤ v, x ≥ 0",
-            tip: "Always ensure units match up. If resource 1 is 'hours', the sum of (hours/product × products) must be ≤ total hours."
-          },
-          {
             name: "Optimal Server Management",
             tag: "Framework",
-            theory: "A data center needs servers to handle tasks d_t over T time slots. Goal: Minimize energy cost to run servers PLUS the switching cost to boot up new ones.",
+            theory: "A data center needs servers to handle tasks $d_t$ over $T$ time slots. Goal: Minimize energy cost PLUS the switching cost to boot up new servers.",
             steps: [
-              "DECISION VARIABLES: x_t = Number of servers ON during time slot t.",
-              "DEMAND CONSTRAINT: 1 server handles M tasks. Total capacity must meet demand: M · x_t ≥ d_t.",
-              "COST: Energy cost = c · x_t. Switching cost = θ if we turn a server ON. No cost to turn off.",
-              "OBJECTIVE: min c·x₁ + θ·x₁ + Σ_{t=2}^T [c·x_t + θ·max(0, x_t - x_{t-1})]",
-              "THE TRICK (Linearizing the max function): The max() function makes the problem non-linear.",
-              "Introduce a new variable y_t to represent the switching cost: y_t = max(0, x_t - x_{t-1}).",
-              "Replace max() in objective with y_t. Add two linear constraints: x_t - x_{t-1} ≤ y_t AND y_t ≥ 0."
+              "Variables: $x_t =$ Number of servers ON during time slot $t$.",
+              "Demand: Capacity must meet demand: $M \\cdot x_t \\ge d_t$.",
+              "Cost: Energy $= c x_t$. Switching $= \\theta \\max(0, x_t - x_{t-1})$.",
+              "THE TRICK: The $\\max()$ function makes the problem non-linear.",
+              "Introduce variable $y_t = \\max(0, x_t - x_{t-1})$.",
+              "Replace $\\max()$ in objective with $y_t$. Add linear constraints: $x_t - x_{t-1} \\le y_t$ AND $y_t \\ge 0$."
             ],
-            keyFormula: "min Σ (c·x_t + θ·y_t) s.t. x_t - x_{t-1} ≤ y_t, y_t ≥ 0",
-            tip: "This trick of replacing max(0, equation) with y ≥ equation and y ≥ 0 is one of the most important linearization tricks you will be tested on."
+            keyFormula: "\\min \\sum (c x_t + \\theta y_t) \\quad \\text{s.t.} \\quad x_t - x_{t-1} \\le y_t",
+            tip: "This trick of replacing $\\max(0, \\text{eq})$ with $y \\ge \\text{eq}$ and $y \\ge 0$ is a vital LP linearization trick."
           },
           {
             name: "Wireless Communication System",
             tag: "Framework",
-            theory: "There are n mobile users. Goal: Minimize total power while ensuring reliable communication using Signal-to-Interference Ratio (SIR).",
+            theory: "There are $n$ mobile users. Goal: Minimize total power while ensuring reliable communication using Signal-to-Interference Ratio (SIR).",
             steps: [
-              "DECISION VARIABLES: p_i = Transmission power of user i.",
-              "OBJECTIVE: Minimize total power transmitted: min Σ p_i.",
-              "SIGNAL & INTERFERENCE: Signal received from user i is h_i·p_i. Interference from others is Σ_{j≠i} h_j·p_j.",
-              "SIR CONSTRAINT: Reliable comms require SIR ≥ γ_i.",
-              "Formulation: (h_i·p_i) / (Σ_{j≠i} h_j·p_j) ≥ γ_i.",
+              "Variables: $p_i =$ Transmission power of user $i$.",
+              "Objective: $\\min \\sum p_i$.",
+              "SIR Constraint: $\\frac{h_i p_i}{\\sum_{j \\neq i} h_j p_j} \\ge \\gamma_i$",
               "LINEARIZATION: Multiply both sides by the denominator to remove the fraction.",
-              "Final Linear Constraint: h_i·p_i - γ_i · Σ_{j≠i} (h_j·p_j) ≥ 0 for all i."
+              "Final Linear Constraint: $h_i p_i - \\gamma_i \\sum_{j \\neq i} (h_j p_j) \\ge 0$."
             ],
-            keyFormula: "min Σp_i  s.t. h_i·p_i - γ_i Σ_{j≠i}(h_j·p_j) ≥ 0",
-            tip: "Never leave constraints as fractions (like A/B ≥ C) in a Linear Program. Always cross-multiply to make them linear (A - BC ≥ 0)."
+            keyFormula: "\\min \\sum p_i \\quad \\text{s.t.} \\quad h_i p_i - \\gamma_i \\sum_{j \\neq i} h_j p_j \\ge 0",
+            tip: "Never leave constraints as fractions (like $A/B \\ge C$) in an LP. Always cross-multiply to make them linear ($A - BC \\ge 0$)."
           },
           {
             name: "Combinatorial Optimization",
             tag: "Framework",
-            theory: "A special kind of integer programming where the decision variables are strictly binary (0 or 1), representing 'yes/no' or 'include/exclude' decisions.",
+            theory: "A special kind of integer programming where the decision variables are strictly binary (0 or 1), representing 'yes/no' decisions.",
             steps: [
               "Knapsack Problem: Choose a subset of items to maximize value without exceeding weight capacity.",
-              "Set Cover Problem: Find the minimum cost to place sensors such that every grid is observed by at least 1 sensor.",
-              "Decision Variables: x_j ∈ {0, 1}"
+              "Set Cover Problem: Find minimum cost to place sensors such that every grid is observed by $\\ge 1$ sensor.",
+              "Decision Variables: $x_j \\in \\{0, 1\\}$"
             ],
-            keyFormula: "x_j ∈ {0, 1}",
-            tip: "These are explicitly integer programming problems and require algorithms like Branch and Bound to solve; standard Simplex will result in decimal variables (like placing 0.4 of a sensor)."
+            keyFormula: "x_j \\in \\{0, 1\\}",
+            tip: "These are explicitly integer programming problems and require algorithms like Branch and Bound; standard Simplex will result in decimals."
           }
         ]
       }
@@ -445,8 +401,14 @@
 
       const activeTopics = activeQ !== null ? [topics[activeQ]] : topics;
 
+      // Small wrapper to safely render the KaTeX formula for the highlighted Key Formula box
+      const renderKeyFormula = (formula) => {
+        const html = katex.renderToString(formula, { displayMode: true, throwOnError: false });
+        return <div dangerouslySetInnerHTML={{ __html: html }} />;
+      };
+
       return (
-        <div style={{ minHeight: "100vh", color: "#e2e8f0", fontFamily: "'Courier New', 'Monaco', monospace" }}>
+        <div style={{ minHeight: "100vh", color: "#e2e8f0", fontFamily: "system-ui, -apple-system, sans-serif" }}>
           
           {/* Header */}
           <div style={{
@@ -457,12 +419,12 @@
             <div style={{ maxWidth: 800, margin: "0 auto" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                 <span style={{ fontSize: 22 }}>📐</span>
-                <h1 style={{ margin: 0, fontSize: "clamp(16px, 4vw, 22px)", fontWeight: 900, color: "#f8fafc", textTransform: "uppercase" }}>
+                <h1 style={{ margin: 0, fontSize: "clamp(16px, 4vw, 22px)", fontWeight: 900, color: "#f8fafc", textTransform: "uppercase", letterSpacing: "-0.5px" }}>
                   CS2203 Optimisation Guide
                 </h1>
               </div>
-              <p style={{ margin: "0 0 14px", color: "#94a3b8", fontSize: 12 }}>
-                Syllabus-Aligned Edition · Step-by-step methods · Formulas
+              <p style={{ margin: "0 0 16px", color: "#94a3b8", fontSize: 13, fontFamily: "'Courier New', monospace" }}>
+                Syllabus-Aligned Edition · Interactive LaTeX Formats
               </p>
               
               {/* Filter Buttons */}
@@ -470,19 +432,19 @@
                 <button
                   onClick={() => { setActiveQ(null); setExpandedMethod(null); }}
                   style={{
-                    padding: "5px 12px", borderRadius: 20, cursor: "pointer", fontSize: 11, fontWeight: activeQ === null ? 700 : 400,
+                    padding: "6px 14px", borderRadius: 20, cursor: "pointer", fontSize: 12, fontWeight: activeQ === null ? 700 : 500, fontFamily: "inherit",
                     border: `1px solid ${activeQ === null ? "#94a3b8" : "#334155"}`,
                     background: activeQ === null ? "#334155" : "transparent",
-                    color: activeQ === null ? "#f1f5f9" : "#64748b"
+                    color: activeQ === null ? "#f1f5f9" : "#64748b", transition: "all 0.2s"
                   }}>ALL</button>
                 {topics.map((t, i) => (
                   <button key={i}
                     onClick={() => { setActiveQ(activeQ === i ? null : i); setExpandedMethod(null); }}
                     style={{
-                      padding: "5px 12px", borderRadius: 20, cursor: "pointer", fontSize: 11, fontWeight: activeQ === i ? 700 : 400,
+                      padding: "6px 14px", borderRadius: 20, cursor: "pointer", fontSize: 12, fontWeight: activeQ === i ? 700 : 500, fontFamily: "inherit",
                       border: `1px solid ${activeQ === i ? t.color : "#334155"}`,
                       background: activeQ === i ? t.color + "33" : "transparent",
-                      color: activeQ === i ? t.color : "#64748b"
+                      color: activeQ === i ? t.color : "#64748b", transition: "all 0.2s"
                     }}>{t.q}</button>
                 ))}
               </div>
@@ -490,69 +452,79 @@
           </div>
 
           {/* Content */}
-          <div style={{ maxWidth: 800, margin: "0 auto", padding: "20px 16px 60px" }}>
+          <div style={{ maxWidth: 800, margin: "0 auto", padding: "24px 16px 80px" }}>
             {activeTopics.map((topic, ti) => {
               const topicIdx = topics.indexOf(topic);
               return (
-                <div key={topicIdx} style={{ marginBottom: 32 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, paddingBottom: 10, borderBottom: `2px solid ${topic.color}40` }}>
-                    <span style={{ background: topic.color, color: "#fff", fontWeight: 900, fontSize: 12, padding: "4px 10px", borderRadius: 4 }}>{topic.q}</span>
-                    <h2 style={{ margin: 0, fontSize: "clamp(14px, 3.5vw, 18px)", fontWeight: 700, color: topic.color }}>{topic.title}</h2>
+                <div key={topicIdx} style={{ marginBottom: 40 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, paddingBottom: 10, borderBottom: `2px solid ${topic.color}40` }}>
+                    <span style={{ background: topic.color, color: "#fff", fontWeight: 900, fontSize: 13, padding: "4px 12px", borderRadius: 6, fontFamily: "'Courier New', monospace" }}>{topic.q}</span>
+                    <h2 style={{ margin: 0, fontSize: "clamp(16px, 4vw, 20px)", fontWeight: 800, color: topic.color, letterSpacing: "-0.5px" }}>{topic.title}</h2>
                   </div>
 
-                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                     {topic.methods.map((method, mi) => {
                       const key = `${topicIdx}-${mi}`;
                       const isOpen = expandedMethod === key;
                       return (
-                        <div key={mi} style={{ background: isOpen ? "#111827" : "#0f172a", border: `1px solid ${isOpen ? topic.color + "60" : "#1e293b"}`, borderRadius: 10, overflow: "hidden" }}>
+                        <div key={mi} style={{ background: isOpen ? "#111827" : "#0f172a", border: `1px solid ${isOpen ? topic.color + "60" : "#1e293b"}`, borderRadius: 12, overflow: "hidden", transition: "all 0.25s ease-in-out" }}>
                           
                           {/* Accordion Header */}
-                          <div onClick={() => setExpandedMethod(isOpen ? null : key)} style={{ padding: "14px 16px", display: "flex", alignItems: "center", gap: 10, cursor: "pointer", userSelect: "none" }}>
-                            <span style={{ width: 22, height: 22, borderRadius: "50%", background: topic.color + "25", border: `1px solid ${topic.color}50`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: topic.color, fontWeight: 700 }}>{mi + 1}</span>
-                            <div style={{ flex: 1, fontWeight: 700, fontSize: "clamp(12px, 3vw, 14px)", color: "#f1f5f9" }}>{method.name}</div>
-                            <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 10, background: (tagColors[method.tag] || "#334155") + "25", color: tagColors[method.tag] || "#94a3b8", border: `1px solid ${(tagColors[method.tag] || "#334155")}40` }}>{method.tag}</span>
-                            <span style={{ color: "#475569", fontSize: 14, marginLeft: 4 }}>{isOpen ? "▲" : "▼"}</span>
+                          <div onClick={() => setExpandedMethod(isOpen ? null : key)} style={{ padding: "16px 18px", display: "flex", alignItems: "center", gap: 12, cursor: "pointer", userSelect: "none" }}>
+                            <span style={{ width: 24, height: 24, borderRadius: "50%", background: topic.color + "25", border: `1px solid ${topic.color}50`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: topic.color, fontWeight: 800 }}>{mi + 1}</span>
+                            <div style={{ flex: 1, fontWeight: 700, fontSize: "clamp(14px, 3.5vw, 16px)", color: "#f8fafc", letterSpacing: "-0.3px" }}>{method.name}</div>
+                            <span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 12, fontWeight: 600, background: (tagColors[method.tag] || "#334155") + "25", color: tagColors[method.tag] || "#94a3b8", border: `1px solid ${(tagColors[method.tag] || "#334155")}40` }}>{method.tag}</span>
+                            <span style={{ color: "#475569", fontSize: 14, marginLeft: 6 }}>{isOpen ? "▲" : "▼"}</span>
                           </div>
 
                           {/* Accordion Content */}
                           {isOpen && (
-                            <div style={{ padding: "0 16px 18px", borderTop: `1px solid ${topic.color}20` }}>
-                              <div style={{ background: "#1e293b", borderRadius: 8, padding: "10px 14px", margin: "14px 0", borderLeft: `3px solid ${topic.color}` }}>
-                                <div style={{ fontSize: 10, color: topic.color, fontWeight: 700, marginBottom: 5 }}>THEORY</div>
-                                <div style={{ fontSize: "12px", color: "#cbd5e1", lineHeight: 1.6 }}>{method.theory}</div>
+                            <div style={{ padding: "0 18px 20px", borderTop: `1px solid ${topic.color}20` }}>
+                              
+                              {/* Theory Section */}
+                              <div style={{ background: "#1e293b", borderRadius: 8, padding: "12px 16px", margin: "16px 0", borderLeft: `4px solid ${topic.color}` }}>
+                                <div style={{ fontSize: 11, color: topic.color, fontWeight: 800, marginBottom: 6, letterSpacing: "1px" }}>THEORY</div>
+                                <div style={{ fontSize: "14px", color: "#cbd5e1", lineHeight: 1.6 }}>{renderMathText(method.theory)}</div>
                               </div>
 
-                              <div style={{ background: "#0d1117", border: `1px solid ${topic.color}40`, borderRadius: 8, padding: "10px 14px", marginBottom: 14, textAlign: "center" }}>
-                                <div style={{ fontSize: 10, color: "#64748b", marginBottom: 6 }}>KEY FORMULA</div>
-                                <code style={{ fontSize: "13px", color: "#fbbf24" }}>{method.keyFormula}</code>
+                              {/* Math Formula Highlight */}
+                              <div style={{ background: "#0d1117", border: `1px solid ${topic.color}40`, borderRadius: 8, padding: "14px", marginBottom: 16, textAlign: "center", boxShadow: "inset 0 2px 10px rgba(0,0,0,0.2)" }}>
+                                <div style={{ fontSize: 11, color: "#64748b", marginBottom: 6, fontWeight: 700, letterSpacing: "1px" }}>KEY FORMULA</div>
+                                <div style={{ margin: "8px 0" }}>
+                                  {renderKeyFormula(method.keyFormula)}
+                                </div>
                               </div>
 
-                              <div style={{ marginBottom: 14 }}>
-                                <div style={{ fontSize: 10, color: "#64748b", fontWeight: 700, marginBottom: 10 }}>STEPS</div>
-                                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                              {/* Ordered Steps */}
+                              <div style={{ marginBottom: 16 }}>
+                                <div style={{ fontSize: 11, color: "#64748b", fontWeight: 800, marginBottom: 12, letterSpacing: "1px" }}>STEPS</div>
+                                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                                   {method.steps.map((step, si) => {
                                     const isSubStep = step.startsWith("  →") || step.startsWith("  ");
                                     const isLabel = !isSubStep && step.endsWith(":") && !step.includes("→");
                                     return (
-                                      <div key={si} style={{ display: "flex", gap: 10, alignItems: "flex-start", paddingLeft: isSubStep ? 20 : 0 }}>
-                                        {!isSubStep && !isLabel && ( <span style={{ minWidth: 20, height: 20, background: topic.color, color: "#fff", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, marginTop: 1 }}>{si + 1}</span> )}
-                                        {isSubStep && ( <span style={{ color: topic.color, fontSize: 12, marginTop: 3 }}>→</span> )}
-                                        {isLabel && ( <span style={{ color: topic.color, fontSize: 12, marginTop: 3 }}>◆</span> )}
-                                        <span style={{ fontSize: "12px", color: isLabel ? topic.color : "#cbd5e1", lineHeight: 1.55, fontWeight: isLabel ? 700 : 400 }}>{step.replace(/^  →\s*/, "").replace(/^  /, "")}</span>
+                                      <div key={si} style={{ display: "flex", gap: 12, alignItems: "flex-start", paddingLeft: isSubStep ? 24 : 0 }}>
+                                        {!isSubStep && !isLabel && ( <span style={{ minWidth: 22, height: 22, background: topic.color, color: "#fff", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, marginTop: 1, flexShrink: 0 }}>{si + 1}</span> )}
+                                        {isSubStep && ( <span style={{ color: topic.color, fontSize: 14, marginTop: 2, flexShrink: 0, fontWeight: 800 }}>→</span> )}
+                                        {isLabel && ( <span style={{ color: topic.color, fontSize: 14, marginTop: 2, flexShrink: 0 }}>◆</span> )}
+                                        <span style={{ fontSize: "14px", color: isLabel ? topic.color : "#cbd5e1", lineHeight: 1.6, fontWeight: isLabel ? 700 : 400 }}>
+                                          {renderMathText(step.replace(/^  →\s*/, "").replace(/^  /, ""))}
+                                        </span>
                                       </div>
                                     );
                                   })}
                                 </div>
                               </div>
 
-                              <div style={{ background: "#fbbf2415", border: "1px solid #fbbf2430", borderRadius: 8, padding: "10px 14px", display: "flex", gap: 10 }}>
-                                <span style={{ fontSize: 16 }}>⚡</span>
+                              {/* Exam Tip */}
+                              <div style={{ background: "linear-gradient(to right, #fbbf2415, #f59e0b05)", border: "1px solid #fbbf2430", borderRadius: 8, padding: "12px 16px", display: "flex", gap: 12 }}>
+                                <span style={{ fontSize: 18, marginTop: 2 }}>⚡</span>
                                 <div>
-                                  <div style={{ fontSize: 10, color: "#fbbf24", fontWeight: 700, marginBottom: 3 }}>EXAM TIP</div>
-                                  <div style={{ fontSize: "12px", color: "#fde68a", lineHeight: 1.55 }}>{method.tip}</div>
+                                  <div style={{ fontSize: 11, color: "#fbbf24", fontWeight: 800, marginBottom: 4, letterSpacing: "1px" }}>EXAM TIP</div>
+                                  <div style={{ fontSize: "13.5px", color: "#fde68a", lineHeight: 1.6 }}>{renderMathText(method.tip)}</div>
                                 </div>
                               </div>
+                              
                             </div>
                           )}
                         </div>
