@@ -1768,599 +1768,596 @@ document.querySelectorAll('.rc-tab').forEach(btn => {
 function R(name) { return { name, root: true }; }
 function N(name, children) { return children ? { name, children } : { name }; }
 
-/* ── VP-01: Time cost of constant verification (full PDF data) ── */
+/* ── VP-01: Time cost of constant verification (Fixed Hierarchy) ── */
 const VP01 = {
   name: "Time cost of constant verification",
   children: [
-    N("Low Visibility of System Status", [
-      N("Prioritization of minimalist aesthetics over functional utility", [
-        N("Brand identity emphasizing uncluttered visuals over user utility", [
-          R("Organizational reward systems prioritizing Visual Innovation over Communication Clarity"),
-          R("Brand guidelines designed as marketing billboards rather than functional operating systems"),
-          N("Designer peer review cycles favoring Dribbble-ready aesthetics to boost departmental prestige", [
-            R("Professional prestige rewarding Visual Innovation over Communication Clarity")
-          ])
-        ]),
-        N("Misinterpretation of whitespace as empty space rather than functional separation", [
-          R("Design curriculum prioritizing Symmetry and Balance over Cognitive Ergonomics"),
-          N("Absence of Information Density standards in the product review cycle", [
-            R("Lack of Cognitive Ergonomics and density standards in the design audit")
-          ]),
-          N("Philosophical bias that Empty Space always equals User Peace", [
-            R("Aesthetic dogma equating Minimalism with Simplicity")
-          ])
-        ]),
-        N("Design trends prioritizing high-end form over basic affordance", [
-          R("Market pressure to mimic industry leaders who operate under different user constraints"),
-          N("Design sprints prioritizing Visual Refresh over Interaction Redesign", [
-            R("Prioritizing Aesthetic Novelty over Interaction Integrity")
-          ]),
-          N("Stakeholder fear of being labeled Legacy or Cluttered by tech-literate competitors", [
-            R("Competitive anxiety overriding user-centric functional requirements")
-          ]),
-          R("Rewarding Trend-Adoption over Accessibility Compliance")
-        ]),
-        N("Style guides lacking clear visibility requirements for interactive elements", [
-          R("Style guides acting as a Visual Glossary rather than an Interaction Logic Map"),
-          N("Documentation teams lacking dedicated Interaction Designers or Accessibility Leads", [
-            R("Under-investment in specialized Experience Documentation personnel")
-          ])
-        ]),
-        N("Over-reliance on hidden hover states to maintain a clean interface", [
-          R("Desktop-First legacy mindsets persisting in a touch-dominant mobile market"),
-          N("Intentional Gamification of discovery logic applied to core functional tools", [
-            R("Misapplication of Engagement Mechanics to high-utility task zones")
-          ]),
-          R("Prioritizing Clean Surfaces to lower the user perceived barrier to entry")
-        ]),
-        N("Removing essential text labels to achieve a minimalist look", [
-          R("Arrogant assumption that a Visual Language is intuitive without semantic verification"),
-          N("Lack of a Localization and Content seat at the early-stage wireframe table", [
-            R("Systematic exclusion of Content Strategy from structural design phases")
-          ]),
-          R("Business desire for a Language-Agnostic UI to reduce global translation costs")
-        ]),
-        N("Stakeholder pressure for modern aesthetics at the cost of clarity", [
-          R("Executive performance bonuses tied to Modernity perception scores"),
-          N("Feedback loops sourced from Sales Demos rather than User Observations", [
-            R("Prioritizing Buyer Perception over User Performance")
-          ]),
-          N("Stakeholders confusing Minimalism with Simplicity", [
-            R("Intellectual gap in leadership regarding Information Architecture principles")
-          ])
-        ]),
-        N("Designer bias toward visual symmetry over functional salience", [
-          R("Training focusing on Graphic Arts principles instead of Human-Machine Interaction"),
-          R("Design tools making it easier to align objects than to map user focus paths")
-        ]),
-        N("Hiding secondary status indicators to reduce perceived complexity", [
-          R("Philosophical belief that Less Information automatically equals Lower Anxiety"),
-          N("Lack of user segmentation models in the roadmap", [
-            R("Failure to architect Knowledge Scaffolding for varied user proficiency levels")
-          ]),
-          N("Designing for the Initial Impression rather than Long-term mastery", [
-            R("Prioritizing Onboarding Aesthetics over Operational Efficiency")
-          ])
-        ]),
-        N("Failure to balance aesthetic consistency with real-time feedback", [
-          R("Style Preservation being a higher priority than Logic Presentation in the design system"),
-          N("Absence of Feedback Loop requirements in the initial Product Requirement Documents", [
-            R("Devaluation of System Response as a primary product requirement")
-          ]),
-          R("Designer-to-Developer handoff focusing on Static Pixels rather than Dynamic Events")
+    N("Prioritization of minimalist aesthetics over functional utility", [
+      N("Brand identity emphasizing uncluttered visuals over user utility", [
+        R("Organizational reward systems prioritizing Visual Innovation over Communication Clarity"),
+        R("Brand guidelines designed as marketing billboards rather than functional operating systems"),
+        N("Designer peer review cycles favoring Dribbble-ready aesthetics to boost departmental prestige", [
+          R("Professional prestige rewarding Visual Innovation over Communication Clarity")
         ])
       ]),
-      N("Lack of defined status indicators in the Design System", [
-        N("Component libraries focusing on static states rather than dynamic behaviors", [
-          R("Design System teams focusing on The Visual Atom instead of The Functional Molecule"),
-          N("Prototyping tools favoring page-to-page links over complex state-logic transitions", [
-            R("Technical limitations of design tools dictating shallow interaction models")
-          ]),
-          R("Lack of Motion Designers or Behavioral Architects in the core Design System team")
+      N("Misinterpretation of whitespace as empty space rather than functional separation", [
+        R("Design curriculum prioritizing Symmetry and Balance over Cognitive Ergonomics"),
+        N("Absence of Information Density standards in the product review cycle", [
+          R("Lack of Cognitive Ergonomics and density standards in the design audit")
         ]),
-        N("Design system documentation missing standardized loading and error patterns", [
-          R("Design documentation treated as a Project to finish rather than a Product to maintain"),
-          N("Systemic neglect of The Unhappy Path in the standard component checklist", [
-            R("Cultural Optimism Bias ignoring the Failure Recovery user journey")
-          ]),
-          N("Technical architects defining backend states without designer collaboration", [
-            R("Organizational siloes preventing Back-to-Front logic synchronization")
-          ])
-        ]),
-        N("Lack of cross-functional ownership of status-related components", [
-          R("Organizational siloes separating Visual UI Design from System Backend Engineering"),
-          R("Absence of a Chief Experience Officer with authority over technical feedback logic"),
-          N("Budgeting for Feature Sprints while defunding System Communication Infrastructure", [
-            R("Prioritizing Marketable Features over System Communication Integrity")
-          ])
-        ]),
-        N("Inconsistent semantic color palettes for system feedback", [
-          R("Brand palettes chosen by marketing for Personality rather than Semantic Clarity"),
-          N("Failure to implement Semantic Tokens that map color to specific system intent", [
-            R("Lack of Semantic Logic within the Design System architecture")
-          ]),
-          N("Designer ego resisting Standardized indicators in favor of Custom artistic choices", [
-            R("Individual Creative Autonomy subverting Systemic Consistency")
-          ])
-        ]),
-        N("Design system scaling too rapidly to include edge-case indicators", [
-          R("Growth-at-all-costs culture prioritizing new markets over existing system health"),
-          N("Rapid onboarding of new designers without a Systemic Logic training phase", [
-            R("Prioritizing Hiring Speed over Institutional Knowledge Transmission")
-          ]),
-          R("Lack of a Maintenance and Audit budget for the global design library")
-        ]),
-        N("Absence of a global notification framework in the UI kit", [
-          R("Feature teams having UI Autonomy without a central Notification Controller"),
-          N("Neglecting Information Lifecycle mapping in the core Design System", [])
-        ]),
-        N("Component libraries not accounting for multi-stage background processes", [
-          R("Designing only for Success or Error while ignoring The Processing State"),
-          N("Framework technical limitations being used as a justification for poor UX", [
-            R("Technological Convenience Bias overriding human-centric requirements")
-          ])
-        ]),
-        N("Lack of micro-copy standards for state transitions", [
-          R("Systemic devaluation of UX Writing as a secondary decorative task"),
-          N("Copywriters lacking access to technical logic flows during the drafting phase", [
-            R("Systematic exclusion of UX Writing from the technical design cycle")
-          ])
-        ]),
-        N("Design patterns prioritizing data entry over data feedback", [
-          R("Business focus on User Acquisition as the primary value metric"),
-          N("Misinterpretation of Task Completion as User Confidence", [
-            R("Lack of Psychometric Validation in product success metrics")
-          ])
-        ]),
-        N("Disconnect between design audits and actual system logic triggers", [
-          R("Quality Assurance focus on Broken Links rather than Broken Communication Logic"),
-          R("Absence of a Visual Feedback Map shared between Design and Engineering teams")
+        N("Philosophical bias that Empty Space always equals User Peace", [
+          R("Aesthetic dogma equating Minimalism with Simplicity")
         ])
       ]),
-      N("Inadequate user research on critical wait moments", [
-        N("User journey maps missing down-time or processing intervals", [
-          R("Optimism Bias in research leading to exclusion of System Lag scenarios"),
-          N("Journey mapping templates focusing on User Verbs instead of System Heartbeats", [
-            R("Failure to visualize System Heartbeats in the user journey")
-          ]),
-          N("Research focus on Touchpoints rather than the Time Between Touchpoints", [
-            R("Neglecting Temporal Latency as a core emotional variable")
-          ])
+      N("Design trends prioritizing high-end form over basic affordance", [
+        R("Market pressure to mimic industry leaders who operate under different user constraints"),
+        N("Design sprints prioritizing Visual Refresh over Interaction Redesign", [
+          R("Prioritizing Aesthetic Novelty over Interaction Integrity")
         ]),
-        N("Failure to identify high-anxiety moments in the user flow", [
-          R("Research culture focusing on Functional Utility over Emotional Safety"),
-          N("Usability testing conducted exclusively on high-speed internal corporate networks", [
-            R("Environment Bias in testing ignoring real-world connectivity constraints")
-          ]),
-          N("Lack of Stress Testing protocols in qualitative user interviews", [
-            R("Failure to account for Cognitive Load and Environmental Stress in research")
-          ])
+        N("Stakeholder fear of being labeled Legacy or Cluttered by tech-literate competitors", [
+          R("Competitive anxiety overriding user-centric functional requirements")
         ]),
-        N("Usability testing focused on happy path speed rather than wait transparency", [
-          N("Testing scripts incentivizing Speed to Finish to meet sprint deadlines", [
-            R("Sprint Velocity KPIs overriding research depth requirements")
-          ])
-        ]),
-        N("Lack of qualitative data on user frustration during background syncs", [
-          R("Quantitative Data Supremacy culture dismissing qualitative Frustration signals"),
-          N("Designers lacking training in ethnography or shadowing real-world users", [
-            R("Professional skill gap in Contextual Inquiry and observation")
-          ])
-        ]),
-        N("Misjudging the user perception of time during high-stakes tasks", [
-          R("Neglecting the 100ms Rule for perceived instantaneous system feedback"),
-          N("Internal demos using Optimized Data Sets that don't reflect real-world scale", [
-            R("Prioritizing Demo Fluidity over Production Reality stress-testing")
-          ])
-        ]),
-        N("Neglecting the perceived performance aspect of user experience", [
-          R("Viewing System Performance as an engineering fix rather than a design strategy")
-        ]),
-        N("Inadequate ethnography of the user environment during system updates", [
-          R("Research conducted in sterile labs instead of High-Distraction user environments"),
-          N("Budget constraints limiting field research in favor of remote automated surveys", [
-            R("Strategic under-investment in Real-World Context research")
-          ])
-        ]),
-        N("Failure to test the emotional impact of silent system processing", [
-          R("Lack of Psychological Impact metrics in the global product scorecard"),
-          N("Assuming that User Silence is equivalent to User Satisfaction", [
-            R("Misinterpreting Lack of Complaint as Successful Interaction")
-          ])
-        ]),
-        N("Research focusing on task completion rather than task confidence", [
-          N("Binary Pass/Fail success metrics ignoring the User Confidence score", [
-            R("Exclusion of Confidence as a core usability metric")
-          ])
-        ]),
-        N("Ignoring the psychological need for constant closure in digital interactions", [
-          R("Systemic devaluation of Visual Closure as a core functional requirement"),
-          N("Lack of End-of-Process celebration or clear confirmation patterns", [
-            R("Devaluation of Psychological Closure as a functional requirement")
-          ])
+        R("Rewarding Trend-Adoption over Accessibility Compliance")
+      ]),
+      N("Style guides lacking clear visibility requirements for interactive elements", [
+        R("Style guides acting as a Visual Glossary rather than an Interaction Logic Map"),
+        N("Documentation teams lacking dedicated Interaction Designers or Accessibility Leads", [
+          R("Under-investment in specialized Experience Documentation personnel")
         ])
       ]),
-      N("UI layouts designed for Happy Path only", [
-        N("Failure to prototype for delayed or partial data loading", [
-          R("Prototyping tools favoring High-Fidelity Visuals over System Logic Simulation"),
-          N("Designers using Perfect Data to maintain aesthetic control", [
-            R("Prioritizing Visual Perfection over Data-Driven Robustness")
-          ]),
-          R("Organizational focus on The Demo rather than The Deployment")
+      N("Over-reliance on hidden hover states to maintain a clean interface", [
+        R("Desktop-First legacy mindsets persisting in a touch-dominant mobile market"),
+        N("Intentional Gamification of discovery logic applied to core functional tools", [
+          R("Misapplication of Engagement Mechanics to high-utility task zones")
         ]),
-        N("Design sprints ignoring edge case status scenarios", [
-          R("Agile velocity metrics penalizing the exploration of non-linear user paths"),
-          R("Edge Cases being culturally defined as Developer Problems rather than User Friction")
+        R("Prioritizing Clean Surfaces to lower the user perceived barrier to entry")
+      ]),
+      N("Removing essential text labels to achieve a minimalist look", [
+        R("Arrogant assumption that a Visual Language is intuitive without semantic verification"),
+        N("Lack of a Localization and Content seat at the early-stage wireframe table", [
+          R("Systematic exclusion of Content Strategy from structural design phases")
         ]),
-        N("Wireframes assuming instantaneous system responses", [
-          R("Mental model that Instant is the baseline rather than the exception")
+        R("Business desire for a Language-Agnostic UI to reduce global translation costs")
+      ]),
+      N("Stakeholder pressure for modern aesthetics at the cost of clarity", [
+        R("Executive performance bonuses tied to Modernity perception scores"),
+        N("Feedback loops sourced from Sales Demos rather than User Observations", [
+          R("Prioritizing Buyer Perception over User Performance")
         ]),
-        N("Lack of visual space allocated for error or status banners", [
-          R("Layout templates emphasizing Rigid Grids over Adaptive Communication Zones"),
-          N("Design philosophy treating status updates as Intrusive Noise rather than Core Information", [
-            R("Misunderstanding Minimalism as the suppression of Operational Feedback")
-          ])
-        ]),
-        N("Disconnect between UI design and real-world network constraints", [
-          R("In-office Fiber-Optic Bias distorting designer perception of real-world latency"),
-          N("Lack of Contextual Simulation requirements in the design brief", [
-            R("Failure to include Environmental Variables in the product requirements")
-          ]),
-          N("Research personas neglecting Connectivity-as-a-Context variables", [
-            R("Narrow definition of Persona ignoring infrastructure variables")
-          ])
-        ]),
-        N("Over-optimistic assumptions about system reliability in layouts", [
-          R("Cultural taboo against designing for System Failure during the Creative phase"),
-          N("Lack of cross-functional Failure Mode Audits in design reviews", [
-            R("Organizational failure to treat System Errors as design problems")
-          ])
-        ]),
-        N("Designing for the perfect user who never makes a mistake", [
-          R("Human-centric research neglecting Stress and Fatigue as common user variables")
-        ]),
-        N("Neglecting to design empty states as functional guidance", [
-          R("Viewing Empty States as an Asset Requirement rather than a Strategic Opportunity"),
-          N("Absence of Zero-Data scenarios in the standard prototyping checklist", [
-            R("Neglecting The Empty State as a strategic user onramp")
-          ])
-        ]),
-        N("UI layouts lacking flexible containers for dynamic feedback", [
-          R("Prioritization of Pixel-Perfect Alignment over Information Scalability")
-        ]),
-        N("Prioritizing primary action buttons over status-check affordances", [
-          R("Conversion-Led Design philosophy treating everything else as a secondary distraction")
+        N("Stakeholders confusing Minimalism with Simplicity", [
+          R("Intellectual gap in leadership regarding Information Architecture principles")
         ])
       ]),
-      N("Misalignment between user environment and visual cues", [
-        N("Visual cues being too subtle for high-distraction environments", [
-          R("Clean UI mandate preventing the use of high-salience high-contrast visual cues"),
-          N("Lack of environmental Persona Testing", [
-            R("Studio Bias ignoring the user physical environment")
-          ])
+      N("Designer bias toward visual symmetry over functional salience", [
+        R("Training focusing on Graphic Arts principles instead of Human-Machine Interaction"),
+        R("Design tools making it easier to align objects than to map user focus paths")
+      ]),
+      N("Hiding secondary status indicators to reduce perceived complexity", [
+        R("Philosophical belief that Less Information automatically equals Lower Anxiety"),
+        N("Lack of user segmentation models in the roadmap", [
+          R("Failure to architect Knowledge Scaffolding for varied user proficiency levels")
         ]),
-        N("Lack of accessibility-focused contrast for outdoor or low-light use", [
-          R("Accessibility being treated as Compliance rather than Contextual Usability"),
-          N("Designers ignoring Luminance Contrast in favor of Brand Color Harmony", [
-            R("Prioritizing Brand Aesthetics over Accessibility Compliance")
-          ])
-        ]),
-        N("Designing desktop-scale indicators for small mobile screens", [
-          R("Responsive Design being treated as Scaling Down rather than Contextual Adaptation")
-        ]),
-        N("Failure to account for color-blindness in status-critical signals", [
-          R("Over-reliance on Color as the primary semantic carrier of information"),
-          R("Design System governance failing to enforce Multi-Modal signals")
-        ]),
-        N("Ignoring the physical distance between the user and the interface", [
-          R("Design reviews occurring on 27-inch monitors rather than target mobile devices")
-        ]),
-        N("Visual hierarchy not reflecting the urgency of environmental context", [
-          R("Failure to differentiate Status Awareness from General Content in the hierarchy"),
-          N("Visual Hierarchy standards favoring aesthetic balance over environmental urgency", [
-            R("Prioritizing Graphic Composition over Functional Salience")
-          ])
-        ]),
-        N("Lack of non-visual cues for eyes-busy tasks", [
-          R("Visual-First design culture neglecting the Sensory Spectrum of user interaction"),
-          N("Multi-sensory feedback viewed as an Engineering Choice rather than a Design Core", [
-            R("Devaluation of Multi-Modal Feedback as a core design pillar")
-          ])
-        ]),
-        N("Using abstract metaphors that don't translate across user cultures", [
-          R("Lack of Cultural Sensitivity Audits in the global iconography strategy")
-        ]),
-        N("Over-reliance on peripheral vision for critical status updates", [
-          R("Misunderstanding of Human Attention Span and Foveal Focus in layout design")
-        ]),
-        N("Indicators being easily obscured by other interface layers", [
-          R("Lack of a Z-Index Hierarchy or Layering Logic for system-level communication")
+        N("Designing for the Initial Impression rather than Long-term mastery", [
+          R("Prioritizing Onboarding Aesthetics over Operational Efficiency")
         ])
       ]),
-      N("Absence of progressive disclosure for background tasks", [
-        N("All or nothing approach to displaying process information", [
-          R("Design philosophy prioritizing Simplicity as Hiddenness"),
-          N("Fear that Information Transparency will reveal system instability to stakeholders", [
-            R("Corporate Face-Saving culture subverting User Awareness")
-          ])
+      N("Failure to balance aesthetic consistency with real-time feedback", [
+        R("Style Preservation being a higher priority than Logic Presentation in the design system"),
+        N("Absence of Feedback Loop requirements in the initial Product Requirement Documents", [
+          R("Devaluation of System Response as a primary product requirement")
         ]),
-        N("Lack of interactive expandable details for active tasks", [
-          R("Component libraries lacking standardized Expandable Detail interaction patterns")
+        R("Designer-to-Developer handoff focusing on Static Pixels rather than Dynamic Events")
+      ])
+    ]),
+    N("Lack of defined status indicators in the Design System", [
+      N("Component libraries focusing on static states rather than dynamic behaviors", [
+        R("Design System teams focusing on The Visual Atom instead of The Functional Molecule"),
+        N("Prototyping tools favoring page-to-page links over complex state-logic transitions", [
+          R("Technical limitations of design tools dictating shallow interaction models")
         ]),
-        N("Failure to prioritize which background info the user actually needs", [
-          R("User research failing to rank Information Importance by user role")
+        R("Lack of Motion Designers or Behavioral Architects in the core Design System team")
+      ]),
+      N("Design system documentation missing standardized loading and error patterns", [
+        R("Design documentation treated as a Project to finish rather than a Product to maintain"),
+        N("Systemic neglect of The Unhappy Path in the standard component checklist", [
+          R("Cultural Optimism Bias ignoring the Failure Recovery user journey")
         ]),
-        N("Design assuming users don't care about the how behind the what", [
-          R("Philosophical belief that System Details are for Engineers only"),
-          N("Designers lacking Technical Empathy for power-user transparency needs", [
-            R("Philosophical bias against Technical Transparency in minimalist design")
-          ])
-        ]),
-        N("Missing at-a-glance vs deep dive status levels", [
-          R("Absence of Semantic Density levels in the global design guide")
-        ]),
-        N("Background tasks being black-boxed by design choice", [
-          R("Corporate Minimalism mandate lacking Functional Clarity exceptions")
-        ]),
-        N("Lack of clear triggers to reveal hidden system activity", [
-          R("Lack of standardized More Info visual triggers in the UI kit")
-        ]),
-        N("Cognitive load concerns leading to over-simplified status views", [
-          R("Over-correction for Cognitive Load leading to Information Starvation")
-        ]),
-        N("UI not offering a path from a summary to a detailed log", [
-          R("Journey maps neglecting The Log as a valid user touchpoint")
-        ]),
-        N("Fear of overwhelming users resulting in total lack of disclosure", [
-          R("Designer fear of Visual Clutter overriding user Operational Awareness")
+        N("Technical architects defining backend states without designer collaboration", [
+          R("Organizational siloes preventing Back-to-Front logic synchronization")
         ])
       ]),
-      N("Failure to map system events to user-facing visual patterns", [
-        N("Lack of a shared language between system logic and visual metaphors", [
-          R("Designer-Developer siloes preventing Logic-to-UI translation"),
-          N("Lack of a System Metaphor glossary in the Design System", [
-            R("Absence of a Unified Semantic Model in the design language")
-          ])
-        ]),
-        N("Designing indicators that don't match the weight of the event", [
-          R("Visual language lacking a Severity Scale for background tasks"),
-          N("Design reviews not auditing Indicator Weight vs Event Criticality", [
-            R("Failure to align Visual Magnitude with System Importance")
-          ])
-        ]),
-        N("Inconsistent visual patterns for similar system behaviors", [
-          R("Decentralized design teams using Personal Preference over System Standards"),
-          N("Absence of Component Governance for state indicators in the Design System", [
-            R("Lack of Executive Authority to enforce interaction standards")
-          ]),
-          R("Prioritizing Feature Launch Speed over Visual Cohesion")
-        ]),
-        N("Failure to visualize asynchronous events in a synchronous flow", [
-          R("Static wireframing tools unable to represent non-linear event timing"),
-          N("Design sprints ignoring Asynchronous Response UX flows in favor of snapshots", [])
-        ]),
-        N("Misinterpreting technical system codes as user-facing status", [
-          R("Direct reuse of Engineering-led Error Naming in the front-end UI copy"),
-          N("Lack of UX Writing resources to translate technical states for humans", [
-            R("Systemic devaluation of Language as a logic-bridging tool")
-          ]),
-          R("Prioritizing System Accuracy over User Comprehension in feedback")
-        ]),
-        N("Using engineering-led logic to dictate visual feedback timing", [
-          R("Engineering-led Implementation Ease dictating visual feedback timing"),
-          N("Lack of Perceived Performance mandates in the design brief", [
-            R("Engineering focus on Raw Speed ignoring User Perception")
-          ])
-        ]),
-        N("Absence of a Visual Feedback Map during the design phase", [
-          R("Feedback loops treated as UI Decoration rather than Core Logic"),
-          N("Absence of System Feedback logic-mapping workshops in the design phase", [
-            R("Failure to integrate Logic Design into the creative cycle")
-          ])
-        ]),
-        N("Mapping status to color alone without shape or icon support", [
-          R("Over-reliance on Color as the sole carrier of status information"),
-          N("Lack of accessibility-first Multi-Modal design standards", [
-            R("Viewing Inclusivity as a Feature rather than an Infrastructure")
-          ]),
-          R("Minimalist Aesthetics prohibiting the use of redundant visual cues")
-        ]),
-        N("Misalignment between system heartbeats and UI animations", [
-          R("Visual Micro-interactions designed without syncing to system reality"),
-          N("Motion design guidelines neglecting System Heartbeat metaphors", [
-            R("Viewing Motion as Decoration rather than Communication")
-          ])
-        ]),
-        N("Failure to distinguish between User action and System action results", [
-          R("Absence of Agency Mapping in the interaction phase"),
-          N("UI components not visually distinguishing User Intent from System Automation", [
-            R("Failure to visualize System Agency vs User Agency")
-          ])
+      N("Lack of cross-functional ownership of status-related components", [
+        R("Organizational siloes separating Visual UI Design from System Backend Engineering"),
+        R("Absence of a Chief Experience Officer with authority over technical feedback logic"),
+        N("Budgeting for Feature Sprints while defunding System Communication Infrastructure", [
+          R("Prioritizing Marketable Features over System Communication Integrity")
         ])
       ]),
-      N("Low contrast or poor placement of notification elements", [
-        N("Prioritizing layout balance over notification visibility", [
-          R("Layout Visual Balance KPIs overriding Notification Salience in critiques"),
-          N("Design culture that equates Clarity with Visual Clutter", [
-            R("Misinterpreting Necessary Feedback as Aesthetic Noise")
-          ]),
-          R("Misapplication of Minimalism to safety-critical feedback zones")
+      N("Inconsistent semantic color palettes for system feedback", [
+        R("Brand palettes chosen by marketing for Personality rather than Semantic Clarity"),
+        N("Failure to implement Semantic Tokens that map color to specific system intent", [
+          R("Lack of Semantic Logic within the Design System architecture")
         ]),
-        N("Placing status bars in areas of low eye-tracking frequency", [
-          R("Failure to map Eye-Tracking patterns for high-frequency user tasks"),
-          N("Designing on large monitors without testing for peripheral focus loss on mobile", [
-            R("Equipment Bias distorting the Attentional Hierarchy of mobile users")
-          ])
-        ]),
-        N("Banner blindness caused by generic or overused placements", [
-          R("Over-use of Banner components for non-critical marketing Noise"),
-          N("Users developing Visual Filtering habits due to excessive notification volume", [])
-        ]),
-        N("Notifications that disappear too quickly for the user to read", [
-          R("Toast duration standards not accounting for variable user reading speeds"),
-          N("Absence of Persistent Alert options for critical system errors", [
-            R("Prioritizing Visual Cleanliness over Error Persistence")
-          ])
-        ]),
-        N("Lack of visual anchors for temporary system alerts", [
-          N("Design kits lacking Anchor Point logic for floating or temporal alerts", [
-            R("Lack of Spatial Rules for temporal UI elements")
-          ]),
-          R("Stakeholder preference for Transient UI to maintain a Clean brand look")
-        ]),
-        N("Poor contrast ratios for status text on dynamic backgrounds", [
-          R("Accessibility guidelines treated as Compliance Checkboxes rather than Design Pillars"),
-          N("Lack of dynamic color-contrast checking tools in the design workflow", [
-            R("Failure to integrate Accessibility Audits into the tactical workflow")
-          ])
-        ]),
-        N("Using non-standard locations for critical system warnings", [
-          R("Brand Creativity mandates encouraging non-standard layout experiments"),
-          N("Lack of a centralized Alert Placement standard in the global UI kit", [])
-        ]),
-        N("Failure to use motion or transitions to draw eye focus", [
-          R("Motion design viewed as Luxury Flavor rather than Functional Wayfinding"),
-          N("Design reviews failing to audit Attentional Capture effectiveness", [
-            R("Devaluation of Cognitive Psychology in the design critique")
-          ])
-        ]),
-        N("Static notification design that blends into the background content", [
-          R("UI layers lacking a Depth language to separate system alerts from content"),
-          N("Failure to use Contrasting Visual Dialects for system info vs user data", [
-            R("Absence of Semantic Layering in the visual hierarchy")
-          ])
-        ]),
-        N("Overlapping UI elements hiding status indicators", [
-          N("Component Isolation design where elements aren't tested in Stacked states", [
-            R("Failure to test Dynamic Collisions in the UI environment")
-          ]),
-          R("Lack of Z-index or Layering Logic standards in the design system")
+        N("Designer ego resisting Standardized indicators in favor of Custom artistic choices", [
+          R("Individual Creative Autonomy subverting Systemic Consistency")
         ])
       ]),
-      N("Design assumption that No News is Good News", [
-        N("Lack of positive reinforcement for successful background events", [
-          R("Negativity Bias in design only alerting the user when something breaks"),
-          N("Lack of Confirmation Delight or Positive Feedback as a brand design pillar", [
-            R("Philosophical belief that Professionalism requires Emotional Neutrality")
-          ]),
-          N("Design sprints ignoring the Steady State phase of user interaction", [
-            R("Narrow focus on Action ignoring Continuous Awareness")
-          ])
+      N("Design system scaling too rapidly to include edge-case indicators", [
+        R("Growth-at-all-costs culture prioritizing new markets over existing system health"),
+        N("Rapid onboarding of new designers without a Systemic Logic training phase", [
+          R("Prioritizing Hiring Speed over Institutional Knowledge Transmission")
         ]),
-        N("Absence of All Systems Normal visual indicators", [
-          R("Philosophical bias that Neutral is the only professional brand state"),
-          N("Absence of an Ambient System Health indicator in the global navigation", [
-            R("Failure to provide Background Confidence as a system feature")
-          ])
-        ]),
-        N("Designing for intervention rather than continuous monitoring", [
-          R("Business KPIs focusing on Task Initiation rather than Continuous Flow"),
-          N("Designing for Crisis Intervention instead of Confident Oversight", [
-            R("Prioritizing Fixing over Monitoring in the roadmap")
-          ])
-        ]),
-        N("Misunderstanding the user need for peace of mind feedback", [
-          R("User research neglecting Emotional Peace of Mind as a success metric"),
-          N("Designers assuming User Silence equals User Satisfaction in the journey", [])
-        ]),
-        N("Silence being interpreted as system frozen by the user", [
-          N("Lack of Heartbeat or Vitality animations for long-running tasks", [
-            R("Philosophical neglect of System Vitality as a trust metric")
-          ]),
-          R("Design assumption that No Spinner means Clean UI at the cost of truth")
-        ]),
-        N("Failure to provide a Current State summary at all times", [
-          N("Layout constraints preventing Always-on status dashboards in the UI", [
-            R("Prioritizing Content Real Estate over System Transparency")
-          ]),
-          R("Prioritizing Feature Space over Status Awareness in the hierarchy")
-        ]),
-        N("Over-filtering system events to reduce noise", [
-          R("Over-correction for Alert Fatigue leading to systemic Information Starvation"),
-          N("Product Owners making design decisions about Signal-to-Noise without user behavior data", [
-            R("Ego-driven decision-making in the absence of Interaction Analytics")
-          ])
-        ]),
-        N("Assuming users only care when something goes wrong", [
-          R("Reactive design philosophy only showing when there is a problem"),
-          N("Cultural bias toward Silence is Golden in minimalist enterprise design", [
-            R("Misapplication of Minimalism to information-critical sectors")
-          ])
-        ]),
-        N("Design focusing on Action states rather than Steady states", [
-          R("Interaction design focusing purely on Intervention vs Ongoing Monitoring"),
-          N("Absence of Idle State design requirements in the global component library", [
-            R("Failure to define System Behavior during periods of user inactivity")
-          ])
-        ]),
-        N("Neglecting the value of a Pulse or Heartbeat indicator", [
-          R("Technical skepticism: Heartbeats seen as unnecessary engineering noise by aesthetic leads"),
-          R("Failure to visualize System Vitality as a fundamental trust-building requirement")
+        R("Lack of a Maintenance and Audit budget for the global design library")
+      ]),
+      N("Absence of a global notification framework in the UI kit", [
+        R("Feature teams having UI Autonomy without a central Notification Controller"),
+        N("Neglecting Information Lifecycle mapping in the core Design System", [])
+      ]),
+      N("Component libraries not accounting for multi-stage background processes", [
+        R("Designing only for Success or Error while ignoring The Processing State"),
+        N("Framework technical limitations being used as a justification for poor UX", [
+          R("Technological Convenience Bias overriding human-centric requirements")
         ])
       ]),
-      N("Inconsistent visual mapping of system logic to UI updates", [
-        N("UI components reflecting state changes at different speeds", [
-          R("Frontend performance optimizations implemented without cross-module Visual Sync audits"),
-          R("Absence of State Update standards in the developer-to-designer interaction spec")
+      N("Lack of micro-copy standards for state transitions", [
+        R("Systemic devaluation of UX Writing as a secondary decorative task"),
+        N("Copywriters lacking access to technical logic flows during the drafting phase", [
+          R("Systematic exclusion of UX Writing from the technical design cycle")
+        ])
+      ]),
+      N("Design patterns prioritizing data entry over data feedback", [
+        R("Business focus on User Acquisition as the primary value metric"),
+        N("Misinterpretation of Task Completion as User Confidence", [
+          R("Lack of Psychometric Validation in product success metrics")
+        ])
+      ]),
+      N("Disconnect between design audits and actual system logic triggers", [
+        R("Quality Assurance focus on Broken Links rather than Broken Communication Logic"),
+        R("Absence of a Visual Feedback Map shared between Design and Engineering teams")
+      ])
+    ]),
+    N("Inadequate user research on critical wait moments", [
+      N("User journey maps missing down-time or processing intervals", [
+        R("Optimism Bias in research leading to exclusion of System Lag scenarios"),
+        N("Journey mapping templates focusing on User Verbs instead of System Heartbeats", [
+          R("Failure to visualize System Heartbeats in the user journey")
         ]),
-        N("Lack of a unified animation language for Syncing", [
-          R("Lack of a Motion Architect role to unify physics across feature teams"),
-          N("Using inconsistent third-party animation libraries for similar backend behaviors", [
-            R("Technical Fragmentation overriding Interaction Cohesion")
-          ])
+        N("Research focus on Touchpoints rather than the Time Between Touchpoints", [
+          R("Neglecting Temporal Latency as a core emotional variable")
+        ])
+      ]),
+      N("Failure to identify high-anxiety moments in the user flow", [
+        R("Research culture focusing on Functional Utility over Emotional Safety"),
+        N("Usability testing conducted exclusively on high-speed internal corporate networks", [
+          R("Environment Bias in testing ignoring real-world connectivity constraints")
         ]),
-        N("Divergent design patterns for Local vs Cloud status", [
-          R("Always-Connected hubris assuming users operate only on high-speed fiber networks"),
-          N("Design kits failing to include specific Offline-Syncing interaction tokens", [
-            R("Assumption of Permanent Connectivity in the design language")
-          ]),
-          N("Marketing personas neglecting Remote/Low-Bandwidth context as a core use case", [])
+        N("Lack of Stress Testing protocols in qualitative user interviews", [
+          R("Failure to account for Cognitive Load and Environmental Stress in research")
+        ])
+      ]),
+      N("Usability testing focused on happy path speed rather than wait transparency", [
+        N("Testing scripts incentivizing Speed to Finish to meet sprint deadlines", [
+          R("Sprint Velocity KPIs overriding research depth requirements")
+        ])
+      ]),
+      N("Lack of qualitative data on user frustration during background syncs", [
+        R("Quantitative Data Supremacy culture dismissing qualitative Frustration signals"),
+        N("Designers lacking training in ethnography or shadowing real-world users", [
+          R("Professional skill gap in Contextual Inquiry and observation")
+        ])
+      ]),
+      N("Misjudging the user perception of time during high-stakes tasks", [
+        R("Neglecting the 100ms Rule for perceived instantaneous system feedback"),
+        N("Internal demos using Optimized Data Sets that don't reflect real-world scale", [
+          R("Prioritizing Demo Fluidity over Production Reality stress-testing")
+        ])
+      ]),
+      N("Neglecting the perceived performance aspect of user experience", [
+        R("Viewing System Performance as an engineering fix rather than a design strategy")
+      ]),
+      N("Inadequate ethnography of the user environment during system updates", [
+        R("Research conducted in sterile labs instead of High-Distraction user environments"),
+        N("Budget constraints limiting field research in favor of remote automated surveys", [
+          R("Strategic under-investment in Real-World Context research")
+        ])
+      ]),
+      N("Failure to test the emotional impact of silent system processing", [
+        R("Lack of Psychological Impact metrics in the global product scorecard"),
+        N("Assuming that User Silence is equivalent to User Satisfaction", [
+          R("Misinterpreting Lack of Complaint as Successful Interaction")
+        ])
+      ]),
+      N("Research focusing on task completion rather than task confidence", [
+        N("Binary Pass/Fail success metrics ignoring the User Confidence score", [
+          R("Exclusion of Confidence as a core usability metric")
+        ])
+      ]),
+      N("Ignoring the psychological need for constant closure in digital interactions", [
+        R("Systemic devaluation of Visual Closure as a core functional requirement"),
+        N("Lack of End-of-Process celebration or clear confirmation patterns", [
+          R("Devaluation of Psychological Closure as a functional requirement")
+        ])
+      ])
+    ]),
+    N("UI layouts designed for Happy Path only", [
+      N("Failure to prototype for delayed or partial data loading", [
+        R("Prototyping tools favoring High-Fidelity Visuals over System Logic Simulation"),
+        N("Designers using Perfect Data to maintain aesthetic control", [
+          R("Prioritizing Visual Perfection over Data-Driven Robustness")
         ]),
-        N("Inconsistent icon sets for similar system operations", [
-          N("Feature teams creating Isolated iconography to solve niche UI problems", [
-            R("Lack of Centralized Governance for semantic assets")
-          ]),
-          R("Failure to maintain a Universal Semantic Icon Map at the organizational level")
+        R("Organizational focus on The Demo rather than The Deployment")
+      ]),
+      N("Design sprints ignoring edge case status scenarios", [
+        R("Agile velocity metrics penalizing the exploration of non-linear user paths"),
+        R("Edge Cases being culturally defined as Developer Problems rather than User Friction")
+      ]),
+      N("Wireframes assuming instantaneous system responses", [
+        R("Mental model that Instant is the baseline rather than the exception")
+      ]),
+      N("Lack of visual space allocated for error or status banners", [
+        R("Layout templates emphasizing Rigid Grids over Adaptive Communication Zones"),
+        N("Design philosophy treating status updates as Intrusive Noise rather than Core Information", [
+          R("Misunderstanding Minimalism as the suppression of Operational Feedback")
+        ])
+      ]),
+      N("Disconnect between UI design and real-world network constraints", [
+        R("In-office Fiber-Optic Bias distorting designer perception of real-world latency"),
+        N("Lack of Contextual Simulation requirements in the design brief", [
+          R("Failure to include Environmental Variables in the product requirements")
         ]),
-        N("Visual lag between system reality and UI presentation", [
-          R("Design-to-Dev handoff focusing on Static Layouts rather than Interactive Latency"),
-          N("Prototyping tools failing to simulate real-world API data-loading delays accurately", [
-            R("Technical Fidelity Gap between prototypes and production")
-          ])
+        N("Research personas neglecting Connectivity-as-a-Context variables", [
+          R("Narrow definition of Persona ignoring infrastructure variables")
+        ])
+      ]),
+      N("Over-optimistic assumptions about system reliability in layouts", [
+        R("Cultural taboo against designing for System Failure during the Creative phase"),
+        N("Lack of cross-functional Failure Mode Audits in design reviews", [
+          R("Organizational failure to treat System Errors as design problems")
+        ])
+      ]),
+      N("Designing for the perfect user who never makes a mistake", [
+        R("Human-centric research neglecting Stress and Fatigue as common user variables")
+      ]),
+      N("Neglecting to design empty states as functional guidance", [
+        R("Viewing Empty States as an Asset Requirement rather than a Strategic Opportunity"),
+        N("Absence of Zero-Data scenarios in the standard prototyping checklist", [
+          R("Neglecting The Empty State as a strategic user onramp")
+        ])
+      ]),
+      N("UI layouts lacking flexible containers for dynamic feedback", [
+        R("Prioritization of Pixel-Perfect Alignment over Information Scalability")
+      ]),
+      N("Prioritizing primary action buttons over status-check affordances", [
+        R("Conversion-Led Design philosophy treating everything else as a secondary distraction")
+      ])
+    ]),
+    N("Misalignment between user environment and visual cues", [
+      N("Visual cues being too subtle for high-distraction environments", [
+        R("Clean UI mandate preventing the use of high-salience high-contrast visual cues"),
+        N("Lack of environmental Persona Testing", [
+          R("Studio Bias ignoring the user physical environment")
+        ])
+      ]),
+      N("Lack of accessibility-focused contrast for outdoor or low-light use", [
+        R("Accessibility being treated as Compliance rather than Contextual Usability"),
+        N("Designers ignoring Luminance Contrast in favor of Brand Color Harmony", [
+          R("Prioritizing Brand Aesthetics over Accessibility Compliance")
+        ])
+      ]),
+      N("Designing desktop-scale indicators for small mobile screens", [
+        R("Responsive Design being treated as Scaling Down rather than Contextual Adaptation")
+      ]),
+      N("Failure to account for color-blindness in status-critical signals", [
+        R("Over-reliance on Color as the primary semantic carrier of information"),
+        R("Design System governance failing to enforce Multi-Modal signals")
+      ]),
+      N("Ignoring the physical distance between the user and the interface", [
+        R("Design reviews occurring on 27-inch monitors rather than target mobile devices")
+      ]),
+      N("Visual hierarchy not reflecting the urgency of environmental context", [
+        R("Failure to differentiate Status Awareness from General Content in the hierarchy"),
+        N("Visual Hierarchy standards favoring aesthetic balance over environmental urgency", [
+          R("Prioritizing Graphic Composition over Functional Salience")
+        ])
+      ]),
+      N("Lack of non-visual cues for eyes-busy tasks", [
+        R("Visual-First design culture neglecting the Sensory Spectrum of user interaction"),
+        N("Multi-sensory feedback viewed as an Engineering Choice rather than a Design Core", [
+          R("Devaluation of Multi-Modal Feedback as a core design pillar")
+        ])
+      ]),
+      N("Using abstract metaphors that don't translate across user cultures", [
+        R("Lack of Cultural Sensitivity Audits in the global iconography strategy")
+      ]),
+      N("Over-reliance on peripheral vision for critical status updates", [
+        R("Misunderstanding of Human Attention Span and Foveal Focus in layout design")
+      ]),
+      N("Indicators being easily obscured by other interface layers", [
+        R("Lack of a Z-Index Hierarchy or Layering Logic for system-level communication")
+      ])
+    ]),
+    N("Absence of progressive disclosure for background tasks", [
+      N("All or nothing approach to displaying process information", [
+        R("Design philosophy prioritizing Simplicity as Hiddenness"),
+        N("Fear that Information Transparency will reveal system instability to stakeholders", [
+          R("Corporate Face-Saving culture subverting User Awareness")
+        ])
+      ]),
+      N("Lack of interactive expandable details for active tasks", [
+        R("Component libraries lacking standardized Expandable Detail interaction patterns")
+      ]),
+      N("Failure to prioritize which background info the user actually needs", [
+        R("User research failing to rank Information Importance by user role")
+      ]),
+      N("Design assuming users don't care about the how behind the what", [
+        R("Philosophical belief that System Details are for Engineers only"),
+        N("Designers lacking Technical Empathy for power-user transparency needs", [
+          R("Philosophical bias against Technical Transparency in minimalist design")
+        ])
+      ]),
+      N("Missing at-a-glance vs deep dive status levels", [
+        R("Absence of Semantic Density levels in the global design guide")
+      ]),
+      N("Background tasks being black-boxed by design choice", [
+        R("Corporate Minimalism mandate lacking Functional Clarity exceptions")
+      ]),
+      N("Lack of clear triggers to reveal hidden system activity", [
+        R("Lack of standardized More Info visual triggers in the UI kit")
+      ]),
+      N("Cognitive load concerns leading to over-simplified status views", [
+        R("Over-correction for Cognitive Load leading to Information Starvation")
+      ]),
+      N("UI not offering a path from a summary to a detailed log", [
+        R("Journey maps neglecting The Log as a valid user touchpoint")
+      ]),
+      N("Fear of overwhelming users resulting in total lack of disclosure", [
+        R("Designer fear of Visual Clutter overriding user Operational Awareness")
+      ])
+    ]),
+    N("Failure to map system events to user-facing visual patterns", [
+      N("Lack of a shared language between system logic and visual metaphors", [
+        R("Designer-Developer siloes preventing Logic-to-UI translation"),
+        N("Lack of a System Metaphor glossary in the Design System", [
+          R("Absence of a Unified Semantic Model in the design language")
+        ])
+      ]),
+      N("Designing indicators that don't match the weight of the event", [
+        R("Visual language lacking a Severity Scale for background tasks"),
+        N("Design reviews not auditing Indicator Weight vs Event Criticality", [
+          R("Failure to align Visual Magnitude with System Importance")
+        ])
+      ]),
+      N("Inconsistent visual patterns for similar system behaviors", [
+        R("Decentralized design teams using Personal Preference over System Standards"),
+        N("Absence of Component Governance for state indicators in the Design System", [
+          R("Lack of Executive Authority to enforce interaction standards")
         ]),
-        N("Conflicting color meanings across different product modules", [
-          R("Brand color palettes lacking the Semantic Variation required for complex system states"),
-          N("Lack of a centralized UX Color Governance board to audit cross-module implementation", [
-            R("Absence of Semantic Color Ownership in the organization")
-          ])
+        R("Prioritizing Feature Launch Speed over Visual Cohesion")
+      ]),
+      N("Failure to visualize asynchronous events in a synchronous flow", [
+        R("Static wireframing tools unable to represent non-linear event timing"),
+        N("Design sprints ignoring Asynchronous Response UX flows in favor of snapshots", [])
+      ]),
+      N("Misinterpreting technical system codes as user-facing status", [
+        R("Direct reuse of Engineering-led Error Naming in the front-end UI copy"),
+        N("Lack of UX Writing resources to translate technical states for humans", [
+          R("Systemic devaluation of Language as a logic-bridging tool")
         ]),
-        N("UI flicker caused by uncoordinated state updates", [
-          R("Engineering-driven state-updates bypassing the UI Transition logic layer"),
-          N("Absence of Skeleton Screen requirements to prevent Cumulative Layout Shift", [
-            R("Failure to architect Perceived Stability during loading states")
-          ])
+        R("Prioritizing System Accuracy over User Comprehension in feedback")
+      ]),
+      N("Using engineering-led logic to dictate visual feedback timing", [
+        R("Engineering-led Implementation Ease dictating visual feedback timing"),
+        N("Lack of Perceived Performance mandates in the design brief", [
+          R("Engineering focus on Raw Speed ignoring User Perception")
+        ])
+      ]),
+      N("Absence of a Visual Feedback Map during the design phase", [
+        R("Feedback loops treated as UI Decoration rather than Core Logic"),
+        N("Absence of System Feedback logic-mapping workshops in the design phase", [
+          R("Failure to integrate Logic Design into the creative cycle")
+        ])
+      ]),
+      N("Mapping status to color alone without shape or icon support", [
+        R("Over-reliance on Color as the sole carrier of status information"),
+        N("Lack of accessibility-first Multi-Modal design standards", [
+          R("Viewing Inclusivity as a Feature rather than an Infrastructure")
         ]),
-        N("Lack of a Single Source of Truth for visual status triggers", [
-          R("Fragmented product ownership leading to conflicting Global Notification logic"),
-          N("Lack of a System Logic Orchestrator in the technical design infrastructure", [])
+        R("Minimalist Aesthetics prohibiting the use of redundant visual cues")
+      ]),
+      N("Misalignment between system heartbeats and UI animations", [
+        R("Visual Micro-interactions designed without syncing to system reality"),
+        N("Motion design guidelines neglecting System Heartbeat metaphors", [
+          R("Viewing Motion as Decoration rather than Communication")
+        ])
+      ]),
+      N("Failure to distinguish between User action and System action results", [
+        R("Absence of Agency Mapping in the interaction phase"),
+        N("UI components not visually distinguishing User Intent from System Automation", [
+          R("Failure to visualize System Agency vs User Agency")
+        ])
+      ])
+    ]),
+    N("Low contrast or poor placement of notification elements", [
+      N("Prioritizing layout balance over notification visibility", [
+        R("Layout Visual Balance KPIs overriding Notification Salience in critiques"),
+        N("Design culture that equates Clarity with Visual Clutter", [
+          R("Misinterpreting Necessary Feedback as Aesthetic Noise")
         ]),
-        N("Using varying levels of detail for the same system status", [
-          N("Designers creating One-off UI for similar tasks to fit specific screen constraints", [
-            R("Prioritizing Layout Fit over Pattern Consistency")
-          ]),
-          R("Absence of Information Density tiers in the component documentation")
+        R("Misapplication of Minimalism to safety-critical feedback zones")
+      ]),
+      N("Placing status bars in areas of low eye-tracking frequency", [
+        R("Failure to map Eye-Tracking patterns for high-frequency user tasks"),
+        N("Designing on large monitors without testing for peripheral focus loss on mobile", [
+          R("Equipment Bias distorting the Attentional Hierarchy of mobile users")
+        ])
+      ]),
+      N("Banner blindness caused by generic or overused placements", [
+        R("Over-use of Banner components for non-critical marketing Noise"),
+        N("Users developing Visual Filtering habits due to excessive notification volume", [])
+      ]),
+      N("Notifications that disappear too quickly for the user to read", [
+        R("Toast duration standards not accounting for variable user reading speeds"),
+        N("Absence of Persistent Alert options for critical system errors", [
+          R("Prioritizing Visual Cleanliness over Error Persistence")
+        ])
+      ]),
+      N("Lack of visual anchors for temporary system alerts", [
+        N("Design kits lacking Anchor Point logic for floating or temporal alerts", [
+          R("Lack of Spatial Rules for temporal UI elements")
         ]),
-        N("Misalignment between progress bar increments and actual completion", [
-          R("Lack of communication between Database Engineers and UI Designers on Completion Metrics"),
-          N("Defaulting to Linear Progress Bars for Non-Linear Backend Events", [
-            R("Misrepresenting System Logic to satisfy Visual Convention")
-          ])
+        R("Stakeholder preference for Transient UI to maintain a Clean brand look")
+      ]),
+      N("Poor contrast ratios for status text on dynamic backgrounds", [
+        R("Accessibility guidelines treated as Compliance Checkboxes rather than Design Pillars"),
+        N("Lack of dynamic color-contrast checking tools in the design workflow", [
+          R("Failure to integrate Accessibility Audits into the tactical workflow")
+        ])
+      ]),
+      N("Using non-standard locations for critical system warnings", [
+        R("Brand Creativity mandates encouraging non-standard layout experiments"),
+        N("Lack of a centralized Alert Placement standard in the global UI kit", [])
+      ]),
+      N("Failure to use motion or transitions to draw eye focus", [
+        R("Motion design viewed as Luxury Flavor rather than Functional Wayfinding"),
+        N("Design reviews failing to audit Attentional Capture effectiveness", [
+          R("Devaluation of Cognitive Psychology in the design critique")
+        ])
+      ]),
+      N("Static notification design that blends into the background content", [
+        R("UI layers lacking a Depth language to separate system alerts from content"),
+        N("Failure to use Contrasting Visual Dialects for system info vs user data", [
+          R("Absence of Semantic Layering in the visual hierarchy")
+        ])
+      ]),
+      N("Overlapping UI elements hiding status indicators", [
+        N("Component Isolation design where elements aren't tested in Stacked states", [
+          R("Failure to test Dynamic Collisions in the UI environment")
+        ]),
+        R("Lack of Z-index or Layering Logic standards in the design system")
+      ])
+    ]),
+    N("Design assumption that No News is Good News", [
+      N("Lack of positive reinforcement for successful background events", [
+        R("Negativity Bias in design only alerting the user when something breaks"),
+        N("Lack of Confirmation Delight or Positive Feedback as a brand design pillar", [
+          R("Philosophical belief that Professionalism requires Emotional Neutrality")
+        ]),
+        N("Design sprints ignoring the Steady State phase of user interaction", [
+          R("Narrow focus on Action ignoring Continuous Awareness")
+        ])
+      ]),
+      N("Absence of All Systems Normal visual indicators", [
+        R("Philosophical bias that Neutral is the only professional brand state"),
+        N("Absence of an Ambient System Health indicator in the global navigation", [
+          R("Failure to provide Background Confidence as a system feature")
+        ])
+      ]),
+      N("Designing for intervention rather than continuous monitoring", [
+        R("Business KPIs focusing on Task Initiation rather than Continuous Flow"),
+        N("Designing for Crisis Intervention instead of Confident Oversight", [
+          R("Prioritizing Fixing over Monitoring in the roadmap")
+        ])
+      ]),
+      N("Misunderstanding the user need for peace of mind feedback", [
+        R("User research neglecting Emotional Peace of Mind as a success metric"),
+        N("Designers assuming User Silence equals User Satisfaction in the journey", [])
+      ]),
+      N("Silence being interpreted as system frozen by the user", [
+        N("Lack of Heartbeat or Vitality animations for long-running tasks", [
+          R("Philosophical neglect of System Vitality as a trust metric")
+        ]),
+        R("Design assumption that No Spinner means Clean UI at the cost of truth")
+      ]),
+      N("Failure to provide a Current State summary at all times", [
+        N("Layout constraints preventing Always-on status dashboards in the UI", [
+          R("Prioritizing Content Real Estate over System Transparency")
+        ]),
+        R("Prioritizing Feature Space over Status Awareness in the hierarchy")
+      ]),
+      N("Over-filtering system events to reduce noise", [
+        R("Over-correction for Alert Fatigue leading to systemic Information Starvation"),
+        N("Product Owners making design decisions about Signal-to-Noise without user behavior data", [
+          R("Ego-driven decision-making in the absence of Interaction Analytics")
+        ])
+      ]),
+      N("Assuming users only care when something goes wrong", [
+        R("Reactive design philosophy only showing when there is a problem"),
+        N("Cultural bias toward Silence is Golden in minimalist enterprise design", [
+          R("Misapplication of Minimalism to information-critical sectors")
+        ])
+      ]),
+      N("Design focusing on Action states rather than Steady states", [
+        R("Interaction design focusing purely on Intervention vs Ongoing Monitoring"),
+        N("Absence of Idle State design requirements in the global component library", [
+          R("Failure to define System Behavior during periods of user inactivity")
+        ])
+      ]),
+      N("Neglecting the value of a Pulse or Heartbeat indicator", [
+        R("Technical skepticism: Heartbeats seen as unnecessary engineering noise by aesthetic leads"),
+        R("Failure to visualize System Vitality as a fundamental trust-building requirement")
+      ])
+    ]),
+    N("Inconsistent visual mapping of system logic to UI updates", [
+      N("UI components reflecting state changes at different speeds", [
+        R("Frontend performance optimizations implemented without cross-module Visual Sync audits"),
+        R("Absence of State Update standards in the developer-to-designer interaction spec")
+      ]),
+      N("Lack of a unified animation language for Syncing", [
+        R("Lack of a Motion Architect role to unify physics across feature teams"),
+        N("Using inconsistent third-party animation libraries for similar backend behaviors", [
+          R("Technical Fragmentation overriding Interaction Cohesion")
+        ])
+      ]),
+      N("Divergent design patterns for Local vs Cloud status", [
+        R("Always-Connected hubris assuming users operate only on high-speed fiber networks"),
+        N("Design kits failing to include specific Offline-Syncing interaction tokens", [
+          R("Assumption of Permanent Connectivity in the design language")
+        ]),
+        N("Marketing personas neglecting Remote/Low-Bandwidth context as a core use case", [])
+      ]),
+      N("Inconsistent icon sets for similar system operations", [
+        N("Feature teams creating Isolated iconography to solve niche UI problems", [
+          R("Lack of Centralized Governance for semantic assets")
+        ]),
+        R("Failure to maintain a Universal Semantic Icon Map at the organizational level")
+      ]),
+      N("Visual lag between system reality and UI presentation", [
+        R("Design-to-Dev handoff focusing on Static Layouts rather than Interactive Latency"),
+        N("Prototyping tools failing to simulate real-world API data-loading delays accurately", [
+          R("Technical Fidelity Gap between prototypes and production")
+        ])
+      ]),
+      N("Conflicting color meanings across different product modules", [
+        R("Brand color palettes lacking the Semantic Variation required for complex system states"),
+        N("Lack of a centralized UX Color Governance board to audit cross-module implementation", [
+          R("Absence of Semantic Color Ownership in the organization")
+        ])
+      ]),
+      N("UI flicker caused by uncoordinated state updates", [
+        R("Engineering-driven state-updates bypassing the UI Transition logic layer"),
+        N("Absence of Skeleton Screen requirements to prevent Cumulative Layout Shift", [
+          R("Failure to architect Perceived Stability during loading states")
+        ])
+      ]),
+      N("Lack of a Single Source of Truth for visual status triggers", [
+        R("Fragmented product ownership leading to conflicting Global Notification logic"),
+        N("Lack of a System Logic Orchestrator in the technical design infrastructure", [])
+      ]),
+      N("Using varying levels of detail for the same system status", [
+        N("Designers creating One-off UI for similar tasks to fit specific screen constraints", [
+          R("Prioritizing Layout Fit over Pattern Consistency")
+        ]),
+        R("Absence of Information Density tiers in the component documentation")
+      ]),
+      N("Misalignment between progress bar increments and actual completion", [
+        R("Lack of communication between Database Engineers and UI Designers on Completion Metrics"),
+        N("Defaulting to Linear Progress Bars for Non-Linear Backend Events", [
+          R("Misrepresenting System Logic to satisfy Visual Convention")
         ])
       ])
     ])
   ]
 };
-
 /* ── VP-02: No clear signal of AI confidence level ── */
 const VP02 = {
   name: "No clear signal of AI confidence level",
