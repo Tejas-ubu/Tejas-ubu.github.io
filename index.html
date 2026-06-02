@@ -3809,49 +3809,6 @@ if (document.readyState === 'loading') {
 
   </div>
 
-  <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,239,.35);margin-bottom:1.5rem">Design failures &amp; what we learned</p>
-  <div class="failures-grid fi">
-
-    <!-- FAILURE 01 -->
-    <div class="failure-card">
-      <div class="failure-card-head">
-        <span class="failure-badge">Failure 01</span>
-        <span class="failure-title">The Over-Complicated Dashboard</span>
-      </div>
-      <div class="failure-body">
-        <p class="failure-desc">Our first prototype presented users with a full transparency dashboard: a model provenance panel, a source credibility meter, a freshness score, and a bias alert — all simultaneously visible. Usability testing with 5 participants revealed that the sheer density of meta-information caused users to <strong style="color:rgba(247,244,239,.8)">ignore all of it</strong>. What was designed as empowerment became visual noise. Three participants explicitly asked "can I turn all this off?"</p>
-        <p class="failure-why-label">Why it failed</p>
-        <p class="failure-why">We over-served the 8% "Ethical Idealist" power-user while completely alienating the 60% "Vigilant Pragmatist" majority. We mistook depth of information for quality of transparency. Cognitive load theory tells us that adding information reduces comprehension when it exceeds working memory — we had violated this completely.</p>
-        <div class="pivot-arrow">
-          <span class="pivot-arrow-icon">→</span>
-          <span class="pivot-label">Pivot</span>
-        </div>
-        <div class="pivot-card">
-          <p class="pivot-text"><strong>Passive inline indicators.</strong> We stripped the dashboard entirely and replaced it with a single, unobtrusive confidence indicator — a subtle colour-coded underline on AI-generated claims that reveals a source tooltip only on hover. Information is <strong>present but not intrusive</strong>: discoverable for the curious, invisible for the focused.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAILURE 02 -->
-    <div class="failure-card">
-      <div class="failure-card-head">
-        <span class="failure-badge">Failure 02</span>
-        <span class="failure-title">The Mandatory Verification Gate</span>
-      </div>
-      <div class="failure-body">
-        <p class="failure-desc">To address our HMW question on building verification habits, we designed a modal "verification checkpoint" — before copying or sharing any AI output, users were prompted with: "Are you sure this is accurate? We recommend checking one external source." In testing, users rated it <strong style="color:rgba(247,244,239,.8)">7.4/10 for annoyance</strong> and found workarounds within 3 minutes. It created friction without building habit. Worse, it felt paternalistic — directly contradicting the autonomy our Techno-Optimist and Pragmatist archetypes prioritise.</p>
-        <p class="failure-why-label">Why it failed</p>
-        <p class="failure-why">We conflated friction with reflection. Blocking a user's action does not create a habit — it creates resentment. Research on behaviour design (Fogg, 2009) shows that motivation, ability, and prompt must align. We had the prompt right but destroyed the ability (ease) completely. This is the core tension between designing for long-term wellbeing vs short-term satisfaction.</p>
-        <div class="pivot-arrow">
-          <span class="pivot-arrow-icon">→</span>
-          <span class="pivot-label">Pivot</span>
-        </div>
-        <div class="pivot-card">
-          <p class="pivot-text"><strong>Ambient verification prompts.</strong> We replaced the gate with a lightweight, ambient cue: a non-blocking banner at the bottom of the screen that appears only after 60 seconds of engagement with a response, suggesting "Want to sanity-check this? Try one source." It respects workflow, targets a moment of natural pause, and <strong>offers — rather than demands — reflection</strong>.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 </div>
@@ -3995,32 +3952,40 @@ if (document.readyState === 'loading') {
     <h2 class="st">The team &amp; <em>our learnings</em></h2>
   </div>
 
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar" style="background:var(--accent)">01</div>
-      <div class="team-name">[INSERT NAME 1] <span style="font-size:.75em;font-weight:300;color:var(--ink3)"></span></div>
-      <div class="team-role">Research Lead</div>
-      <p class="team-reflection">"Conducting the Root Cause Analysis was the moment I confronted my own designer bias most viscerally. Our early wireframes were dense with transparency features — not because our users demanded them, but because <em>we</em> were anxious about AI opacity. The 5 Whys process forced us to trace the problem back to its actual source: a design community that confused its own values for user needs. Every time I write a research question now, I ask: am I surfacing the user's mental model, or projecting mine?"</p>
-    </div>
-    <div class="team-card">
-      <div class="team-avatar" style="background:var(--green)">02</div>
-      <div class="team-name">[INSERT NAME 2] <span style="font-size:.75em;font-weight:300;color:var(--ink3)"></span></div>
-      <div class="team-role">Interaction Design</div>
-      <p class="team-reflection">"The 6-3-5 method forced me to kill my 'darlings' — and it was brutal. My favourite idea, a full AI reasoning trace panel, scored highest on desirability in my own assessment but failed the DFV (Desirability-Feasibility-Viability) matrix decisively: zero feasibility within our timeline, zero viability without a live LLM integration. That ruthless prioritisation taught me that good design is not the idea you love most — it is the idea that survives the constraint."</p>
-    </div>
-    <div class="team-card">
-      <div class="team-avatar" style="background:var(--blue)">03</div>
-      <div class="team-name">[INSERT NAME 3] <span style="font-size:.75em;font-weight:300;color:var(--ink3)"></span></div>
-      <div class="team-role">Prototyping &amp; Dev</div>
-      <p class="team-reflection">"Prototyping the passive confidence indicators taught me the most delicate balance in UX engineering: the line between <em>informative</em> and <em>intrusive</em> is measured in pixels and milliseconds. Our first indicator implementation added a 180ms reflow delay on long responses — imperceptible to me as the developer, catastrophic to a user trying to read. Every ethical intervention that adds measurable friction will be bypassed. The prototype must be invisible to feel trustworthy."</p>
-    </div>
-    <div class="team-card">
-      <div class="team-avatar" style="background:var(--pink)">04</div>
-      <div class="team-name">[INSERT NAME 4] <span style="font-size:.75em;font-weight:300;color:var(--ink3)"></span></div>
-      <div class="team-role">Systems &amp; Synthesis</div>
-      <p class="team-reflection">"The hardest intellectual task of this project was translating qualitative empathy map data into actionable software specifications. An empathy map captures that a Cautious Analyst <em>feels</em> protective of creators whose work trained AI — but how does that feeling become a CSS rule? It took three synthesis sessions to arrive at the answer: the feeling maps to a <em>source attribution tooltip</em>. Abstract human fear, made literal in twelve lines of JavaScript. That gap is where design thinking lives."</p>
-    </div>
+<div class="team-grid">
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--accent)">01</div>
+    <div class="team-name">Tejas Kshirsagar <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UARI142</span></div>
   </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--green)">02</div>
+    <div class="team-name">Abhinav Irrinki <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UARI193</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--blue)">03</div>
+    <div class="team-name">Mufaddal Kiranawala <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UNAN009</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--pink)">04</div>
+    <div class="team-name">Madhava Sai <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UNAN005</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--accent)">05</div>
+    <div class="team-name">Jeet Khan <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UNAN007</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--green)">06</div>
+    <div class="team-name">Anshul Thumma <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UCIE017</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--blue)">07</div>
+    <div class="team-name">Harshul Rawat <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UCIE024</span></div>
+  </div>
+  <div class="team-card">
+    <div class="team-avatar" style="background:var(--pink)">08</div>
+    <div class="team-name">Hrushikesh <span style="font-size:.75em;font-weight:300;color:var(--ink3)">SE24UARI154</span></div>
+  </div>
+</div>
 
   <div class="learnings-box" style="background:rgba(247,244,239,.04);border-color:rgba(247,244,239,.1)">
     <p class="learnings-title" style="color:rgba(247,244,239,.35)">What we learned</p>
