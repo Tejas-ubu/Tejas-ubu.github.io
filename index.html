@@ -197,52 +197,6 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
   <a href="#team">Team</a>
 </nav>
 
-<!-- ═══════════ SECTION 00: DESIGN CHALLENGE ═══════════ -->
-<style>
-/* ── DESIGN CHALLENGE ── */
-.hmw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.5rem;margin-top:2rem}
-.hmw-card{background:var(--ink);color:var(--paper);padding:clamp(1.5rem,4vw,2.5rem);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:1.25rem}
-.hmw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.hmw-card:nth-child(1)::before{background:var(--accent)}
-.hmw-card:nth-child(2)::before{background:var(--green)}
-.hmw-card:nth-child(3)::before{background:var(--blue)}
-.hmw-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,239,.35)}
-.hmw-q{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.5;color:var(--paper)}
-.hmw-q em{font-style:italic;color:rgba(247,244,239,.55)}
-.hmw-why{font-family:'Syne',sans-serif;font-size:12px;color:rgba(247,244,239,.45);line-height:1.6;border-top:.5px solid rgba(247,244,239,.1);padding-top:1rem;margin-top:auto}
-.challenge-context{max-width:720px;font-family:'Fraunces',serif;font-size:clamp(.95rem,1.8vw,1.1rem);font-weight:300;line-height:1.75;color:var(--ink2);margin-bottom:2.5rem}
-.challenge-context strong{color:var(--ink);font-weight:600}
-</style>
-
-<div id="challenge">
-<div class="sw fi">
-  <div class="sh2">
-    <span class="sn">00 —</span>
-    <h2 class="st">The design <em>challenge</em></h2>
-  </div>
-  <p class="challenge-context">
-    Our research across 48 respondents revealed a critical contradiction: people <strong>use AI daily</strong> but harbour deep, unresolved anxieties about its trustworthiness, transparency, and societal impact. The design challenge is not to inform users — they are already informed. It is to <strong>close the gap between what people know and how interfaces let them act on that knowledge.</strong>
-  </p>
-  <div class="hmw-grid">
-    <div class="hmw-card">
-      <span class="hmw-eyebrow">How Might We — 01</span>
-      <p class="hmw-q">How might we help users <em>calibrate their trust</em> in AI-generated content without adding cognitive friction to an already fast-paced workflow?</p>
-      <p class="hmw-why">73% of respondents only "somewhat" trust AI, yet rarely pause to verify. The interface must surface reliability signals passively, not intrusively.</p>
-    </div>
-    <div class="hmw-card">
-      <span class="hmw-eyebrow">How Might We — 02</span>
-      <p class="hmw-q">How might we give <em>everyday AI users</em> meaningful transparency about how a response was generated — without requiring technical literacy?</p>
-      <p class="hmw-why">92% believe AI can spread false beliefs. Yet "black box" outputs offer no provenance. Transparency must be accessible, not a developer-facing log.</p>
-    </div>
-    <div class="hmw-card">
-      <span class="hmw-eyebrow">How Might We — 03</span>
-      <p class="hmw-q">How might we design AI interaction patterns that <em>encourage verification</em> as a natural habit, rather than an effortful afterthought?</p>
-      <p class="hmw-why">Only 21% of respondents "always" verify AI output. Verification behaviour must be designed into the flow — not demanded as a separate, conscious step.</p>
-    </div>
-  </div>
-</div>
-</div>
-
 <!-- ═══════════ SECTION 00b: SECONDARY RESEARCH ═══════════ -->
 <style>
 /* ── SECONDARY RESEARCH ── */
@@ -373,7 +327,7 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
     <p class="ris-text">Before conducting our primary survey, we executed a rigorous secondary literature review focusing on <strong>Algorithmic Aversion (Dietvorst et al.)</strong> and human-computer trust heuristics. Analyzing the <strong>2025 Edelman Trust Barometer</strong>, we noted a <strong>40% drop in institutional trust</strong> directly correlated to the rise of generative AI. We discovered a massive market gap: existing platforms place the cognitive burden of fact-checking entirely on the user (active friction). We hypothesized that trust must be built via <strong>passive heuristics embedded directly into the reading flow</strong>. This structural gap dictated our survey design.</p>
   </div>
 </div>
-
+  
 <!-- SECTION 01: DATA -->
 <div id="data">
 <div class="sw fi">
@@ -433,6 +387,53 @@ footer{background:var(--ink);color:rgba(247,244,239,.4);padding:clamp(2rem,5vw,3
 </div>
 </div>
 
+<!-- ═══════════ SECTION 00: DESIGN CHALLENGE ═══════════ -->
+<style>
+/* ── DESIGN CHALLENGE ── */
+.hmw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.5rem;margin-top:2rem}
+.hmw-card{background:var(--ink);color:var(--paper);padding:clamp(1.5rem,4vw,2.5rem);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:1.25rem}
+.hmw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.hmw-card:nth-child(1)::before{background:var(--accent)}
+.hmw-card:nth-child(2)::before{background:var(--green)}
+.hmw-card:nth-child(3)::before{background:var(--blue)}
+.hmw-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,244,239,.35)}
+.hmw-q{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.5;color:var(--paper)}
+.hmw-q em{font-style:italic;color:rgba(247,244,239,.55)}
+.hmw-why{font-family:'Syne',sans-serif;font-size:12px;color:rgba(247,244,239,.45);line-height:1.6;border-top:.5px solid rgba(247,244,239,.1);padding-top:1rem;margin-top:auto}
+.challenge-context{max-width:720px;font-family:'Fraunces',serif;font-size:clamp(.95rem,1.8vw,1.1rem);font-weight:300;line-height:1.75;color:var(--ink2);margin-bottom:2.5rem}
+.challenge-context strong{color:var(--ink);font-weight:600}
+</style>
+
+<div id="challenge">
+<div class="sw fi">
+  <div class="sh2">
+    <span class="sn">00 —</span>
+    <h2 class="st">The design <em>challenge</em></h2>
+  </div>
+  <p class="challenge-context">
+    Our research across 48 respondents revealed a critical contradiction: people <strong>use AI daily</strong> but harbour deep, unresolved anxieties about its trustworthiness, transparency, and societal impact. The design challenge is not to inform users — they are already informed. It is to <strong>close the gap between what people know and how interfaces let them act on that knowledge.</strong>
+  </p>
+  <div class="hmw-grid">
+    <div class="hmw-card">
+      <span class="hmw-eyebrow">How Might We — 01</span>
+      <p class="hmw-q">How might we help users <em>calibrate their trust</em> in AI-generated content without adding cognitive friction to an already fast-paced workflow?</p>
+      <p class="hmw-why">73% of respondents only "somewhat" trust AI, yet rarely pause to verify. The interface must surface reliability signals passively, not intrusively.</p>
+    </div>
+    <div class="hmw-card">
+      <span class="hmw-eyebrow">How Might We — 02</span>
+      <p class="hmw-q">How might we give <em>everyday AI users</em> meaningful transparency about how a response was generated — without requiring technical literacy?</p>
+      <p class="hmw-why">92% believe AI can spread false beliefs. Yet "black box" outputs offer no provenance. Transparency must be accessible, not a developer-facing log.</p>
+    </div>
+    <div class="hmw-card">
+      <span class="hmw-eyebrow">How Might We — 03</span>
+      <p class="hmw-q">How might we design AI interaction patterns that <em>encourage verification</em> as a natural habit, rather than an effortful afterthought?</p>
+      <p class="hmw-why">Only 21% of respondents "always" verify AI output. Verification behaviour must be designed into the flow — not demanded as a separate, conscious step.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+  
 <!-- SECTION 02: ARCHETYPES INTRO -->
 <div id="archetypes">
 <div class="db">
